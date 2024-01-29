@@ -1,0 +1,40 @@
+@import "/src/shared/config/scss/mixins";
+@import "/src/shared/config/scss/vars";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
+
+:root {
+
+  // Font configuration
+  --font-family-main: 'Roboto', sans-serif;
+
+  // Small font
+  --font-size-s: 12px;
+  --font-line-s: 20px;
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
+  // Medium font
+  --font-size-m: 14px;
+  --font-line-m: 22px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+
+  // Large font
+  --font-size-l: 16px;
+  --font-line-l: 24px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  // Header sizes
+  --header-height: 106px;
+  @include media($tablet) {
+    --header-height: 113px;
+  }
+  @include media($desktop) {
+    --header-height: 126px;
+  }
+
+  // Footer sizes
+  --footer-height: 126px;
+  @include media($tablet) {
+    --footer-height: 210px;
+  }
+}
