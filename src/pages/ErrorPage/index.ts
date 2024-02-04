@@ -1,1 +1,2 @@
-export {ErrorPageAsync as ErrorPage} from './ui/ErrorPage.async';
+import ErrorPage from "./ui/ErrorPage";
+export default ErrorPage;
