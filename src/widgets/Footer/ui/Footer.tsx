@@ -1,15 +1,32 @@
-import React, {FC} from 'react';
+import React from 'react';
 import classNames from "classnames";
+import classes from "./Footer.module.scss";
+import AppContainer from "shared/ui/AppContainer/AppContainer";
+
+import FooterNav from "entities/FooterNav";
+import Social from "entities/Social";
+import FooterLinks from "entities/FooterLinks";
+import FooterInfo from "entities/FooterInfo";
 
 interface FooterProps {
   className?: string
 }
 
-const Footer: FC<FooterProps> = ({className}: FooterProps) => {
+const Footer = ({className}: FooterProps) => {
   return (
-    <footer className={classNames(className)}>
+    <AppContainer className={classes.FooterContainer}>
+      <footer className={classNames(className, classes.Footer)}>
+        <div>
+          <FooterNav className={classes.Nav} />
+          <FooterInfo className={classes.Info} />
+        </div>
 
-    </footer>
+        <div>
+          <FooterLinks className={classes.Links} />
+          <Social />
+        </div>
+      </footer>
+    </AppContainer>
   );
 };
 

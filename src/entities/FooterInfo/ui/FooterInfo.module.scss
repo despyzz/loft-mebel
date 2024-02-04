@@ -1,0 +1,31 @@
+@import "shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+
+.Info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+  width: 100%;
+
+  @include media($tablet) {
+    flex-direction: column;
+  }
+}
+
+.Logo {
+  font-weight: 900;
+  font-size: 42px;
+  color: #000;
+  text-align: right;
+  margin: 0;
+}
+
+.Address {
+  max-width: 171px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: var(--font-size-m);
+  text-align: right;
+  color: var(--text-color);
+}

@@ -1,0 +1,21 @@
+.Social {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 10px;
+
+  justify-content: space-between;
+}
+
+.SocialLink {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  & > span {
+    font-weight: 400;
+    font-size: var(--font-size-m);
+    color: var(--text-color);
+    white-space: nowrap;
+  }
+}

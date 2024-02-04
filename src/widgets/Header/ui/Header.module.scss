@@ -3,6 +3,7 @@
 
 .Header {
   display: flex;
+  flex-grow: 1;
   height: var(--header-height);
   flex-wrap: wrap;
 
@@ -32,6 +33,7 @@
   }
 
   @include media($desktop) {
+    margin: 0 auto 0 0;
     order: 0;
   }
 }

@@ -1,0 +1,30 @@
+.Nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Title {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: var(--font-size-m);
+  color: #000;
+}
+
+.NavLinks {
+  display: flex;
+  gap: 50px;
+}
+
+.LinksColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  & > li {
+    list-style: none;
+    font-weight: 400;
+    font-size: var(--font-size-m);
+    color: var(--text-color);
+  }
+}

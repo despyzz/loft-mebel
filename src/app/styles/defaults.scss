@@ -7,4 +7,7 @@ input, button {
 
 * {
   font-family: var(--font-family-main);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
