@@ -1,0 +1,14 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.Delivery {
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.Text {
+  font: var(--font-s);
+  font-weight: 400;
+  color: var(--text-color);
+}

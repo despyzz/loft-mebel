@@ -1,0 +1,15 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.Container {
+  margin: 0 15px;
+  max-width: 1140px;
+
+  @include media($tablet) {
+    margin: 0 25px;
+  }
+
+  @include media(1190px) {
+    margin: 0 auto;
+  }
+}

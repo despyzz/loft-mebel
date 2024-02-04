@@ -1,0 +1,7 @@
+@import "shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+
+.UserBar {
+  display: flex;
+  gap: 20px;
+}

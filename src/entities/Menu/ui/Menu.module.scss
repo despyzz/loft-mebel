@@ -1,0 +1,82 @@
+.Dropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 227px;
+  min-height: 100vh;
+  background-color: #F9F9F9;
+  overflow-y: auto;
+  transition: 0.3s;
+
+  animation: 0.3s ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.DropdownCollapsed {
+  animation: 0.3s ease-out 0s 1 slideOutToLeft;
+  transform: translateX(-100%);
+}
+
+@keyframes slideOutToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.DropdownContent {
+  position: relative;
+}
+
+.CloseButton {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  padding: 10px;
+}
+
+.Block {
+  font-family: var(--font-family-main);
+  font-size: 13px;
+}
+
+.Title {
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 21px 28px;
+}
+
+.Content {
+
+}
+
+.Element {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  padding: 15px 28px;
+  transition: background-color 0.3s ease;
+  background: #F9F9F9;
+
+  &:hover {
+    background: #e7e7e7;
+  }
+}
+
+.ImgWrapper {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

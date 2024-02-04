@@ -1,0 +1,37 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.Search {
+  background: #F9F9F9;
+  width: 100%;
+
+  @include media($tablet) {
+    max-width: 243px;
+  }
+
+  @include media($desktop) {
+    max-width: 280px;
+  }
+}
+
+.InputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 15px;
+  cursor: pointer;
+}
+
+.Image {
+  width: 14px;
+  height: 14px;
+  color: #000;
+}
+
+.Input {
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  line-height: 0;
+}
