@@ -2,14 +2,18 @@
 @import "shared/config/scss/vars";
 
 .Container {
-  margin: 0 15px;
+  margin-left: 15px;
+  margin-right: 15px;
   max-width: 1140px;
 
   @include media($tablet) {
-    margin: 0 25px;
+    margin-left: 25px;
+    margin-right: 25px;
   }
 
   @include media(1190px) {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
   }
 }

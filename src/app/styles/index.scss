@@ -1,3 +1,14 @@
 @import "./normalize";
 @import "./vars";
 @import "./defaults";
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.Footer {
+  margin-top: auto;
+  margin-bottom: 20px;
+}

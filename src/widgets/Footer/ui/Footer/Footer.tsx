@@ -14,8 +14,8 @@ interface FooterProps {
 
 const Footer = ({className}: FooterProps) => {
   return (
-    <AppContainer className={classes.FooterContainer}>
-      <footer className={classNames(className, classes.Footer)}>
+    <AppContainer className={classNames(classes.FooterContainer, className)}>
+      <footer className={classes.Footer}>
         <div>
           <FooterNav className={classes.Nav} />
           <FooterInfo className={classes.Info} />
