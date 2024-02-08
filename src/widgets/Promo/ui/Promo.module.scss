@@ -1,0 +1,67 @@
+@import "src/shared/config/scss/mixins";
+@import "src/shared/config/scss/vars";
+
+.Promo {
+  max-width: 1140px;
+  aspect-ratio: 38 / 15;
+
+  @include media($tablet) {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  @include media(1190px) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
+
+.Slide {
+  overflow: hidden;
+  width: 100%;
+  object-fit: cover;
+
+  @include media($desktop) {
+    max-width: 1140px;
+    max-height: 450px;
+  }
+}
+
+.SlideImg {
+  width: 100%;
+}
+
+.SlideContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+  margin-left: 15px;
+
+  @include media($tablet) {
+    margin-left: min(120px, 5.6vw);
+  }
+}
+
+.Title {
+  font-size: clamp(16px, 5vw, 40px);
+  max-width: clamp(150px, 50vw, 320px);
+  color: #ffffff;
+}
+
+.Catalog {
+  background-color: #fff;
+  width: fit-content;
+  font-size: var(--font-size-m);
+  padding: 14px;
+  display: none;
+
+  @include media($tablet) {
+    display: block;
+  }
+}

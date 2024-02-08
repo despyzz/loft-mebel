@@ -1,9 +1,10 @@
 import React from 'react';
 import classes from './ErrorPage.module.scss';
+import AppContainer from "../../../shared/ui/AppContainer/AppContainer";
 
 function ErrorPage() {
   return (
-    <div className={classes.ErrorPage}>
+    <AppContainer className={classes.ErrorPage}>
       <h1 className={classes.Title}>Что-то пошло не так... Попробуйте перезагрузить страницу.</h1>
       <button
         className={classes.ReloadButton}
@@ -12,7 +13,7 @@ function ErrorPage() {
         }}>
         reload page
       </button>
-    </div>
+    </AppContainer>
   );
 }
 

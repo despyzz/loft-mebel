@@ -1,4 +1,4 @@
-import AppLink from "../../../../../shared/ui/Link/AppLink";
+import AppLink from "../../../../../shared/ui/AppLink/AppLink";
 import classes from "./Nav.module.scss";
 
 interface NavbarProps {

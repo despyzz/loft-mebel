@@ -1,0 +1,175 @@
+@import "src/shared/config/scss/mixins";
+@import "src/shared/config/scss/vars";
+
+.ProductCard {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 263 / 344;
+
+
+}
+
+.Content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  transition: 0.5s;
+  gap: 12px;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  aspect-ratio: 263 / 344;
+
+  &:hover {
+    z-index: 1;
+    box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.11);
+    background: rgb(255, 255, 255);
+
+    .Hidden {
+      display: flex;
+    }
+  }
+}
+
+.AddToWishlist {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+}
+
+.PhotoWrapper {
+  margin-top: min(5vw, 70px);
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+
+.Photo {
+  height: 100%;
+  width: 100%;
+}
+
+.Name,
+.Price {
+  font-family: var(--font-family-main);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-color);
+
+  @include media($tablet) {
+    font-size: 14px;
+  }
+
+  @include media($desktop) {
+    font-size: 16px;
+  }
+}
+
+.Category {
+  font-family: var(--font-family-main);
+  font-weight: 400;
+  font-size: 9px;
+  color: var(--text-color);
+
+  @include media($tablet) {
+    font-size: 10px;
+  }
+
+  @include media($tablet) {
+    font-size: 11px;
+  }
+}
+
+.Hidden {
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.Block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.BlockName {
+  font-family: var(--font-family-main);
+  font-weight: 400;
+  font-size: 10px;
+  color: var(--text-color);
+
+  @include media($tablet) {
+    font-size: 11px;
+  }
+
+  @include media($desktop) {
+    font-size: 12px;
+  }
+}
+
+.Sizes {
+  display: flex;
+  gap: 15px;
+}
+
+.Width,
+.Height,
+.Depth {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-family-main);
+  font-weight: 400;
+  font-size: 9px;
+  color: #c4c4c4;
+
+  &::before {
+    text-transform: uppercase;
+    display: block;
+    font-family: var(--font-family-main);
+    font-weight: 400;
+    font-size: 9px;
+    color: #c4c4c4;
+  }
+}
+
+.Width::before {
+  content: "ширина";
+}
+
+.Height::before {
+  content: "высота";
+}
+
+.Depth::before {
+  content: "глубина";
+}
+
+.SizesSeparator::after {
+  display: block;
+  content: '×';
+  color: rgb(65, 65, 65);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.AddToCartBtn {
+  width: 100%;
+  color: #ffffff;
+  background: rgb(36, 84, 98);
+  padding: 10px;
+  font-size: 11px;
+
+  @include media($tablet) {
+    font-size: 12px;
+  }
+
+  @include media($desktop) {
+    font-size: 13px;
+  }
+}

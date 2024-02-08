@@ -1,10 +1,24 @@
-import './MainPage.module.scss';
+import classes from './MainPage.module.scss';
+import {Promo} from "widgets/Promo"
+import AppContainer from "shared/ui/AppContainer/AppContainer";
+import {ProductCard} from "widgets/ProductCard";
 
 const MainPage = () => {
   return (
-    <div>
-      <h1>Main page</h1>
-    </div>
+    <>
+      <Promo />
+      <AppContainer>
+        <div className={classes.Cards}>
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        </div>
+      </AppContainer>
+    </>
   );
 }
 

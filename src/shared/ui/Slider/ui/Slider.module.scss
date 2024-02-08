@@ -1,0 +1,65 @@
+@import "shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+
+.Slider {
+  position: relative;
+}
+
+.Slide {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.Active {
+  opacity: 1;
+}
+
+.Next,
+.Prev {
+  z-index: 1;
+  display: none;
+  position: absolute;
+
+  width: 30px;
+  height: 30px;
+
+  @include media($tablet) {
+    display: block;
+    bottom: 15px;
+  }
+
+  @include media($desktop) {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+}
+
+.Next {
+  @include media($tablet) {
+    display: block;
+    right: 12px;
+  }
+
+  @include media($desktop) {
+    right: 25px;
+  }
+}
+
+.Prev {
+  @include media($tablet) {
+    display: block;
+    right: 12px;
+    transform: translateX(-100%);
+  }
+
+  @include media($desktop) {
+    right: auto;
+    left: 25px;
+    transform: translateY(-50%);
+  }
+
+  & > img {
+    transform: scale(-1, 1);
+  }
+}

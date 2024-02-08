@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from "classnames";
-import AppLink from "../../../../../shared/ui/Link/AppLink";
+import AppLink from "../../../../../shared/ui/AppLink/AppLink";
 import classes from "./FooterLinks.module.scss";
 
 interface FooterLinksProps {

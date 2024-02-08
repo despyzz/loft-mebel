@@ -1,4 +1,4 @@
-import AppButton from "../../../../../shared/ui/Button/AppButton";
+import AppButton from "../../../../../shared/ui/AppButton/AppButton";
 import MenuIcon from "shared/assets/MenuIcon.svg";
 import classes from './Menu.module.scss';
 import {useEffect, useRef, useState} from "react";
@@ -23,7 +23,7 @@ import ContactsIcon from "shared/assets/categories/ContactsIcon.svg";
 // import MattressIcon from "shared/assets/categories/MattressIcon.svg";
 // import ArmchairIcon from "shared/assets/categories/ArmchariIcon.svg";
 // import CupboardIcon from "shared/assets/categories/CupboardIcon.svg";
-import AppLink from "../../../../../shared/ui/Link/AppLink";
+import AppLink from "../../../../../shared/ui/AppLink/AppLink";
 import {useLocation} from "react-router-dom";
 
 

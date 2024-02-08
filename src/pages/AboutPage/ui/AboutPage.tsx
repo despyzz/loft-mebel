@@ -1,10 +1,10 @@
-// import classes from './AboutPage.module.scss';
+import AppContainer from "../../../shared/ui/AppContainer/AppContainer";
 
 const AboutPage = () => {
   return (
-    <div>
+    <AppContainer>
       <h1>About page</h1>
-    </div>
+    </AppContainer>
   );
 }
 

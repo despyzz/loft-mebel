@@ -1,4 +1,4 @@
-import AppLink from "../../Link/AppLink";
+import AppLink from "../../AppLink/AppLink";
 import classes from './Logo.module.scss';
 import classNames from "classnames";
 import LogoImage from "../../../assets/Logo.svg";

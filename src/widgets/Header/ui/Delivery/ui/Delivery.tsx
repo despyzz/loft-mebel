@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from "classnames";
 import DeliveryIcon from 'shared/assets/DeliveryIcon.svg';
 import classes from './Delivery.module.scss';
-import AppLink from "../../../../../shared/ui/Link/AppLink";
+import AppLink from "../../../../../shared/ui/AppLink/AppLink";
 
 interface DeliveryProps {
   className?: string

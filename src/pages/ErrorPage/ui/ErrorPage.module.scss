@@ -1,7 +1,7 @@
 .ErrorPage {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  align-items: center;
   height: 100%;
   gap: 50px;
 }
@@ -18,4 +18,6 @@
   border-radius: 6px;
   color: #414141;
   font-size: 20px;
+  width: fit-content;
+  text-transform: uppercase;
 }

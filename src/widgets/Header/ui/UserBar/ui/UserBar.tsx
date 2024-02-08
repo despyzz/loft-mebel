@@ -1,4 +1,4 @@
-import AppLink from "../../../../../shared/ui/Link/AppLink";
+import AppLink from "../../../../../shared/ui/AppLink/AppLink";
 import classes from "./UserBar.module.scss";
 import classNames from "classnames";
 import WishlistIcon from "shared/assets/WishlistIcon.svg";

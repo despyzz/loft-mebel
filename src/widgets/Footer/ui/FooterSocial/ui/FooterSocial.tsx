@@ -1,4 +1,4 @@
-import AppLink from "shared/ui/Link/AppLink";
+import AppLink from "../../../../../shared/ui/AppLink/AppLink";
 import classes from "./FooterSocial.module.scss";
 
 import ContactIcon from "shared/assets/ContactIcon.svg";

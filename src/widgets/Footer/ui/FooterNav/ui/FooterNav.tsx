@@ -1,5 +1,5 @@
 import classes from './FooterNav.module.scss';
-import AppLink from "../../../../../shared/ui/Link/AppLink";
+import AppLink from "../../../../../shared/ui/AppLink/AppLink";
 import React from "react";
 
 interface FooterNavProps {
@@ -16,37 +16,37 @@ const FooterNav = ({className}: FooterNavProps) => {
         <ul className={classes.NavLinks}>
           <div className={classes.LinksColumn}>
             <li>
-              <AppLink to={'/'}>Кухни</AppLink>
+              <AppLink className={classes.Link} to={'/'}>Кухни</AppLink>
             </li>
             <li>
-              <AppLink to={'/'}>Спальни</AppLink>
+              <AppLink className={classes.Link} to={'/'}>Спальни</AppLink>
             </li>
             <li>
-              <AppLink to={'/'}>Гостиные</AppLink>
-            </li>
-          </div>
-
-          <div className={classes.LinksColumn}>
-            <li>
-              <AppLink to={'/'}>Прихожие</AppLink>
-            </li>
-            <li>
-              <AppLink to={'/'}>Офисная мебель</AppLink>
-            </li>
-            <li>
-              <AppLink to={'/'}>Детская</AppLink>
+              <AppLink className={classes.Link} to={'/'}>Гостиные</AppLink>
             </li>
           </div>
 
           <div className={classes.LinksColumn}>
             <li>
-              <AppLink to={'/'}>Шкафы</AppLink>
+              <AppLink className={classes.Link} to={'/'}>Прихожие</AppLink>
             </li>
             <li>
-              <AppLink to={'/'}>Матрасы</AppLink>
+              <AppLink className={classes.Link} to={'/'}>Офисная мебель</AppLink>
             </li>
             <li>
-              <AppLink to={'/'}>Мягкая мебель</AppLink>
+              <AppLink className={classes.Link} to={'/'}>Детская</AppLink>
+            </li>
+          </div>
+
+          <div className={classes.LinksColumn}>
+            <li>
+              <AppLink className={classes.Link} to={'/'}>Шкафы</AppLink>
+            </li>
+            <li>
+              <AppLink className={classes.Link} to={'/'}>Матрасы</AppLink>
+            </li>
+            <li>
+              <AppLink className={classes.Link} to={'/'}>Мягкая мебель</AppLink>
             </li>
           </div>
         </ul>

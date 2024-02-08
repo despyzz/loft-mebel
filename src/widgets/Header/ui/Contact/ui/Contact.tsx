@@ -1,5 +1,5 @@
 import classes from './Contact.module.scss';
-import AppLink from "../../../../../shared/ui/Link/AppLink";
+import AppLink from "../../../../../shared/ui/AppLink/AppLink";
 
 import ContactIcon from 'shared/assets/ContactIcon.svg';
 
