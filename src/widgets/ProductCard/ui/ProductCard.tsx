@@ -12,7 +12,6 @@ const ProductCard = ({className}: ProductCardProps) => {
     <div className={className}>
 
       <div className={classes.ProductCard}>
-
         <div className={classes.Content}>
           <AppButton className={classes.AddToWishlist}>
             <img src={WishlistIcon} alt="Add to wishlist."/>
@@ -67,7 +66,6 @@ const ProductCard = ({className}: ProductCardProps) => {
             </div>
           </div>
         </div>
-
       </div>
 
     </div>
