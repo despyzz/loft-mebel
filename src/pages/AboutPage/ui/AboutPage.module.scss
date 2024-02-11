@@ -1,0 +1,17 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.AboutPage {
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+
+  @include media($tablet) {
+    gap: 50px;
+  }
+
+  @include media($desktop) {
+    gap: 90px;
+  }
+}

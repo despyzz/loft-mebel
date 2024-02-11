@@ -1,4 +1,4 @@
-import AppButton from "../../../../../shared/ui/AppButton/AppButton";
+import AppButton from "shared/ui/AppButton/AppButton";
 import MenuIcon from "shared/assets/MenuIcon.svg";
 import classes from './Menu.module.scss';
 import {useEffect, useRef, useState} from "react";

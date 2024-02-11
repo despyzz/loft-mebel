@@ -1,0 +1,68 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.AdvantagesSection3 {
+
+}
+
+.Items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+
+  @include media($desktop) {
+    gap: 40px;
+  }
+}
+
+.Item {
+  position: relative;
+  padding: 20px;
+  margin-left: 10px;
+  background: #f4f4f4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @include media($tablet) {
+    width: calc(50% - 26px);
+  }
+
+  @include media($tablet) {
+    width: calc(50% - 30px);
+  }
+}
+
+.Icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-50%) translateX(-50%);
+
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.Title {
+  font-weight: 400;
+  font-size: clamp(14px, 4.5vw ,18px);
+  color: var(--text-color);
+}
+
+.Description {
+  font-weight: 400;
+  font-size: clamp(12px, 4vw, 14px);
+  color: #686868;
+}

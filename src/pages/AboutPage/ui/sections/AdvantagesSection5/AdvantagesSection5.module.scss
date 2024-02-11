@@ -1,0 +1,23 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.AdvantagesSection5 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Title {
+  font-weight: 400;
+  font-size: clamp(18px, 5vw, 24px);
+  text-align: center;
+  color: var(--text-color);
+  width: 92%;
+  max-width: 455px;
+  padding: 80px 15px;
+
+  @include media($desktop) {
+    padding: 100px 0 200px;
+  }
+}

@@ -1,0 +1,80 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.AdvantagesSection1 {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  align-items: center;
+}
+
+.MainTitle {
+  font-weight: 400;
+  font-size: clamp(18px, 5.7vw, 24px);
+  color: var(--text-color);
+}
+
+.Items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  @include media($tablet) {
+    column-gap: 40px;
+    row-gap: 60px;
+  }
+
+  @include media($desktop) {
+    column-gap: 60px;
+    row-gap: 80px;
+  }
+}
+
+.Item {
+  display: flex;
+  gap: 30px;
+
+  @include media($tablet) {
+    width: calc(50% - 20px);
+  }
+
+  @include media($desktop) {
+    width: calc(50% - 30px);
+  }
+}
+
+.ImgWrapper {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  flex-shrink: 0;
+
+  @include media($desktop) {
+    width: 68px;
+    height: 68px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.TextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Title {
+  font-weight: 400;
+  font-size: clamp(14px, 4.4vw, 18px);
+  color: var(--text-color);
+}
+
+.Description {
+  font-weight: 400;
+  font-size: clamp(12px, 2vw, 14px);
+  line-height: 140%;
+  color: #686868;
+}
