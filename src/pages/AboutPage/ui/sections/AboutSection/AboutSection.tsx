@@ -14,7 +14,9 @@ const AboutSection = () => {
 
       <AppContainer className={classes.AboutContent}>
 
-        <img className={classes.Photo} src={Photo} alt=""/>
+        <div className={classes.PhotoWrapper}>
+          <img className={classes.Photo} src={Photo} alt=""/>
+        </div>
 
         <div className={classes.TextGroup}>
           <div className={classes.MiniTitle}>
