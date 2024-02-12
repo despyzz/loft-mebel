@@ -1,0 +1,260 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.CartSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Footer {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  @include media($tablet) {
+    margin-top: 40px;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+.FinalPrice {
+  display: flex;
+  gap: 15px;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--text-color);
+
+  &::before {
+    display: inline-block;
+    content: "Итоговая стоимость:";
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-color);
+  }
+}
+
+.CheckoutButton {
+  font-weight: 400;
+  font-size: 13px;
+  color: #fff;
+  background-color: var(--main-color) !important;
+  width: fit-content;
+  padding: 13px 50px;
+}
+
+.Title,
+.Count {
+  margin: 0;
+  font-weight: 400;
+  font-size: clamp(12px, 3.7vw, 16px);
+  color: var(--text-color);
+}
+
+.Products {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Product {
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+  padding: 15px;
+
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: 21vw 30px auto;
+  gap: 15px;
+
+  @include media($tablet) {
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 100px repeat(3, auto);
+  }
+}
+
+.PhotoWrapper {
+  aspect-ratio: 67 / 50;
+  object-fit: contain;
+  width: 21vw;
+
+  grid-column: 1;
+  grid-row: 1 / 3;
+
+  @include media($tablet) {
+    width: 100px;
+
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
+}
+
+.Photo {
+  width: 100%;
+  height: 100%;
+}
+
+.Title {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text-color);
+
+  grid-column: 2 / 4;
+  grid-row: 1;
+
+  align-self: center;
+
+  @include media($tablet) {
+    font-weight: 500;
+    font-size: 16px;
+
+    grid-column: 2 / -1;
+    grid-row: 1;
+  }
+}
+
+.ProductCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e6e6e6;
+  border-radius: 7px;
+  width: 27px;
+  height: 20px;
+
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--text-color);
+
+  grid-column: 2;
+  grid-row: 2;
+
+  align-self: center;
+
+  @include media($tablet) {
+    gap: 10px;
+    border: none;
+    width: fit-content;
+    height: auto;
+
+    grid-column: 3;
+    grid-row: 2;
+
+    &::before {
+      display: inline-block;
+      content: "Количество:";
+
+      font-size: 11px;
+      color: var(--text-color);
+    }
+  }
+}
+
+.Price {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-color);
+
+  grid-column: 3;
+  grid-row: 2;
+
+  align-self: center;
+
+  @include media($tablet) {
+    font-size: 16px;
+
+    grid-column: 4;
+    grid-row: 1;
+
+    justify-self: flex-end;
+    margin-right: 40px;
+  }
+}
+
+.Color {
+  display: flex;
+  align-items: center;
+
+  grid-column: 1 / -1;
+  grid-row: 3;
+
+  @include media($tablet) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  &::before {
+    display: inline-block;
+    content: "Цвет:";
+
+    font-size: 11px;
+    color: var(--text-color);
+  }
+
+  &Name {
+    margin-left: 4px;
+    font-size: 11px;
+    color: #9e9e9e;
+  }
+
+  &Square {
+    margin-left: 10px;
+    width: 11px;
+    height: 11px;
+  }
+}
+
+.Sizes {
+  display: flex;
+  font-size: 12px;
+  color: #9e9e9e;
+
+  grid-column: 1 / -1;
+  grid-row: 4;
+
+  @include media($tablet) {
+    grid-column: 4;
+    grid-row: 2;
+
+    align-self: center;
+  }
+
+  &::before {
+    display: inline-block;
+    content: "Размер(Ш×Д×В):";
+
+    font-size: 11px;
+    color: var(--text-color);
+    margin-right: 4px;
+  }
+}
+
+.RemoveButton {
+  position: absolute;
+  top: 18px;
+  right: 10px;
+
+  @include media($tablet) {
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
