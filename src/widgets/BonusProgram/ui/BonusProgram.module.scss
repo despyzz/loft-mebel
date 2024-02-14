@@ -1,0 +1,55 @@
+@import "shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+
+.BonusProgram {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include media($desktop) {
+    gap: 30px;
+  }
+}
+
+.Header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @include media($tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.HeaderItem {
+
+}
+
+.Title {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.Content {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+
+  @include media($tablet) {
+    gap: 20px;
+  }
+}
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.MainItem {
+  display: flex;
+  gap: 15px;
+}
+
