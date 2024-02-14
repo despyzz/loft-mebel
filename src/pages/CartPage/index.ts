@@ -1,5 +1,5 @@
-import {CartPage} from "./ui/CartPage";
+import {CartPageAsync} from "./ui/CartPage.async";
 
 export {
-  CartPage
+  CartPageAsync as CartPage
 }
