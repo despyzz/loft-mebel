@@ -1,0 +1,27 @@
+@import "shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+
+.ProfilePage {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.Group {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include media($tablet) {
+    flex-direction: row;
+    gap: 7vw;
+  }
+}
+
+.PersonalData {
+  flex: 457;
+}
+
+.Orders {
+  flex: 585;
+}

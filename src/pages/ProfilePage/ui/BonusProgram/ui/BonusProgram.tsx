@@ -4,6 +4,7 @@ import AppContainer from "shared/ui/AppContainer/AppContainer";
 import Bonus from 'shared/assets/Bonus.svg';
 import Cashback from 'shared/assets/Cashback.svg';
 import Present from 'shared/assets/Present.svg';
+import AppLink from "../../../../../shared/ui/AppLink/AppLink";
 
 const BonusProgram = () => {
   return (
@@ -18,9 +19,9 @@ const BonusProgram = () => {
             <div className={classes.HeaderItem}>
               У вас 0 бонусных баллов
             </div>
-            <div className={classes.HeaderItem}>
+            <AppLink to={'/bonus'} className={classes.HeaderItem}>
               Правила бонусной программы
-            </div>
+            </AppLink>
           </div>
         </div>
 

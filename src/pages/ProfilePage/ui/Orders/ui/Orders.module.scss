@@ -1,0 +1,136 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.Orders {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Title {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.List {
+  display: flex;
+  flex-direction: column;
+}
+
+.Item {
+  display: grid;
+  padding: 8px 5px;
+  row-gap: 10px;
+  column-gap: 0;
+  grid-template-rows: 3fr 2fr;
+  grid-template-columns: 7fr 10fr 13fr;
+
+  border: 1px solid #F3F3F3;
+
+  @include media($desktop) {
+    grid-template-columns: 31fr 6fr 8fr 8fr;
+    grid-template-rows: 90px;
+  }
+}
+
+.Header {
+  display: none;
+  @include media($desktop) {
+    display: grid;
+    grid-template-rows: 40px;
+  }
+}
+
+.HeaderItem {
+  font-size: 12px;
+  color: #686868;
+  text-align: center;
+  align-self: center;
+
+  &:first-child {
+    text-align: left;
+    padding-left: 15px;
+  }
+}
+
+.Group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  grid-column: 1 / -1;
+
+  @include media($desktop) {
+    grid-column: 1;
+  }
+}
+
+.PhotoWrapper {
+  width: min(12.5vw, 54px);
+  aspect-ratio: 4 / 3;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.Name {
+  font-size: 12px;
+  color: var(--text-color);
+}
+
+.Price,
+.Date,
+.Status {
+  font-size: 10px;
+  color: #686868;
+  display: flex;
+  gap: 4px;
+
+  align-self: center;
+  background: #F3F3F3;
+  padding: 2px;
+  white-space: nowrap;
+  &:first-child {
+    padding-left: 5px;
+  }
+  &:last-child {
+    padding-right: 5px;
+  }
+
+  @include media($desktop) {
+    background: none;
+    justify-self: center;
+  }
+}
+
+.Price::before,
+.Date::before,
+.Status::before {
+  font-size: 10px;
+  color: #686868;
+  display: block;
+
+  @include media($desktop) {
+    display: none;
+  }
+}
+
+.Price::before {
+  content: "Цена:";
+}
+
+.Date::before {
+  content: "Дата:";
+}
+
+.Status::before {
+  content: "Статус:";
+}
+
+.ViewAll {
+  align-self: flex-end;
+  font-size: 12px;
+  color: var(--main-color);
+}

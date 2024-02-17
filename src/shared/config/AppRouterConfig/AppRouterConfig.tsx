@@ -4,6 +4,7 @@ import {AboutPage} from "pages/AboutPage";
 import {NotFoundPage} from "pages/NotFoundPage";
 import {CartPage} from "pages/CartPage";
 import {ProfilePage} from "pages/ProfilePage";
+import {CatalogPage} from "pages/CatalogPage";
 
 export enum AppRoutes {
   MAIN = 'main',
@@ -11,6 +12,7 @@ export enum AppRoutes {
   ERROR = 'error',
   CART = 'cart',
   PROFILE = 'profile',
+  CATALOG = 'catalog',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -18,7 +20,8 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.CART]: '/cart',
   [AppRoutes.PROFILE]: '/profile',
-  [AppRoutes.ERROR]: '/*',
+  [AppRoutes.CATALOG]: '/catalog',
+  [AppRoutes.ERROR]: '/*'
 }
 
 export const AppRouterConfig: Record<AppRoutes, RouteProps> = {
@@ -41,5 +44,9 @@ export const AppRouterConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.ERROR]: {
     path: RoutePath.error,
     element: <NotFoundPage />
+  },
+  [AppRoutes.CATALOG]: {
+    path: RoutePath.catalog,
+    element: <CatalogPage />
   },
 }

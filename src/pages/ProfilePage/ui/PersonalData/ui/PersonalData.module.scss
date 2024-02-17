@@ -1,0 +1,69 @@
+@import "shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+
+.PersonalData {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Title {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.Label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.InputTitle {
+  font-weight: 400;
+  font-size: 12px;
+  color: #969696;
+}
+
+.Input {
+  box-shadow: inset 1px 1px 5px 0 rgba(0, 0, 0, 0.07);
+  background: #fcfcfc;
+  outline: none;
+  border: none;
+  padding: 12px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #686868;
+}
+
+.Group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.Street {
+  width: 100%;
+}
+
+.Name,
+.Surname,
+.Phone,
+.Email,
+.City {
+  width: calc(50% - 5px);
+}
+
+.Building,
+.Apartment {
+  width: max(78px, calc(25% - 5px));
+}
+
+.ChangeButton {
+  padding: 12px 20px;
+  background: var(--main-color);
+  color: white;
+  font-size: 13px;
+  width: fit-content;
+  align-self: flex-end;
+}

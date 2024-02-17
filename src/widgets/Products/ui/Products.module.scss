@@ -1,0 +1,24 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.Products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  @include media($tablet) {
+    gap: 20px;
+  }
+
+  & > * {
+    width: calc(50% - 4px);
+
+    @include media($tablet) {
+      width: calc(33.33% - 14px);
+    }
+
+    @include media($desktop) {
+      width: calc(25% - 15px);
+    }
+  }
+}
