@@ -1,0 +1,12 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.AddressSection {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+
+  @include media($tablet) {
+    gap: 30px;
+  }
+}

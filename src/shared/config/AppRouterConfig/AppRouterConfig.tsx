@@ -5,6 +5,7 @@ import {NotFoundPage} from "pages/NotFoundPage";
 import {CartPage} from "pages/CartPage";
 import {ProfilePage} from "pages/ProfilePage";
 import {CatalogPage} from "pages/CatalogPage";
+import {ContactsPage} from "pages/ContactsPage";
 
 export enum AppRoutes {
   MAIN = 'main',
@@ -13,6 +14,7 @@ export enum AppRoutes {
   CART = 'cart',
   PROFILE = 'profile',
   CATALOG = 'catalog',
+  CONTACTS = 'contacts',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -21,6 +23,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.CART]: '/cart',
   [AppRoutes.PROFILE]: '/profile',
   [AppRoutes.CATALOG]: '/catalog',
+  [AppRoutes.CONTACTS]: '/contacts',
   [AppRoutes.ERROR]: '/*'
 }
 
@@ -48,5 +51,9 @@ export const AppRouterConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.CATALOG]: {
     path: RoutePath.catalog,
     element: <CatalogPage />
+  },
+  [AppRoutes.CONTACTS]: {
+    path: RoutePath.contacts,
+    element: <ContactsPage />
   },
 }

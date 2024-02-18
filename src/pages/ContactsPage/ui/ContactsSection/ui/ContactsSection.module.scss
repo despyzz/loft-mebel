@@ -1,0 +1,138 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.ContactsSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.Title {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+
+  @include media($tablet) {
+    gap: 60px;
+    flex-direction: row;
+  }
+
+  @include media($desktop) {
+    gap: 100px;
+  }
+}
+
+.Label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.InputTitle {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  color: #969696;
+}
+
+.Input {
+  box-shadow: inset 1px 1px 5px 0 rgba(0, 0, 0, 0.07);
+  background: #fcfcfc;
+  border: none;
+  outline: none;
+
+  padding: 12px;
+  font-size: 12px;
+  color: #686868;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex: 46;
+
+  @include media($tablet) {
+    flex-direction: row;
+  }
+}
+
+.Name,
+.Email {
+  width: 100%;
+  @include media($tablet) {
+    width: calc(50% - 5px);
+  }
+}
+
+.Message {
+  width: 100%;
+
+  textarea {
+    height: 142px;
+    resize: none;
+  }
+}
+
+.Buttons {
+  display: flex;
+  gap: clamp(10px, 2.5vw, 20px);
+  margin-left: auto;
+}
+
+.AttachButton,
+.SendButton {
+  padding: 10px 20px;
+  font-size: 12px;
+}
+
+.AttachButton {
+  color: var(--text-color);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+  background: #fff;
+}
+
+.SendButton {
+  color: #fff;
+  background: var(--main-color);
+}
+
+.Links {
+  flex: 58;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 37px;
+  row-gap: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 50%;
+}
+
+.Link {
+  display: flex;
+  gap: 10px;
+  height: fit-content;
+
+  p {
+    width: fit-content;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+
+    // underline on hover
+    &:hover {
+      text-decoration: none;
+      border-bottom: 1px solid var(--text-color);
+    }
+  }
+
+  &:last-child {
+    width: 100%;
+  }
+}
