@@ -55,19 +55,6 @@
     &:last-child {
       padding-right: 20px;
     }
-
-    &:hover {
-      background: var(--main-color);
-
-      .Title {
-        color: white;
-      }
-
-      svg {
-        stroke: white;
-        fill: var(--main-color);
-      }
-    }
   }
 
   @include media($desktop) {
@@ -113,13 +100,5 @@
     align-items: center;
     padding: 20px;
     margin-left: -20px;
-  }
-}
-
-.IconWrapper svg,
-.Title,
-.Item {
-  @include media($tablet) {
-    transition: 0.5s;
   }
 }
