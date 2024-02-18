@@ -1,0 +1,45 @@
+.FilterButton {
+  background: #f9f9f9;
+  padding: 13px 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.FilterWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+}
+
+.Header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 23px auto;
+
+  position: relative;
+}
+
+.Title {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.CloseButton {
+  position: absolute;
+  top: -25px;
+  right: 5px;
+  padding: 16px;
+  font-size: 30px;
+  color: var(--text-color);
+}
+
+.Filter {
+  width: 100%;
+}

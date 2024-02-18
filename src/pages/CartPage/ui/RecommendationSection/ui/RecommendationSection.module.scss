@@ -1,0 +1,11 @@
+.RecommendationSection {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.Title {
+  font-size: 16px;
+  color: var(--text-color);
+}

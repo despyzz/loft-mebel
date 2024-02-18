@@ -1,0 +1,17 @@
+@import "shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+
+.Catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  & > * {
+    flex: 1;
+  }
+}

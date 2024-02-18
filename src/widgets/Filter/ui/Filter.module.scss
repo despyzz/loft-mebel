@@ -1,0 +1,22 @@
+@import "shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+
+.Filter {
+  display: flex;
+  flex-direction: column;
+  width: 263px;
+  gap: 20px;
+  padding: 20px;
+}
+
+.Section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Title {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--text-color);
+}

@@ -1,0 +1,12 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.CartPage {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include media($tablet) {
+    gap: 80px;
+  }
+}

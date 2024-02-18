@@ -5,20 +5,21 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  width: 100%;
 
   @include media($tablet) {
     gap: 20px;
   }
+}
 
-  & > * {
-    width: calc(50% - 4px);
+.ProductsMobile > * {
+    width: calc(50% - 10px);
+}
 
-    @include media($tablet) {
-      width: calc(33.33% - 14px);
-    }
+.ProductsTablet > * {
+    width: calc(33.33% - 14px);
+}
 
-    @include media($desktop) {
-      width: calc(25% - 15px);
-    }
-  }
+.ProductsDesktop > * {
+    width: calc(25% - 20px);
 }

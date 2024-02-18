@@ -1,0 +1,13 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.Catalog {
+  display: flex;
+  gap: 25px;
+}
+
+.Group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

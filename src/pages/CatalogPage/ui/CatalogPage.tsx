@@ -1,32 +1,15 @@
-import {MobileCatalog} from "./MobileCatalog";
-import {DesktopCatalog} from "./DesktopCatalog";
-import {useEffect, useState} from "react";
+import classes from './CatalogPage.module.scss';
+import {Catalog} from "./Catalog";
+import {Navigation} from "widgets/Navigation";
 
 const CatalogPage = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const updateWidth = () => {
-      setWindowWidth(window.innerWidth);
-    }
-
-    window.addEventListener('resize', updateWidth);
-
-    return () => {
-      window.removeEventListener('resize', updateWidth)
-    }
-  }, []);
 
   return (
-    <>
-      {
-        windowWidth >= 768
-          ?
-          <DesktopCatalog />
-          :
-          <MobileCatalog />
-      }
-    </>
+    <div className={classes.CatalogPage}>
+      <Navigation />
+      <Catalog />
+    </div>
   );
 };
 

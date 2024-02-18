@@ -11,19 +11,7 @@ import MainIcon from "shared/assets/categories/MainIcon.svg";
 import AboutIcon from "shared/assets/categories/AboutIcon.svg";
 import ContactsIcon from "shared/assets/categories/ContactsIcon.svg";
 
-// categories
-// import KitchenIcon from "shared/assets/categories/KitchetIcon.svg";
-// import BedroomIcon from "shared/assets/categories/BedroomIcon.svg";
-// import LivingRoomIcon from "shared/assets/categories/LivingroomIcon.svg";
-// import ClosetIcon from "shared/assets/categories/ClosetIcon.svg";
-// import OfficeIcon from "shared/assets/categories/OfficeIcon.svg";
-// import ChildrenRoom from "shared/assets/categories/ChildrensroomIcon.svg";
-// import SaleIcon from "shared/assets/categories/SaleIcon.svg";
-// import NewIcon from "shared/assets/categories/NewIcon.svg";
-// import MattressIcon from "shared/assets/categories/MattressIcon.svg";
-// import ArmchairIcon from "shared/assets/categories/ArmchariIcon.svg";
-// import CupboardIcon from "shared/assets/categories/CupboardIcon.svg";
-import AppLink from "../../../../../shared/ui/AppLink/AppLink";
+import AppLink from "shared/ui/AppLink/AppLink";
 import {useLocation} from "react-router-dom";
 
 
