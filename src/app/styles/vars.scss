@@ -39,4 +39,7 @@
   @include media($tablet) {
     --footer-height: 210px;
   }
+
+  // z-index
+  --modal-z-index: 10;
 }

@@ -1,0 +1,36 @@
+@import "shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+
+.Modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  // hide it
+  opacity: 0;
+  pointer-events: none;
+}
+
+.Opened {
+  opacity: 1;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.Overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Content {
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+}

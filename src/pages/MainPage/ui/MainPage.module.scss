@@ -1,24 +1,12 @@
 @import "shared/config/scss/mixins";
 @import "shared/config/scss/vars";
 
-.Cards {
+.MainPage {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-direction: column;
+  gap: 20px;
 
-  @include media($tablet) {
-    gap: 20px;
-  }
-
-  & > * {
-    width: calc(50% - 4px);
-
-    @include media($tablet) {
-      width: calc(33.33% - 14px);
-    }
-
-    @include media($desktop) {
-      width: calc(25% - 15px);
-    }
+  @include media($desktop) {
+    gap: 30px;
   }
 }
