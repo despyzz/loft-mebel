@@ -1,6 +1,7 @@
 import classes from './Modal.module.scss';
-import React, {FC, ReactNode, useEffect} from "react";
+import {MouseEvent, FC, ReactNode, useEffect, useRef, useState} from "react";
 import classNames from "classnames";
+import {Portal} from "shared/ui/Portal";
 
 interface ModalProps {
   children?: ReactNode;
@@ -8,6 +9,8 @@ interface ModalProps {
   isOpen?: boolean;
   onClose?: () => void;
 }
+
+const ANIMATION_DELAY = 300;
 
 const Modal: FC<ModalProps> = (props: ModalProps) => {
   const {
@@ -17,39 +20,74 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
     onClose,
   } = props;
 
-  const mods: Record<string, boolean | undefined> = {
-    [classes.Opened]: isOpen,
-  };
+  // close modal
+  const [isClosing, setIsClosing] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const closeHandler = () => {
     if (onClose) {
-      onClose();
+      setIsClosing(true)
+      timerRef.current = setTimeout(() => {
+        onClose();
+        setIsClosing(false);
+      }, ANIMATION_DELAY);
     }
   }
 
-  const onContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  useEffect(() => {
+    return () => {
+      clearTimeout(timerRef.current);
+    }
+  }, [isOpen]);
+
+  // close modal on ESC
+  const onKeyDown = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      closeHandler();
+    }
   }
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden"
+      window.addEventListener('keydown', onKeyDown);
     }
 
     return () => {
-      document.body.style.overflow = "unset"
+      window.removeEventListener('keydown', onKeyDown);
     }
-
   }, [isOpen]);
 
+  // don't close modal on content click
+  const onContentClick = (e: MouseEvent) => {
+    e.stopPropagation();
+  }
+
+  // disable page scrolling when modal is opened
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+
+  // additional classes
+  const mods: Record<string, boolean | undefined> = {
+    [classes.Opened]: isOpen,
+    [classes.Closing]: isClosing,
+  };
+
   return (
-    <div className={classNames(className, classes.Modal, mods)}>
-      <div className={classes.Overlay} onClick={closeHandler}>
-        <div className={classes.Content} onClick={onContentClick}>
-          {children}
+    <Portal>
+      <div className={classNames(className, classes.Modal, mods)}>
+        <div className={classes.Overlay} onClick={closeHandler}>
+          <div className={classes.Content} onClick={onContentClick}>
+            {children}
+          </div>
         </div>
       </div>
-    </div>
+    </Portal>
   );
 };
 
