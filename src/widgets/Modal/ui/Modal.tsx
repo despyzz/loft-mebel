@@ -52,13 +52,13 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
   }, [isOpen]);
 
   // close modal on ESC
-  const onKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      closeHandler();
-    }
-  }
-
   useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeHandler();
+      }
+    }
+
     if (isOpen) {
       window.addEventListener('keydown', onKeyDown);
     }
@@ -66,7 +66,7 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
     return () => {
       window.removeEventListener('keydown', onKeyDown);
     }
-  }, [isOpen, onKeyDown]);
+  }, [isOpen]);
 
   // don't close modal on content click
   const onContentClick = (e: MouseEvent) => {
