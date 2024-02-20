@@ -66,7 +66,7 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
     return () => {
       window.removeEventListener('keydown', onKeyDown);
     }
-  }, [isOpen]);
+  }, [isOpen, closeHandler]);
 
   // don't close modal on content click
   const onContentClick = (e: MouseEvent) => {
