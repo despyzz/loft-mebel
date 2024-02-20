@@ -1,13 +1,15 @@
 import classes from './Modal.module.scss';
-import {MouseEvent, FC, ReactNode, useEffect, useRef, useState} from "react";
+import {MouseEvent, FC, ReactNode, useEffect, useRef, useState, lazy} from "react";
 import classNames from "classnames";
 import {Portal} from "shared/ui/Portal";
+import {getTimeMeasureUtils} from "@reduxjs/toolkit/dist/utils";
 
-interface ModalProps {
+export interface ModalProps {
   children?: ReactNode;
   className?: string;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 300;
@@ -18,7 +20,17 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
     className,
     isOpen,
     onClose,
+    lazy
   } = props;
+
+  // mount lazy modal
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
   // close modal
   const [isClosing, setIsClosing] = useState(false);
@@ -77,6 +89,10 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
     [classes.Opened]: isOpen,
     [classes.Closing]: isClosing,
   };
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
