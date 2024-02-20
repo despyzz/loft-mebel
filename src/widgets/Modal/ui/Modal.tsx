@@ -1,8 +1,7 @@
 import classes from './Modal.module.scss';
-import {MouseEvent, FC, ReactNode, useEffect, useRef, useState, lazy} from "react";
+import {MouseEvent, FC, ReactNode, useEffect, useRef, useState} from "react";
 import classNames from "classnames";
 import {Portal} from "shared/ui/Portal";
-import {getTimeMeasureUtils} from "@reduxjs/toolkit/dist/utils";
 
 export interface ModalProps {
   children?: ReactNode;
@@ -67,7 +66,7 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
     return () => {
       window.removeEventListener('keydown', onKeyDown);
     }
-  }, [isOpen]);
+  }, [isOpen, onKeyDown]);
 
   // don't close modal on content click
   const onContentClick = (e: MouseEvent) => {
