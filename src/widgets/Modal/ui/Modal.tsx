@@ -1,5 +1,5 @@
 import classes from './Modal.module.scss';
-import React, {FC, ReactNode} from "react";
+import React, {FC, ReactNode, useEffect} from "react";
 import classNames from "classnames";
 
 interface ModalProps {
@@ -30,6 +30,17 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
   const onContentClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   }
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+    }
+
+    return () => {
+      document.body.style.overflow = "unset"
+    }
+
+  }, [isOpen]);
 
   return (
     <div className={classNames(className, classes.Modal, mods)}>

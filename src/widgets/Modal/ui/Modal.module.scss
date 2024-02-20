@@ -9,13 +9,14 @@
   left: 0;
 
   // hide it
+  z-index: -1;
   opacity: 0;
   pointer-events: none;
 }
 
 .Opened {
   opacity: 1;
-  z-index: 10;
+  z-index: var(--modal-z-index);
   pointer-events: auto;
 }
 
