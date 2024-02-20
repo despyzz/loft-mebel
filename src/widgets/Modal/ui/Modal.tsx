@@ -50,8 +50,6 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
         </div>
       </div>
     </div>
-
-
   );
 };
 
