@@ -1,5 +1,5 @@
 import classes from './Modal.module.scss';
-import {MouseEvent, FC, ReactNode, useEffect, useRef, useState} from "react";
+import {MouseEvent, FC, ReactNode, useEffect, useRef, useState, useCallback} from "react";
 import classNames from "classnames";
 import {Portal} from "shared/ui/Portal";
 
@@ -35,7 +35,7 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-  const closeHandler = () => {
+  const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true)
       timerRef.current = setTimeout(() => {
@@ -43,7 +43,7 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
         setIsClosing(false);
       }, ANIMATION_DELAY);
     }
-  }
+  }, [onClose])
 
   useEffect(() => {
     return () => {
@@ -52,13 +52,13 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
   }, [isOpen]);
 
   // close modal on ESC
-  useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        closeHandler();
-      }
+  const onKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      closeHandler();
     }
+  }, [closeHandler])
 
+  useEffect(() => {
     if (isOpen) {
       window.addEventListener('keydown', onKeyDown);
     }
@@ -66,7 +66,7 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
     return () => {
       window.removeEventListener('keydown', onKeyDown);
     }
-  }, [isOpen, closeHandler]);
+  }, [isOpen, onKeyDown]);
 
   // don't close modal on content click
   const onContentClick = (e: MouseEvent) => {
@@ -89,6 +89,7 @@ const Modal: FC<ModalProps> = (props: ModalProps) => {
     [classes.Closing]: isClosing,
   };
 
+  // return null if not used
   if (lazy && !isMounted) {
     return null;
   }
