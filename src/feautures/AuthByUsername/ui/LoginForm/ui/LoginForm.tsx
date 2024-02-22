@@ -1,12 +1,17 @@
 import classes from './LoginForm.module.scss';
 import AppButton from "shared/ui/AppButton/AppButton";
 import {useDispatch, useSelector} from "react-redux";
-import {useCallback, ChangeEvent} from "react";
+import {useCallback, ChangeEvent, FC, memo} from "react";
 import {loginActions} from "../../../model/slice/loginSlice";
 import {getLoginState} from "../../../model/selectors/getLoginState";
 import {loginByUsername} from "../../../model/services/loginByUsername";
+import classNames from "classnames";
 
-const LoginForm = () => {
+interface LoginFormProps {
+  className?: string
+}
+
+const LoginForm:FC<LoginFormProps> = memo(({className}) => {
   const dispatch = useDispatch();
 
   const {
@@ -33,7 +38,7 @@ const LoginForm = () => {
   }, [dispatch, username, password, isLoading]);
 
   return (
-    <div className={classes.LoginForm}>
+    <div className={classNames(className, classes.LoginForm)}>
 
       <div className={classes.Title}>
         Войти на сайт
@@ -75,6 +80,6 @@ const LoginForm = () => {
       </AppButton>
     </div>
   );
-};
+});
 
 export default LoginForm;

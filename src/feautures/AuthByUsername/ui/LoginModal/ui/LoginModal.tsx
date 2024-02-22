@@ -1,8 +1,9 @@
 // import classes from './LoginModal.module.scss';
 import {Modal, ModalProps} from "widgets/Modal";
 import {LoginForm} from "../../LoginForm";
-import {FC} from "react";
+import {FC, Suspense} from "react";
 import classNames from "classnames";
+import Loader from "../../../../../widgets/Loader";
 
 interface LoginModalProps extends ModalProps {
   className?: string;
@@ -24,7 +25,9 @@ const LoginModal: FC<LoginModalProps> = (props: LoginModalProps) => {
       onClose={onClose}
       lazy
     >
-      <LoginForm/>
+      <Suspense fallback={<Loader/>}>
+        <LoginForm/>
+      </Suspense>
     </Modal>
   );
 };
