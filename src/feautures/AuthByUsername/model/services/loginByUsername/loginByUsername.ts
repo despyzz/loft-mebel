@@ -15,6 +15,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
       const response = await axios.post<User>('http://localhost:8000/login', authData);
 
       if (!response.data) {
+        // noinspection ExceptionCaughtLocallyJS
         throw new Error();
       }
 
@@ -24,7 +25,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
       return response.data
     } catch (e) {
       console.log(e);
-      return thunkAPI.rejectWithValue('error');
+      return thunkAPI.rejectWithValue('Вы ввели неправильные имя пользователя и (или) пароль');
     }
   }
 )

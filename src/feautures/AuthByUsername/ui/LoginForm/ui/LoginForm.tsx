@@ -2,24 +2,31 @@ import classes from './LoginForm.module.scss';
 import AppButton from "shared/ui/AppButton/AppButton";
 import {useDispatch, useSelector} from "react-redux";
 import {useCallback, ChangeEvent, FC, memo} from "react";
-import {loginActions} from "../../../model/slice/loginSlice";
-import {getLoginState} from "../../../model/selectors/getLoginState";
-import {loginByUsername} from "../../../model/services/loginByUsername";
+import {loginActions, loginReducer} from "../../../model/slice/loginSlice";
+import {loginByUsername, LoginByUsernameProps} from "../../../model/services/loginByUsername";
 import classNames from "classnames";
+import {getLoginUsername} from "../../../model/selectors/getLoginUsername";
+import {getLoginPassword} from "../../../model/selectors/getLoginPassword";
+import {getLoginError} from "../../../model/selectors/getLoginError";
+import {getLoginIsLoading} from "../../../model/selectors/getLoginIsLoading";
+import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
+import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 interface LoginFormProps {
   className?: string
 }
 
-const LoginForm:FC<LoginFormProps> = memo(({className}) => {
-  const dispatch = useDispatch();
+const initialReducers: ReducerList = {
+  loginForm: loginReducer,
+}
 
-  const {
-    username,
-    password,
-    error,
-    isLoading
-  } = useSelector(getLoginState);
+const LoginForm: FC<LoginFormProps> = memo(({className}) => {
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const error = useSelector(getLoginError);
+  const isLoading = useSelector(getLoginIsLoading);
+
+  const dispatch = useDispatch();
 
   const onChangeUsername = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     dispatch(loginActions.setUsername(event.target.value));
@@ -30,55 +37,63 @@ const LoginForm:FC<LoginFormProps> = memo(({className}) => {
   }, [dispatch]);
 
   const onLoginClick = useCallback(() => {
+    const loginByUsernameData: LoginByUsernameProps = {
+      username,
+      password
+    }
     if (!isLoading) {
-      // this is supposed to be a bug
       // @ts-ignore
-      dispatch(loginByUsername({username, password}))
+      dispatch(loginByUsername(loginByUsernameData))
     }
   }, [dispatch, username, password, isLoading]);
 
   return (
-    <div className={classNames(className, classes.LoginForm)}>
+    <DynamicModuleLoader
+      reducers={initialReducers}
+      removeAfterUnmount
+    >
+      <div className={classNames(className, classes.LoginForm)}>
 
-      <div className={classes.Title}>
-        Войти на сайт
-      </div>
-
-      <label className={classes.Label}>
-        <input
-          className={classes.Input}
-          type="text"
-          placeholder="Имя пользователя"
-          onChange={onChangeUsername}
-          value={username}
-        />
-      </label>
-
-      <label className={classes.Label}>
-        <input
-          className={classes.Input}
-          type="password"
-          placeholder="Пароль"
-          onChange={onChangePassword}
-          value={password}
-        />
-      </label>
-
-
-      {
-        error && <div>
-          {error}
+        <div className={classes.Title}>
+          Войти на сайт
         </div>
-      }
 
-      <AppButton
-        className={classes.LoginBtn}
-        onClick={onLoginClick}
-        disabled={isLoading}
-      >
-        Войти
-      </AppButton>
-    </div>
+        <label className={classes.Label}>
+          <input
+            className={classes.Input}
+            type="text"
+            placeholder="Имя пользователя"
+            onChange={onChangeUsername}
+            value={username}
+          />
+        </label>
+
+        <label className={classes.Label}>
+          <input
+            className={classes.Input}
+            type="password"
+            placeholder="Пароль"
+            onChange={onChangePassword}
+            value={password}
+          />
+        </label>
+
+
+        {
+          error && <div>
+            {error}
+          </div>
+        }
+
+        <AppButton
+          className={classes.LoginBtn}
+          onClick={onLoginClick}
+          disabled={isLoading}
+        >
+          Войти
+        </AppButton>
+      </div>
+    </DynamicModuleLoader>
   );
 });
 
