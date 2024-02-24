@@ -25,5 +25,17 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": [
+    {
+      "id": 1,
+      "name": "name",
+      "surname": "surname",
+      "email":  "example@mail.com",
+      "phone":  "+12345678910",
+      "city":  "city",
+      "street":  "street",
+      "building":  "building",
+      "apartment":  "apartment"
+    }
+  ]
 }

@@ -7,13 +7,21 @@ import {Orders} from "./Orders";
 import {Navigation} from "widgets/Navigation";
 import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
 import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {profileReducer} from "entities/Profile";
+import {fetchProfileData, profileReducer} from "entities/Profile";
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {useEffect} from "react";
 
 const reducers: ReducerList = {
   profile: profileReducer
 }
 
 const ProfilePage = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classes.ProfilePage}>
