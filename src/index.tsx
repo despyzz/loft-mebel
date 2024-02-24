@@ -10,12 +10,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <StoreProvider>
       <BrowserRouter>
-        <ErrorBoundary>
-          <App/>
-        </ErrorBoundary>
+        <StoreProvider>
+          <ErrorBoundary>
+            <App/>
+          </ErrorBoundary>
+        </StoreProvider>
       </BrowserRouter>
-    </StoreProvider>
   </React.StrictMode>
 );
