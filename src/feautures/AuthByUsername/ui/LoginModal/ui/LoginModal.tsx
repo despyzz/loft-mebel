@@ -7,7 +7,7 @@ import Loader from "widgets/Loader";
 interface LoginModalProps extends ModalProps {
   className?: string;
   isOpen?: boolean;
-  onClose?: () => void;
+  onClose: () => void;
 }
 
 const LoginModal: FC<LoginModalProps> = (props: LoginModalProps) => {

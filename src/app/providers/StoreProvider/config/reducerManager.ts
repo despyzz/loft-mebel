@@ -13,7 +13,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
 
   let combinedReducer = combineReducers(reducers)
 
-  let keysToRemove = []
+  let keysToRemove: Array<StateSchemaKey> = []
 
   return {
     getReducerMap: () => reducers,
@@ -21,12 +21,13 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
     reduce: (state: StateSchema, action: UnknownAction) => {
       if (keysToRemove.length > 0) {
         state = {...state}
-        for (let key of keysToRemove) {
-          delete state[key]
-        }
+        keysToRemove.forEach((key) => {
+          delete state[key];
+        })
         keysToRemove = []
       }
 
+      // @ts-ignore
       return combinedReducer(state, action)
     },
 

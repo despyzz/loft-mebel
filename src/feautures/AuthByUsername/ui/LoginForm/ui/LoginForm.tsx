@@ -22,7 +22,11 @@ const initialReducers: ReducerList = {
   loginForm: loginReducer,
 }
 
-const LoginForm: FC<LoginFormProps> = memo(({className, onSuccess}) => {
+const LoginForm: FC<LoginFormProps> = memo((props) => {
+  const {
+    className,
+    onSuccess
+  } = props;
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
