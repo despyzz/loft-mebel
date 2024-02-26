@@ -1,25 +1,122 @@
-import classes from './PersonalData.module.scss';
 import classNames from "classnames";
+import {ChangeEventHandler, FC, useCallback} from "react";
+import {useSelector} from "react-redux";
+import {
+  getProfileError,
+  getProfileForm,
+  getProfileIsLoading,
+  getProfileReadonly,
+  updateProfileData,
+  profileActions
+} from "entities/Profile";
 import AppButton from "shared/ui/AppButton/AppButton";
-import {FC, useState} from "react";
+import classes from './PersonalData.module.scss';
+import Loader from "widgets/Loader";
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 interface PersonalDataProps {
   className?: string
 }
 
-const PersonalData:FC<PersonalDataProps> = (props) => {
-  const {className} = props;
-  const [readonly, setReadonly] = useState(true);
+const PersonalData: FC<PersonalDataProps> = (props) => {
+  const {
+    className,
+  } = props;
 
-  const toggleReadonly = () => setReadonly(prevState => !prevState)
+  const dispatch = useAppDispatch();
 
-  const onChange = () => {
-    toggleReadonly();
+  // const data = useSelector(getProfileData);
+  const form = useSelector(getProfileForm);
+  const error = useSelector(getProfileError);
+  const isLoading = useSelector(getProfileIsLoading);
+  const readonly = useSelector(getProfileReadonly);
+
+  // change readonly
+
+  const onEdit = useCallback(() => {
+    dispatch(profileActions.setReadonly(false));
+  }, [dispatch]);
+
+  const onCancelEdit = useCallback(() => {
+    dispatch(profileActions.cancelEdit());
+  }, [dispatch]);
+
+  const onSave = useCallback(() => {
+    dispatch(updateProfileData());
+  }, [dispatch]);
+
+  // change inputs
+
+  const onChangeName: ChangeEventHandler<HTMLInputElement> = useCallback((event) => {
+    const value = event.target.value;
+    dispatch(profileActions.updateProfile({
+      name: value
+    }))
+  }, [dispatch]);
+
+  const onChangeSurname: ChangeEventHandler<HTMLInputElement> = useCallback((event) => {
+    const value = event.target.value;
+    dispatch(profileActions.updateProfile({
+      surname: value
+    }))
+  }, [dispatch]);
+
+  const onChangePhone: ChangeEventHandler<HTMLInputElement> = useCallback((event) => {
+    const value = event.target.value;
+    dispatch(profileActions.updateProfile({
+      phone: value
+    }))
+  }, [dispatch]);
+
+  const onChangeEmail: ChangeEventHandler<HTMLInputElement> = useCallback((event) => {
+    const value = event.target.value;
+    dispatch(profileActions.updateProfile({
+      email: value
+    }))
+  }, [dispatch]);
+
+  const onChangeCity: ChangeEventHandler<HTMLInputElement> = useCallback((event) => {
+    const value = event.target.value;
+    dispatch(profileActions.updateProfile({
+      city: value
+    }))
+  }, [dispatch]);
+
+  const onChangeStreet: ChangeEventHandler<HTMLInputElement> = useCallback((event) => {
+    const value = event.target.value;
+    dispatch(profileActions.updateProfile({
+      street: value
+    }))
+  }, [dispatch]);
+
+  const onChangeBuilding: ChangeEventHandler<HTMLInputElement> = useCallback((event) => {
+    const value = event.target.value;
+    dispatch(profileActions.updateProfile({
+      building: value
+    }))
+  }, [dispatch]);
+
+  const onChangeApartment: ChangeEventHandler<HTMLInputElement> = useCallback((event) => {
+    const value = event.target.value;
+    dispatch(profileActions.updateProfile({
+      apartment: value
+    }))
+  }, [dispatch]);
+
+  if (isLoading) {
+    return (
+      <div className={classNames(classes.PersonalData, className)}>
+        <Loader/>
+      </div>
+    );
   }
 
-  const onSave = () => {
-    toggleReadonly();
-    console.log('Сохранение данных')
+  if (error) {
+    return (
+      <div className={classNames(classes.PersonalData, className)}>
+        <h1>Произошла ошибка при загрузке данных профиля</h1>
+      </div>
+    );
   }
 
   return (
@@ -35,8 +132,10 @@ const PersonalData:FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            placeholder="Дмитрий"
+            value={form?.name}
+            placeholder="Ваше имя"
             readOnly={readonly}
+            onChange={onChangeName}
           />
         </label>
 
@@ -46,8 +145,10 @@ const PersonalData:FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            placeholder="Кусов"
+            value={form?.surname}
+            placeholder="Ваша фамилия"
             readOnly={readonly}
+            onChange={onChangeSurname}
           />
         </label>
 
@@ -57,8 +158,10 @@ const PersonalData:FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            placeholder="+7 (123) 456-78-910"
+            value={form?.phone}
+            placeholder="Ваш телефон"
             readOnly={readonly}
+            onChange={onChangePhone}
           />
         </label>
 
@@ -68,8 +171,10 @@ const PersonalData:FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            placeholder="mail@example.com"
+            value={form?.email}
+            placeholder="Ваша почта"
             readOnly={readonly}
+            onChange={onChangeEmail}
           />
         </label>
       </div>
@@ -81,8 +186,10 @@ const PersonalData:FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            placeholder="Москва"
+            value={form?.city}
+            placeholder="Город"
             readOnly={readonly}
+            onChange={onChangeCity}
           />
         </label>
 
@@ -92,8 +199,10 @@ const PersonalData:FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            placeholder="Михалковская"
+            value={form?.street}
+            placeholder="Улица"
             readOnly={readonly}
+            onChange={onChangeStreet}
           />
         </label>
 
@@ -103,8 +212,10 @@ const PersonalData:FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            placeholder="16/1"
+            value={form?.building}
+            placeholder="Дом"
             readOnly={readonly}
+            onChange={onChangeBuilding}
           />
         </label>
 
@@ -114,8 +225,10 @@ const PersonalData:FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            placeholder="123"
+            value={form?.apartment}
+            placeholder="Квартира"
             readOnly={readonly}
+            onChange={onChangeApartment}
           />
         </label>
       </div>
@@ -125,18 +238,28 @@ const PersonalData:FC<PersonalDataProps> = (props) => {
           ?
           <AppButton
             className={classes.ChangeButton}
-            onClick={onChange}
+            onClick={onEdit}
           >
             Изменить
           </AppButton>
           :
-          <AppButton
-            className={classes.ChangeButton}
-            onClick={onSave}
-          >
-            Сохранить
-          </AppButton>
+          <div className={classes.EditButtons}>
+            <AppButton
+              className={classes.ChangeButton}
+              onClick={onCancelEdit}
+            >
+              Отменить
+            </AppButton>
+
+            <AppButton
+              className={classes.ChangeButton}
+              onClick={onSave}
+            >
+              Сохранить
+            </AppButton>
+          </div>
       }
+
 
     </div>
   );

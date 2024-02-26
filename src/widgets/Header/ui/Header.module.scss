@@ -1,16 +1,27 @@
-@import "../../../../shared/config/scss/mixins";
-@import "../../../../shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.HeaderWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: var(--header-z-index);
+}
 
 .Header {
   display: flex;
-  flex-grow: 1;
+  //flex-grow: 1;
   height: var(--header-height);
+  padding-bottom: 10px;
   flex-wrap: wrap;
 
   align-items: flex-end;
 
   @include media($tablet) {
     align-items: center;
+    padding-bottom: 0;
   }
 }
 
