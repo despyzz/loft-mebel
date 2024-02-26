@@ -14,7 +14,10 @@ describe('getProfileData', () => {
         readonly: true
       }
     }
-    expect(getProfileData(state as StateSchema)).toEqual(false);
+    expect(getProfileData(state as StateSchema)).toEqual({
+      name: "name",
+      surname: "surname",
+    });
   });
 
   test('should work with empty store', () => {
