@@ -1,5 +1,6 @@
 import {StateSchema} from "app/providers/StoreProvider";
 import {getProfileData} from "./getProfileData";
+import {ValidateProfileError} from "../../types/profile";
 
 describe('getProfileData', () => {
   test('should return value', () => {
@@ -9,7 +10,6 @@ describe('getProfileData', () => {
           name: "name",
           surname: "surname",
         },
-        error: 'error',
         isLoading: false,
         readonly: true
       }

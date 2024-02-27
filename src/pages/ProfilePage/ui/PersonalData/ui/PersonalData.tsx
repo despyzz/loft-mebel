@@ -13,6 +13,8 @@ import AppButton from "shared/ui/AppButton/AppButton";
 import classes from './PersonalData.module.scss';
 import Loader from "widgets/Loader";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {getProfileValidateErrors} from "../../../../../entities/Profile/model/selectors/getProfileValidateErrors";
+import {ValidateProfileError} from "../../../../../entities/Profile/model/types/profile";
 
 interface PersonalDataProps {
   className?: string
@@ -25,11 +27,11 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
 
   const dispatch = useAppDispatch();
 
-  // const data = useSelector(getProfileData);
   const form = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
 
   // change readonly
 
@@ -234,8 +236,13 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
       </div>
 
       {
-        readonly
-          ?
+        validateErrors && validateErrors.map(err => (
+          <p key={err}>{ValidateProfileError[err]}</p>
+        ))
+      }
+
+      {
+        readonly ?
           <AppButton
             className={classes.ChangeButton}
             onClick={onEdit}

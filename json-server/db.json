@@ -12,10 +12,10 @@
     "surname": "surname",
     "email": "example@mail.com",
     "phone": "+12345678910",
-    "city": "",
-    "street": "",
-    "building": "",
-    "apartment": ""
+    "city": "1",
+    "street": "123",
+    "building": "1",
+    "apartment": "1"
   },
   "categories": {}
 }
