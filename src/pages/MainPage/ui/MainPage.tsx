@@ -23,41 +23,39 @@ const MainPage = () => {
     dispatch(userActions.logout())
   }, [dispatch])
 
-  if (authData) {
-    return (
-      <div className={classes.MainPage}>
-        <AppContainer>
-          <AppButton
-            style={{border: "1px solid grey", padding: "15px", color: "grey", fontSize: "16px"}}
-            onClick={onLogout}
-          >
-            LOGOUT
-          </AppButton>
-        </AppContainer>
-        <Navigation/>
-        <Promo/>
-        <AppContainer>
-          <Products/>
-        </AppContainer>
-      </div>
-    );
-  }
-
   return (
     <div className={classes.MainPage}>
       <AppContainer>
-        <AppButton
-          style={{border: "1px solid grey", padding: "15px", color: "grey", fontSize: "16px"}}
-          onClick={openAuthModal}
-        >
-          LOGIN
-        </AppButton>
-      </AppContainer>
+        {
+          authData
+            ?
+            (
+              <AppButton
+                style={{border: "1px solid grey", padding: "15px", color: "grey", fontSize: "16px"}}
+                onClick={onLogout}
+              >
+                LOGOUT
+              </AppButton>
+            )
+            :
+            (
+              <>
+                <AppButton
+                  style={{border: "1px solid grey", padding: "15px", color: "grey", fontSize: "16px"}}
+                  onClick={openAuthModal}
+                >
+                  LOGIN
+                </AppButton>
 
-      <LoginModal
-        isOpen={isAuthModal}
-        onClose={closeAuthModal}
-      />
+                <LoginModal
+                  isOpen={isAuthModal}
+                  onClose={closeAuthModal}
+                />
+              </>
+            )
+        }
+
+      </AppContainer>
       <Navigation/>
       <Promo/>
       <AppContainer>
