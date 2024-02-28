@@ -7,17 +7,17 @@ import RequireAuth from "./RequireAuth";
 const AppRouter = () => {
   return (
     <Suspense fallback={<Loader/>}>
-      <Routes>
-        {Object.values(AppRouterConfig).map(
-          ({element, path, authOnly}) => (
-            <Route
-              key={path}
-              path={path}
-              element={authOnly ? <RequireAuth>{element}</RequireAuth> : element}
-            />
-          )
-        )}
-      </Routes>
+        <Routes>
+          {Object.values(AppRouterConfig).map(
+            ({element, path, authOnly}) => (
+              <Route
+                key={path}
+                path={path}
+                element={authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+              />
+            )
+          )}
+        </Routes>
     </Suspense>
   );
 };

@@ -1,8 +1,7 @@
 import {isValidElement, ReactNode} from 'react';
-import {useSelector} from "react-redux";
-import {getUserAuthData} from "entities/User";
 import {Navigate, useLocation} from "react-router-dom";
 import {RoutePath} from "shared/config/AppRouterConfig/AppRouterConfig";
+import {USER_LOCALSTORAGE_KEY} from "shared/const/localstorage";
 
 interface RequireAuthProps {
   children: ReactNode
@@ -13,10 +12,11 @@ const RequireAuth = (props: RequireAuthProps) => {
     children,
   } = props;
 
-  const auth = useSelector(getUserAuthData);
+  const authLocal = localStorage.getItem(USER_LOCALSTORAGE_KEY);
   const location = useLocation();
 
-  if (!auth) {
+  if (!authLocal) {
+    console.log(authLocal);
     return (
       <Navigate to={RoutePath.main} state={{from: location}} replace/>
     );
