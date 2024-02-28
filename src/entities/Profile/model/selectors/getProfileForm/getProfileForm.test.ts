@@ -1,11 +1,11 @@
 import {StateSchema} from "app/providers/StoreProvider";
-import {getProfileData} from "./getProfileData";
+import {getProfileForm} from "./getProfileForm";
 
-describe('getProfileData', () => {
+describe('getProfileForm', () => {
   test('should return value', () => {
     const state: Partial<StateSchema> = {
       profile: {
-        data: {
+        form: {
           name: "name",
           surname: "surname",
         },
@@ -13,7 +13,7 @@ describe('getProfileData', () => {
         readonly: true
       }
     }
-    expect(getProfileData(state as StateSchema)).toEqual({
+    expect(getProfileForm(state as StateSchema)).toEqual({
       name: "name",
       surname: "surname",
     });
@@ -21,6 +21,6 @@ describe('getProfileData', () => {
 
   test('should work with empty store', () => {
     const state: Partial<StateSchema> = {}
-    expect(getProfileData(state as StateSchema)).toEqual(undefined);
+    expect(getProfileForm(state as StateSchema)).toEqual(undefined);
   });
 });

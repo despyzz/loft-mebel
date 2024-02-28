@@ -1,7 +1,7 @@
 import {StateSchema} from "app/providers/StoreProvider";
-import {getProfileData} from "./getProfileData";
+import {getProfileReadonly} from "./getProfileReadonly";
 
-describe('getProfileData', () => {
+describe('getProfileReadonly', () => {
   test('should return value', () => {
     const state: Partial<StateSchema> = {
       profile: {
@@ -13,14 +13,11 @@ describe('getProfileData', () => {
         readonly: true
       }
     }
-    expect(getProfileData(state as StateSchema)).toEqual({
-      name: "name",
-      surname: "surname",
-    });
+    expect(getProfileReadonly(state as StateSchema)).toEqual(true);
   });
 
   test('should work with empty store', () => {
     const state: Partial<StateSchema> = {}
-    expect(getProfileData(state as StateSchema)).toEqual(undefined);
+    expect(getProfileReadonly(state as StateSchema)).toEqual(undefined);
   });
 });
