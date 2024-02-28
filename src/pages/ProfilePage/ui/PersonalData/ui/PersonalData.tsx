@@ -13,8 +13,8 @@ import AppButton from "shared/ui/AppButton/AppButton";
 import classes from './PersonalData.module.scss';
 import Loader from "widgets/Loader";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {getProfileValidateErrors} from "../../../../../entities/Profile/model/selectors/getProfileValidateErrors";
-import {ValidateProfileError} from "../../../../../entities/Profile/model/types/profile";
+import {getProfileValidateErrors} from "entities/Profile";
+import {ValidateProfileError} from "entities/Profile";
 
 interface PersonalDataProps {
   className?: string
@@ -266,8 +266,6 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
             </AppButton>
           </div>
       }
-
-
     </div>
   );
 };
