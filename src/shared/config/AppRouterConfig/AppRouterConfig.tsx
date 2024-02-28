@@ -7,6 +7,10 @@ import {ProfilePage} from "pages/ProfilePage";
 import {CatalogPage} from "pages/CatalogPage";
 import {ContactsPage} from "pages/ContactsPage";
 
+export type AppRoutesProps = RouteProps & {
+  authOnly?: boolean;
+}
+
 export enum AppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
@@ -27,7 +31,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.ERROR]: '/*'
 }
 
-export const AppRouterConfig: Record<AppRoutes, RouteProps> = {
+export const AppRouterConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath.main,
     element: <MainPage />
@@ -38,11 +42,13 @@ export const AppRouterConfig: Record<AppRoutes, RouteProps> = {
   },
   [AppRoutes.CART]: {
     path: RoutePath.cart,
-    element: <CartPage />
+    element: <CartPage />,
+    authOnly: true
   },
   [AppRoutes.PROFILE]: {
     path: RoutePath.profile,
-    element: <ProfilePage />
+    element: <ProfilePage />,
+    authOnly: true
   },
   [AppRoutes.ERROR]: {
     path: RoutePath.error,
