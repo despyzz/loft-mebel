@@ -1,10 +1,16 @@
-import React, {ButtonHTMLAttributes, FC} from 'react';
+import React, {ButtonHTMLAttributes, FC, memo} from 'react';
 import classNames from "classnames";
 import classes from './AppButton.module.scss';
+
+export enum AppButtonTheme {
+  CLEAR,
+  DARK
+}
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   disabled?: boolean;
+  theme?: AppButtonTheme
 }
 
 const AppButton: FC<AppButtonProps> = (props: AppButtonProps) => {
@@ -12,6 +18,7 @@ const AppButton: FC<AppButtonProps> = (props: AppButtonProps) => {
     className,
     children,
     disabled,
+    theme,
     ...other
   } = props;
 
@@ -19,9 +26,25 @@ const AppButton: FC<AppButtonProps> = (props: AppButtonProps) => {
     [classes.Disabled]: disabled,
   }
 
+  let themeClass;
+  switch (theme) {
+
+    case AppButtonTheme.CLEAR:
+      themeClass = classes.Clear
+      break
+
+    case AppButtonTheme.DARK:
+      themeClass = classes.Dark
+      break
+
+    default:
+      themeClass = classes.Clear
+      break
+  }
+
   return (
     <button
-      className={classNames(className, classes.Button, mods)}
+      className={classNames(className, classes.Button, themeClass, mods)}
       {...other}
     >
       {children}
@@ -29,4 +52,4 @@ const AppButton: FC<AppButtonProps> = (props: AppButtonProps) => {
   );
 };
 
-export default AppButton;
+export default memo(AppButton);
