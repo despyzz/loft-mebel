@@ -8,13 +8,12 @@ export const fetchProductDetailsById = createAsyncThunk<Product, string, ThunkCo
   'productDetails/fetchProductDetailsById',
   async (productId, thunkAPI) => {
     const {
-      _,
+      extra,
       rejectWithValue
     } = thunkAPI;
 
     try {
-      // const response = await extra.api.get<Product>(`/products/${productId}`);
-      const response = await axios.get<Product>(`http://localhost:8000/products/${productId}`);
+      const response = await extra.api.get<Product>(`/products/${productId}`);
 
       if (!response.data) {
         // noinspection ExceptionCaughtLocallyJS
