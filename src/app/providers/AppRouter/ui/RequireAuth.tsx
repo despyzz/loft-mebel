@@ -16,7 +16,6 @@ const RequireAuth = (props: RequireAuthProps) => {
   const location = useLocation();
 
   if (!authLocal) {
-    console.log(authLocal);
     return (
       <Navigate to={RoutePath.main} state={{from: location}} replace/>
     );
