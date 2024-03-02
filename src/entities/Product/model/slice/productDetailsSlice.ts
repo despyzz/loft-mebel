@@ -11,7 +11,7 @@ const initialState: ProductDetailsSchema = {
 }
 
 export const productDetailsSlice = createSlice({
-  name: 'productDetails',
+  name: 'product/productDetails',
   initialState,
   reducers: {},
   extraReducers: (builder) => {

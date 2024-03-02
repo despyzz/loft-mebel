@@ -134,7 +134,7 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            value={form?.name}
+            value={form?.name || ""}
             placeholder="Ваше имя"
             readOnly={readonly}
             onChange={onChangeName}
@@ -147,7 +147,7 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            value={form?.surname}
+            value={form?.surname || ""}
             placeholder="Ваша фамилия"
             readOnly={readonly}
             onChange={onChangeSurname}
@@ -160,7 +160,7 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            value={form?.phone}
+            value={form?.phone || ""}
             placeholder="Ваш телефон"
             readOnly={readonly}
             onChange={onChangePhone}
@@ -173,7 +173,7 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            value={form?.email}
+            value={form?.email || ""}
             placeholder="Ваша почта"
             readOnly={readonly}
             onChange={onChangeEmail}
@@ -188,7 +188,7 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            value={form?.city}
+            value={form?.city || ""}
             placeholder="Город"
             readOnly={readonly}
             onChange={onChangeCity}
@@ -201,7 +201,7 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            value={form?.street}
+            value={form?.street || ""}
             placeholder="Улица"
             readOnly={readonly}
             onChange={onChangeStreet}
@@ -214,7 +214,7 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            value={form?.building}
+            value={form?.building || ""}
             placeholder="Дом"
             readOnly={readonly}
             onChange={onChangeBuilding}
@@ -227,7 +227,7 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
           </p>
           <input
             className={classes.Input}
-            value={form?.apartment}
+            value={form?.apartment || ""}
             placeholder="Квартира"
             readOnly={readonly}
             onChange={onChangeApartment}

@@ -1,15 +1,8 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "username": "admin",
-      "password": "123"
-    }
-  ],
   "profile": {
     "id": 1,
-    "name": "Дмитрий",
-    "surname": "surname",
+    "name": "Имя",
+    "surname": "Фамилиевна",
     "email": "example@mail.com",
     "phone": "+12345678910",
     "city": "1",
@@ -41,33 +34,68 @@
       ]
     }
   ],
-  "reviews": [
+  "comments": [
     {
       "id": "1",
-      "body": [
-        "Первый параграф первого отзыва",
-        "Второй параграф первого отзыва"
-      ],
+      "body": "первый отзыв",
       "productId": "1",
       "userId": "1"
     },
     {
       "id": "2",
-      "body": [
-        "Первый параграф второго отзыва",
-        "Второй параграф второго отзыва"
-      ],
+      "body": "второй отзыв",
       "productId": "2",
       "userId": "1"
     },
     {
       "id": "3",
-      "body": [
-        "Первый параграф третьего отзыва",
-        "Второй параграф третьего отзыва"
-      ],
-      "productId": "3",
+      "body": "третий отзыв",
+      "productId": "2",
       "userId": "1"
+    },
+    {
+      "productId": "1",
+      "body": "123",
+      "userId": "1",
+      "id": "Y3F8Y3x"
+    },
+    {
+      "productId": "1",
+      "body": "новый комментарий",
+      "userId": "1",
+      "id": "OuUDoFW"
+    },
+    {
+      "productId": "3",
+      "body": "1",
+      "userId": "1",
+      "id": "WE73iBw"
+    },
+    {
+      "productId": "3",
+      "body": "23",
+      "userId": "1",
+      "id": "m00CpIt"
+    },
+    {
+      "productId": "3",
+      "body": "1",
+      "userId": "1",
+      "id": "dk9peec"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "role": "ADMIN"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "role": "USER"
     }
   ],
   "categories": [
@@ -88,7 +116,7 @@
       ]
     },
     {
-      "id": 1,
+      "id": 3,
       "name": "category three",
       "product_ids": [
         "1",
@@ -96,7 +124,7 @@
       ]
     },
     {
-      "id": 1,
+      "id": 4,
       "name": "category four",
       "product_ids": [
         "1",
@@ -104,7 +132,7 @@
       ]
     },
     {
-      "id": 1,
+      "id": 5,
       "name": "category five",
       "product_ids": [
         "1",

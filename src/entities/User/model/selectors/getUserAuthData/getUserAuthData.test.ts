@@ -6,13 +6,13 @@ describe('getUserAuthData', () => {
     const state: Partial<StateSchema> = {
       user: {
         authData: {
-          id: 123,
+          id: '123',
           username: 'username123'
         }
       }
     }
     expect(getUserAuthData(state as StateSchema)).toEqual({
-      id: 123,
+      id: '123',
       username: 'username123'
     });
   });

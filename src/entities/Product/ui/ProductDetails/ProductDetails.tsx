@@ -30,7 +30,7 @@ const ProductDetails = memo((props: ProductDetailsProps) => {
   if (error || !id) {
     return (
       <AppContainer>
-        <h1>Такого товара не существует</h1>
+        <h1>Товара не существует</h1>
       </AppContainer>
     );
   }
