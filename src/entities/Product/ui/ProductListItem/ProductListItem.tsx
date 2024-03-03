@@ -49,7 +49,7 @@ const ProductListItem = memo((props: ProductCardProps) => {
   }
 
   return (
-    <AppLink className={className} to={`/product/${productId}`} target="_blank">
+    <AppLink className={className} to={`/product/${productId}`}>
       <div className={classes.ProductCard}>
         <div className={classes.Content}>
 
