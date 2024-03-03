@@ -6,17 +6,18 @@ import AdvantagesSection2 from "./sections/AdvantagesSection2/AdvantagesSection2
 import AdvantagesSection3 from "./sections/AdvantagesSection3/AdvantagesSection3";
 import AdvantagesSection4 from "./sections/AdvantagesSection4/AdvantagesSection4";
 import AdvantagesSection5 from "./sections/AdvantagesSection5/AdvantagesSection5";
+import {Page} from "widgets/Page";
 
 const AboutPage = () => {
   return (
-    <div className={classes.AboutPage}>
-      <AboutSection />
-      <AdvantagesSection1 />
-      <AdvantagesSection2 />
-      <AdvantagesSection3 />
-      <AdvantagesSection4 />
-      <AdvantagesSection5 />
-    </div>
+    <Page className={classes.AboutPage}>
+      <AboutSection/>
+      <AdvantagesSection1/>
+      <AdvantagesSection2/>
+      <AdvantagesSection3/>
+      <AdvantagesSection4/>
+      <AdvantagesSection5/>
+    </Page>
   );
 }
 

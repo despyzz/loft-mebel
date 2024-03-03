@@ -14,6 +14,7 @@ import {getProductCommentsIsLoading} from "../model/selectors/getProductComments
 import {getProductError} from "entities/Product/model/selectors/getProductError/getProductError";
 import {AddCommentForm} from "feautures/AddCommentForm";
 import {addCommentForProduct} from "../model/services/addCommentForProduct/addCommentForProduct";
+import {Page} from "widgets/Page";
 
 const reducers: ReducerList = {
   productDetails: productDetailsReducer,
@@ -37,24 +38,26 @@ const ProductPage = () => {
   }, [dispatch, id]);
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classes.ProductPage}>
-        <ProductDetails id={id}/>
-        <AppContainer>
-          <h2>
-            Комментарии
-          </h2>
-        </AppContainer>
-        <AddCommentForm onSendComment={onSendComment}/>
-        {
-          commentsError
-            ?
-            <div>Ошибка при загрузке комментариев</div>
-            :
-            <CommentList isLoading={commentsIsLoading} comments={commentsData}/>
-        }
-      </div>
-    </DynamicModuleLoader>
+    <Page>
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <div className={classes.ProductPage}>
+          <ProductDetails id={id}/>
+          <AppContainer>
+            <h2>
+              Комментарии
+            </h2>
+          </AppContainer>
+          <AddCommentForm onSendComment={onSendComment}/>
+          {
+            commentsError
+              ?
+              <div>Ошибка при загрузке комментариев</div>
+              :
+              <CommentList isLoading={commentsIsLoading} comments={commentsData}/>
+          }
+        </div>
+      </DynamicModuleLoader>
+    </Page>
   );
 };
 

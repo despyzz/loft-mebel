@@ -1,11 +1,15 @@
 import React, {memo} from 'react';
 import classes from './WishlistPage.module.scss';
+import {Page} from "widgets/Page";
+import AppContainer from "shared/ui/AppContainer/AppContainer";
 
 const WishlistPage = () => {
   return (
-    <div className={classes.WishlistPage}>
-
-    </div>
+    <Page className={classes.WishlistPage}>
+      <AppContainer>
+        wishlist)
+      </AppContainer>
+    </Page>
   );
 };
 

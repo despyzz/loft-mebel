@@ -1,11 +1,14 @@
 import classes from './NotFoundPage.module.scss';
-import AppContainer from "../../../shared/ui/AppContainer/AppContainer";
+import AppContainer from "shared/ui/AppContainer/AppContainer";
+import {Page} from 'widgets/Page';
 
 const NotFoundPage = () => {
   return (
-    <AppContainer>
-      <h1 className={classes.title}>Not Found Page</h1>
-    </AppContainer>
+    <Page>
+      <AppContainer>
+        <h1 className={classes.title}>Not Found Page</h1>
+      </AppContainer>
+    </Page>
   );
 }
 

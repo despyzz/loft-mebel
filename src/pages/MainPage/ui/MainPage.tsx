@@ -7,11 +7,12 @@ import {useCallback, useEffect} from "react";
 import {useSelector} from "react-redux";
 import {getUserAuthData, userActions} from "entities/User";
 import {ProductList} from "entities/Product";
-import {ReducerList} from "../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {getMainPageProducts, mainPageReducer} from "../model/slices/mainPageSlice";
-import {DynamicModuleLoader} from "../../../shared/lib/components/DynamicModuleLoader";
-import {useAppDispatch} from "../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {fetchMainPageProducts} from "../model/services/fetchMainPageProducts/fetchMainPageProducts";
+import {Page} from "widgets/Page";
 
 const reducers: ReducerList = {
   mainPageProducts: mainPageReducer
@@ -32,27 +33,29 @@ const MainPage = () => {
   }, [dispatch]);
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
-      <div className={classes.MainPage}>
+    <Page>
+      <DynamicModuleLoader reducers={reducers}>
+        <div className={classes.MainPage}>
 
-        {
-          authData &&
+          {
+            authData &&
+            <AppContainer>
+              <AppButton
+                style={{border: "1px solid grey", padding: "15px", color: "grey", fontSize: "16px"}}
+                onClick={onLogout}
+              >
+                LOGOUT
+              </AppButton>
+            </AppContainer>
+          }
+          <Navigation/>
+          <Promo/>
           <AppContainer>
-            <AppButton
-              style={{border: "1px solid grey", padding: "15px", color: "grey", fontSize: "16px"}}
-              onClick={onLogout}
-            >
-              LOGOUT
-            </AppButton>
+            <ProductList productList={products}/>
           </AppContainer>
-        }
-        <Navigation/>
-        <Promo/>
-        <AppContainer>
-          <ProductList productList={products}/>
-        </AppContainer>
-      </div>
-    </DynamicModuleLoader>
+        </div>
+      </DynamicModuleLoader>
+    </Page>
   );
 }
 

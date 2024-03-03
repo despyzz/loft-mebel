@@ -1,13 +1,14 @@
 import classes from './CartPage.module.scss'
 import {CartSection} from "./CartSection";
 import {RecommendationSection} from "./RecommendationSection";
+import {Page} from "widgets/Page";
 
 const CartPage = () => {
   return (
-    <div className={classes.CartPage}>
+    <Page className={classes.CartPage}>
       <CartSection />
       <RecommendationSection />
-    </div>
+    </Page>
   );
 };
 
