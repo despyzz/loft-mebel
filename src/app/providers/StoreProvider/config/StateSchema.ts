@@ -5,9 +5,10 @@ import {ReducerManager} from "./reducerManager";
 import {ProfileSchema} from "entities/Profile";
 import {AxiosInstance} from "axios";
 import {NavigateOptions, To} from "react-router-dom";
-import {ProductDetailsSchema, ProductListSchema} from "entities/Product";
+import {ProductDetailsSchema} from "entities/Product";
 import {ProductCommentsSchema} from "pages/ProductPage";
 import {AddCommentFormSchema} from "feautures/AddCommentForm";
+import {MainPageSchema} from "pages/MainPage";
 
 export interface StateSchema {
   user: UserSchema;
@@ -18,7 +19,8 @@ export interface StateSchema {
   productDetails?: ProductDetailsSchema,
   productComments?: ProductCommentsSchema,
   addCommentForm?: AddCommentFormSchema,
-  productList?: ProductListSchema,
+
+  mainPageProducts?: MainPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
