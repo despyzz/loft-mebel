@@ -1,18 +1,36 @@
 import classes from './ProductList.module.scss';
 import {ProductListItem} from "../ProductListItem/ProductListItem";
-import {FC, useEffect, useRef, useState} from "react";
+import {FC, memo, useEffect, useRef, useState} from "react";
 import classNames from "classnames";
 import {Product} from "../../model/types/product";
+import Loader from "widgets/Loader";
 
 interface ProductsProps {
   className?: string;
-  productList?: Array<Product>
+  productList?: Array<Product>;
+  isLoading?: boolean
 }
 
-const ProductList: FC<ProductsProps> = (props) => {
+const renderList = (productList: Array<Product>) => {
+  return productList.map((product, index) => (
+    <ProductListItem product={product} key={index}/>
+  ))
+}
+
+const getLoaders = () => new Array(8)
+  .fill(0)
+  .map((_, index) => (
+    <div className={classes.LoaderWrapper}>
+      <Loader key={index}/>
+    </div>
+  ));
+
+
+const ProductList: FC<ProductsProps> = memo((props) => {
   const {
     className,
-    productList= []
+    isLoading,
+    productList = []
   } = props;
   const productsRef = useRef<HTMLDivElement>(null);
 
@@ -46,12 +64,13 @@ const ProductList: FC<ProductsProps> = (props) => {
       ref={productsRef}
     >
       {
-        productList.map((product, index) => (
-          <ProductListItem product={product} key={index}/>
-        ))
+        productList.length > 0 ? renderList(productList) : null
+      }
+      {
+        isLoading && getLoaders()
       }
     </div>
   );
-};
+});
 
 export {ProductList};

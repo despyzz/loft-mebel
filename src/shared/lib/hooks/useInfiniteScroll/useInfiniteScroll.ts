@@ -25,11 +25,9 @@ export function useInfiniteScroll({callback, triggerRef}: UseInfiniteScrollOptio
     }, options);
 
     observer.observe(currentTrigger);
-    console.log('observe');
 
     return () => {
       if (observer && currentTrigger) {
-        console.log('unobserve');
         observer.unobserve(currentTrigger);
       }
     }

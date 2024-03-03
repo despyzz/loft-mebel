@@ -37,7 +37,8 @@ export const mainPageSlice = createSlice({
       })
       .addCase(fetchMainPageProducts.fulfilled, (state, action) => {
         state.isLoading = false
-        mainPageProductsAdapter.setAll(state, action.payload);
+        mainPageProductsAdapter.addMany(state, action.payload);
+        state.hasMore = action.payload.length > 0;
       })
       .addCase(fetchMainPageProducts.rejected, (state, action) => {
         state.isLoading = false;
