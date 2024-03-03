@@ -28,8 +28,8 @@ const ProductPage = () => {
   const commentsIsLoading = useSelector(getProductCommentsIsLoading);
   const commentsError = useSelector(getProductError);
 
-  const onSendComment = useCallback(() => {
-    dispatch(addCommentForProduct())
+  const onSendComment = useCallback((commentBody: string) => {
+    dispatch(addCommentForProduct(commentBody))
   }, [dispatch])
 
   useEffect(() => {
@@ -46,7 +46,6 @@ const ProductPage = () => {
           </h2>
         </AppContainer>
         <AddCommentForm onSendComment={onSendComment}/>
-
         {
           commentsError
             ?

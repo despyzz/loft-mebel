@@ -1,37 +1,705 @@
 {
   "profile": {
     "id": 1,
-    "name": "Имя",
-    "surname": "Фамилиевна",
+    "name": "John",
+    "surname": "Doe",
     "email": "example@mail.com",
-    "phone": "+12345678910",
-    "city": "1",
-    "street": "123",
-    "building": "1",
-    "apartment": "1"
+    "phone": "+0000000000",
+    "city": "City-17",
+    "street": "Street-1",
+    "building": "Building-2",
+    "apartment": "143"
   },
   "products": [
     {
       "id": "1",
-      "name": "Диван",
+      "name": "Товар 1",
       "description": [
-        "Описание дивана"
-      ]
+        "Описание дивана",
+        "Параграф первый",
+        "Параграф второй"
+      ],
+      "photos": [
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194"
+      ],
+      "rating": 10,
+      "price": 19990,
+      "categoryId": "1",
+      "characteristics": [
+        {
+          "name": "Свойство номер 1",
+          "value": "Значение номер 1"
+        },
+        {
+          "name": "Свойство номер 2",
+          "value": "Значение номер 2"
+        },
+        {
+          "name": "Свойство номер 3",
+          "value": "Значение номер 3"
+        },
+        {
+          "name": "Свойство номер 4",
+          "value": "Значение номер 4"
+        },
+        {
+          "name": "Свойство номер 5",
+          "value": "Значение номер 5"
+        },
+        {
+          "name": "Свойство номер 6",
+          "value": "Значение номер 6"
+        },
+        {
+          "name": "Свойство номер 7",
+          "value": "Значение номер 7"
+        },
+        {
+          "name": "Свойство номер 8",
+          "value": "Значение номер 8"
+        },
+        {
+          "name": "Свойство номер 9",
+          "value": "Значение номер 9"
+        },
+        {
+          "name": "Свойство номер 10",
+          "value": "Значение номер 10"
+        }
+      ],
+      "sizes": {
+        "width": "43",
+        "depth": "43",
+        "height": "77"
+      }
     },
     {
       "id": "2",
-      "name": "Шкаф",
+      "name": "Товар 2",
       "description": [
-        "Описание шкафа",
-        "shkaf nahui ))"
-      ]
+        "Описание дивана",
+        "Параграф первый",
+        "Параграф второй"
+      ],
+      "photos": [
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194"
+      ],
+      "rating": 10,
+      "price": 19990,
+      "categoryId": "1",
+      "characteristics": [
+        {
+          "name": "Свойство номер 1",
+          "value": "Значение номер 1"
+        },
+        {
+          "name": "Свойство номер 2",
+          "value": "Значение номер 2"
+        },
+        {
+          "name": "Свойство номер 3",
+          "value": "Значение номер 3"
+        },
+        {
+          "name": "Свойство номер 4",
+          "value": "Значение номер 4"
+        },
+        {
+          "name": "Свойство номер 5",
+          "value": "Значение номер 5"
+        },
+        {
+          "name": "Свойство номер 6",
+          "value": "Значение номер 6"
+        },
+        {
+          "name": "Свойство номер 7",
+          "value": "Значение номер 7"
+        },
+        {
+          "name": "Свойство номер 8",
+          "value": "Значение номер 8"
+        },
+        {
+          "name": "Свойство номер 9",
+          "value": "Значение номер 9"
+        },
+        {
+          "name": "Свойство номер 10",
+          "value": "Значение номер 10"
+        }
+      ],
+      "sizes": {
+        "width": "43",
+        "depth": "43",
+        "height": "77"
+      }
     },
     {
       "id": "3",
-      "name": "Стул",
+      "name": "Товар 3",
       "description": [
-        "Описание стула"
-      ]
+        "Описание дивана",
+        "Параграф первый",
+        "Параграф второй"
+      ],
+      "photos": [
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194"
+      ],
+      "rating": 10,
+      "price": 19990,
+      "categoryId": "1",
+      "characteristics": [
+        {
+          "name": "Свойство номер 1",
+          "value": "Значение номер 1"
+        },
+        {
+          "name": "Свойство номер 2",
+          "value": "Значение номер 2"
+        },
+        {
+          "name": "Свойство номер 3",
+          "value": "Значение номер 3"
+        },
+        {
+          "name": "Свойство номер 4",
+          "value": "Значение номер 4"
+        },
+        {
+          "name": "Свойство номер 5",
+          "value": "Значение номер 5"
+        },
+        {
+          "name": "Свойство номер 6",
+          "value": "Значение номер 6"
+        },
+        {
+          "name": "Свойство номер 7",
+          "value": "Значение номер 7"
+        },
+        {
+          "name": "Свойство номер 8",
+          "value": "Значение номер 8"
+        },
+        {
+          "name": "Свойство номер 9",
+          "value": "Значение номер 9"
+        },
+        {
+          "name": "Свойство номер 10",
+          "value": "Значение номер 10"
+        }
+      ],
+      "sizes": {
+        "width": "43",
+        "depth": "43",
+        "height": "77"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Товар 4",
+      "description": [
+        "Описание дивана",
+        "Параграф первый",
+        "Параграф второй"
+      ],
+      "photos": [
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194"
+      ],
+      "rating": 10,
+      "price": 19990,
+      "categoryId": "1",
+      "characteristics": [
+        {
+          "name": "Свойство номер 1",
+          "value": "Значение номер 1"
+        },
+        {
+          "name": "Свойство номер 2",
+          "value": "Значение номер 2"
+        },
+        {
+          "name": "Свойство номер 3",
+          "value": "Значение номер 3"
+        },
+        {
+          "name": "Свойство номер 4",
+          "value": "Значение номер 4"
+        },
+        {
+          "name": "Свойство номер 5",
+          "value": "Значение номер 5"
+        },
+        {
+          "name": "Свойство номер 6",
+          "value": "Значение номер 6"
+        },
+        {
+          "name": "Свойство номер 7",
+          "value": "Значение номер 7"
+        },
+        {
+          "name": "Свойство номер 8",
+          "value": "Значение номер 8"
+        },
+        {
+          "name": "Свойство номер 9",
+          "value": "Значение номер 9"
+        },
+        {
+          "name": "Свойство номер 10",
+          "value": "Значение номер 10"
+        }
+      ],
+      "sizes": {
+        "width": "43",
+        "depth": "43",
+        "height": "77"
+      }
+    },
+    {
+      "id": "5",
+      "name": "Товар 5",
+      "description": [
+        "Описание дивана",
+        "Параграф первый",
+        "Параграф второй"
+      ],
+      "photos": [
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194"
+      ],
+      "rating": 10,
+      "price": 19990,
+      "categoryId": "1",
+      "characteristics": [
+        {
+          "name": "Свойство номер 1",
+          "value": "Значение номер 1"
+        },
+        {
+          "name": "Свойство номер 2",
+          "value": "Значение номер 2"
+        },
+        {
+          "name": "Свойство номер 3",
+          "value": "Значение номер 3"
+        },
+        {
+          "name": "Свойство номер 4",
+          "value": "Значение номер 4"
+        },
+        {
+          "name": "Свойство номер 5",
+          "value": "Значение номер 5"
+        },
+        {
+          "name": "Свойство номер 6",
+          "value": "Значение номер 6"
+        },
+        {
+          "name": "Свойство номер 7",
+          "value": "Значение номер 7"
+        },
+        {
+          "name": "Свойство номер 8",
+          "value": "Значение номер 8"
+        },
+        {
+          "name": "Свойство номер 9",
+          "value": "Значение номер 9"
+        },
+        {
+          "name": "Свойство номер 10",
+          "value": "Значение номер 10"
+        }
+      ],
+      "sizes": {
+        "width": "43",
+        "depth": "43",
+        "height": "77"
+      }
+    },
+    {
+      "id": "6",
+      "name": "Товар 6",
+      "description": [
+        "Описание дивана",
+        "Параграф первый",
+        "Параграф второй"
+      ],
+      "photos": [
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194"
+      ],
+      "rating": 10,
+      "price": 19990,
+      "categoryId": "1",
+      "characteristics": [
+        {
+          "name": "Свойство номер 1",
+          "value": "Значение номер 1"
+        },
+        {
+          "name": "Свойство номер 2",
+          "value": "Значение номер 2"
+        },
+        {
+          "name": "Свойство номер 3",
+          "value": "Значение номер 3"
+        },
+        {
+          "name": "Свойство номер 4",
+          "value": "Значение номер 4"
+        },
+        {
+          "name": "Свойство номер 5",
+          "value": "Значение номер 5"
+        },
+        {
+          "name": "Свойство номер 6",
+          "value": "Значение номер 6"
+        },
+        {
+          "name": "Свойство номер 7",
+          "value": "Значение номер 7"
+        },
+        {
+          "name": "Свойство номер 8",
+          "value": "Значение номер 8"
+        },
+        {
+          "name": "Свойство номер 9",
+          "value": "Значение номер 9"
+        },
+        {
+          "name": "Свойство номер 10",
+          "value": "Значение номер 10"
+        }
+      ],
+      "sizes": {
+        "width": "43",
+        "depth": "43",
+        "height": "77"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Товар 7",
+      "description": [
+        "Описание дивана",
+        "Параграф первый",
+        "Параграф второй"
+      ],
+      "photos": [
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194"
+      ],
+      "rating": 10,
+      "price": 19990,
+      "categoryId": "1",
+      "characteristics": [
+        {
+          "name": "Свойство номер 1",
+          "value": "Значение номер 1"
+        },
+        {
+          "name": "Свойство номер 2",
+          "value": "Значение номер 2"
+        },
+        {
+          "name": "Свойство номер 3",
+          "value": "Значение номер 3"
+        },
+        {
+          "name": "Свойство номер 4",
+          "value": "Значение номер 4"
+        },
+        {
+          "name": "Свойство номер 5",
+          "value": "Значение номер 5"
+        },
+        {
+          "name": "Свойство номер 6",
+          "value": "Значение номер 6"
+        },
+        {
+          "name": "Свойство номер 7",
+          "value": "Значение номер 7"
+        },
+        {
+          "name": "Свойство номер 8",
+          "value": "Значение номер 8"
+        },
+        {
+          "name": "Свойство номер 9",
+          "value": "Значение номер 9"
+        },
+        {
+          "name": "Свойство номер 10",
+          "value": "Значение номер 10"
+        }
+      ],
+      "sizes": {
+        "width": "43",
+        "depth": "43",
+        "height": "77"
+      }
+    },
+    {
+      "id": "8",
+      "name": "Товар 8",
+      "description": [
+        "Описание дивана",
+        "Параграф первый",
+        "Параграф второй"
+      ],
+      "photos": [
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194"
+      ],
+      "rating": 10,
+      "price": 19990,
+      "categoryId": "1",
+      "characteristics": [
+        {
+          "name": "Свойство номер 1",
+          "value": "Значение номер 1"
+        },
+        {
+          "name": "Свойство номер 2",
+          "value": "Значение номер 2"
+        },
+        {
+          "name": "Свойство номер 3",
+          "value": "Значение номер 3"
+        },
+        {
+          "name": "Свойство номер 4",
+          "value": "Значение номер 4"
+        },
+        {
+          "name": "Свойство номер 5",
+          "value": "Значение номер 5"
+        },
+        {
+          "name": "Свойство номер 6",
+          "value": "Значение номер 6"
+        },
+        {
+          "name": "Свойство номер 7",
+          "value": "Значение номер 7"
+        },
+        {
+          "name": "Свойство номер 8",
+          "value": "Значение номер 8"
+        },
+        {
+          "name": "Свойство номер 9",
+          "value": "Значение номер 9"
+        },
+        {
+          "name": "Свойство номер 10",
+          "value": "Значение номер 10"
+        }
+      ],
+      "sizes": {
+        "width": "43",
+        "depth": "43",
+        "height": "77"
+      }
+    },
+    {
+      "id": "9",
+      "name": "Товар 9",
+      "description": [
+        "Описание дивана",
+        "Параграф первый",
+        "Параграф второй"
+      ],
+      "photos": [
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194"
+      ],
+      "rating": 10,
+      "price": 19990,
+      "categoryId": "1",
+      "characteristics": [
+        {
+          "name": "Свойство номер 1",
+          "value": "Значение номер 1"
+        },
+        {
+          "name": "Свойство номер 2",
+          "value": "Значение номер 2"
+        },
+        {
+          "name": "Свойство номер 3",
+          "value": "Значение номер 3"
+        },
+        {
+          "name": "Свойство номер 4",
+          "value": "Значение номер 4"
+        },
+        {
+          "name": "Свойство номер 5",
+          "value": "Значение номер 5"
+        },
+        {
+          "name": "Свойство номер 6",
+          "value": "Значение номер 6"
+        },
+        {
+          "name": "Свойство номер 7",
+          "value": "Значение номер 7"
+        },
+        {
+          "name": "Свойство номер 8",
+          "value": "Значение номер 8"
+        },
+        {
+          "name": "Свойство номер 9",
+          "value": "Значение номер 9"
+        },
+        {
+          "name": "Свойство номер 10",
+          "value": "Значение номер 10"
+        }
+      ],
+      "sizes": {
+        "width": "43",
+        "depth": "43",
+        "height": "77"
+      }
+    },
+    {
+      "id": "10",
+      "name": "Товар 10",
+      "description": [
+        "Описание дивана",
+        "Параграф первый",
+        "Параграф второй"
+      ],
+      "photos": [
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194",
+        "https://segmart.com/cdn/shop/products/20220923_c2a927726c80a666ca1b99ce90f4d30c_900x.jpg?v=1665632194"
+      ],
+      "rating": 10,
+      "price": 19990,
+      "categoryId": "1",
+      "characteristics": [
+        {
+          "name": "Свойство номер 1",
+          "value": "Значение номер 1"
+        },
+        {
+          "name": "Свойство номер 2",
+          "value": "Значение номер 2"
+        },
+        {
+          "name": "Свойство номер 3",
+          "value": "Значение номер 3"
+        },
+        {
+          "name": "Свойство номер 4",
+          "value": "Значение номер 4"
+        },
+        {
+          "name": "Свойство номер 5",
+          "value": "Значение номер 5"
+        },
+        {
+          "name": "Свойство номер 6",
+          "value": "Значение номер 6"
+        },
+        {
+          "name": "Свойство номер 7",
+          "value": "Значение номер 7"
+        },
+        {
+          "name": "Свойство номер 8",
+          "value": "Значение номер 8"
+        },
+        {
+          "name": "Свойство номер 9",
+          "value": "Значение номер 9"
+        },
+        {
+          "name": "Свойство номер 10",
+          "value": "Значение номер 10"
+        }
+      ],
+      "sizes": {
+        "width": "43",
+        "depth": "43",
+        "height": "77"
+      }
     }
   ],
   "comments": [
@@ -54,34 +722,10 @@
       "userId": "1"
     },
     {
-      "productId": "1",
+      "productId": "10",
       "body": "123",
       "userId": "1",
-      "id": "Y3F8Y3x"
-    },
-    {
-      "productId": "1",
-      "body": "новый комментарий",
-      "userId": "1",
-      "id": "OuUDoFW"
-    },
-    {
-      "productId": "3",
-      "body": "1",
-      "userId": "1",
-      "id": "WE73iBw"
-    },
-    {
-      "productId": "3",
-      "body": "23",
-      "userId": "1",
-      "id": "m00CpIt"
-    },
-    {
-      "productId": "3",
-      "body": "1",
-      "userId": "1",
-      "id": "dk9peec"
+      "id": "OsyFvjf"
     }
   ],
   "users": [

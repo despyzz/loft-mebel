@@ -1,8 +1,8 @@
 import classes from './MobileCatalog.module.scss';
 import AppContainer from "shared/ui/AppContainer/AppContainer";
-import {Products} from "widgets/Products";
 import {FilterButton} from "./FilterButton";
 import {SortButton} from "widgets/SortButton";
+import {ProductList} from "entities/Product";
 
 const MobileCatalog = () => {
   return (
@@ -11,7 +11,7 @@ const MobileCatalog = () => {
         <FilterButton/>
         <SortButton />
       </div>
-      <Products className={classes.Products}/>
+      <ProductList className={classes.Products}/>
     </AppContainer>
   );
 };

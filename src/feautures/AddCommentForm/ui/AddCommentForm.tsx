@@ -13,7 +13,7 @@ import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModu
 
 interface AddCommentFormProps {
   className?: string;
-  onSendComment?: () => void
+  onSendComment: (commentBody: string) => void
 }
 
 const reducers: ReducerList = {
@@ -28,31 +28,39 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
   const dispatch = useAppDispatch()
 
-  const text = useSelector(getCommentFormText);
-  const error = useSelector(getCommentFormError);
+  const commentBody = useSelector(getCommentFormText);
+  const commentError = useSelector(getCommentFormError);
 
   const onInputChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     dispatch(addCommentFormActions.setText(event.target.value))
   }, [dispatch])
 
+  const onSendCommentHandler = useCallback(() => {
+    if (commentBody === "")
+      return;
+
+    dispatch(addCommentFormActions.setText(""));
+    onSendComment(commentBody!);
+  }, [dispatch, onSendComment, commentBody])
+
   return (
     <DynamicModuleLoader reducers={reducers}>
       <AppContainer>
         {
-          error && <div>Произошла ошибка при отправке</div>
+          commentError && <div>Произошла ошибка при отправке</div>
         }
         <div className={classNames(className, classes.AddCommentForm)}>
           <label>
             <input
               type="text"
               placeholder="Введите текст комментария"
-              value={text || ""}
+              value={commentBody || ""}
               onChange={onInputChange}
             />
           </label>
           <AppButton
             theme={AppButtonTheme.DARK}
-            onClick={onSendComment}
+            onClick={onSendCommentHandler}
           >
             Отправить
           </AppButton>

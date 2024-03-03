@@ -2,13 +2,12 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ThunkConfig} from "app/providers/StoreProvider";
 import {getUserAuthData} from "entities/User";
 import {getProductData} from "entities/Product";
-import {getCommentFormText} from "feautures/AddCommentForm";
 import {addCommentFormActions} from "feautures/AddCommentForm/model/slices/addCommentFormSlice";
 import {fetchCommentsByProductId} from "../fetchCommentsByProductId/fetchCommentsByProductId";
 
-export const addCommentForProduct = createAsyncThunk<Comment, void, ThunkConfig<string>>(
+export const addCommentForProduct = createAsyncThunk<Comment, string, ThunkConfig<string>>(
   'productPage/addCommentForProduct',
-  async (_, thunkAPI) => {
+  async (commentBody, thunkAPI) => {
     const {
       extra,
       rejectWithValue,
@@ -17,7 +16,6 @@ export const addCommentForProduct = createAsyncThunk<Comment, void, ThunkConfig<
     } = thunkAPI;
 
     const userData = getUserAuthData(getState());
-    const commentBody = getCommentFormText(getState());
     const productData = getProductData(getState());
 
     if (!userData || !commentBody || !productData) {

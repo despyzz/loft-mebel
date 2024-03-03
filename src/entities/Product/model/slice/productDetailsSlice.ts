@@ -3,7 +3,6 @@ import { fetchProductDetailsById } from '../services/fetchProductDetailsById/fet
 import {ProductDetailsSchema} from '../types/productDetailsSchema';
 import {Product} from "../types/product";
 
-
 const initialState: ProductDetailsSchema = {
   isLoading: true,
   error: undefined,

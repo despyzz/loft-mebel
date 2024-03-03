@@ -1,6 +1,7 @@
 import classes from './RecommendationSection.module.scss';
-import {Products} from "widgets/Products";
+
 import AppContainer from "shared/ui/AppContainer/AppContainer";
+import {ProductList} from "entities/Product";
 
 const RecommendationSection = () => {
   return (
@@ -10,7 +11,7 @@ const RecommendationSection = () => {
           Вам может понравиться
         </div>
 
-        <Products/>
+        <ProductList/>
       </AppContainer>
     </section>
   );
