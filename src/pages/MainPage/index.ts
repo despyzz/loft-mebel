@@ -1,8 +1,10 @@
-import {getMainPageProductsError} from './model/selectors/getMainPageProductsError/getMainPageProductsError'
-import {getMainPageProductsHasMore} from './model/selectors/getMainPageProductsHasMore/getMainPageProductsHasMore'
-import {getMainPageProductsIsLoading} from './model/selectors/getMainPageProductsIsLoading/getMainPageProductsIsLoading'
-import {getMainPageProductsLimit} from './model/selectors/getMainPageProductsLimit/getMainPageProductsLimit'
-import {getMainPageProductsPage} from './model/selectors/getMainPageProductsPage/getMainPageProductsPage'
+import {
+  getMainPageProductsError,
+  getMainPageProductsHasMore,
+  getMainPageProductsIsLoading,
+  getMainPageProductsLimit,
+  getMainPageProductsPage
+} from './model/selectors/mainPgeProductsSelectors'
 import type {MainPageSchema} from './model/types/mainPage'
 import {MainPageAsync} from './ui/MainPage.async'
 

@@ -2125,43 +2125,69 @@
   "categories": [
     {
       "id": 1,
-      "name": "category one",
-      "product_ids": [
-        "1",
-        "3"
-      ]
+      "name": "Кухни",
+      "url": "kitchen",
+      "icon": "icon_url"
     },
     {
       "id": 2,
-      "name": "category two",
-      "product_ids": [
-        "1",
-        "3"
-      ]
+      "name": "Спальни",
+      "url": "bedroom",
+      "icon": "icon_url"
     },
     {
       "id": 3,
-      "name": "category three",
-      "product_ids": [
-        "1",
-        "3"
-      ]
+      "name": "Гостиные",
+      "url": "living_room",
+      "icon": "icon_url"
     },
     {
       "id": 4,
-      "name": "category four",
-      "product_ids": [
-        "1",
-        "3"
-      ]
+      "name": "Прихожие",
+      "url": "hallway",
+      "icon": "icon_url"
     },
     {
       "id": 5,
-      "name": "category five",
-      "product_ids": [
-        "1",
-        "3"
-      ]
+      "name": "Офисная мебель",
+      "url": "office",
+      "icon": "icon_url"
+    },
+    {
+      "id": 6,
+      "name": "Детская",
+      "url": "playroom",
+      "icon": "icon_url"
+    },
+    {
+      "id": 7,
+      "name": "Акция",
+      "url": "sale",
+      "icon": "icon_url"
+    },
+    {
+      "id": 8,
+      "name": "Новинки",
+      "url": "novelty",
+      "icon": "icon_url"
+    },
+    {
+      "id": 9,
+      "name": "Матрасы",
+      "url": "mattress",
+      "icon": "icon_url"
+    },
+    {
+      "id": 10,
+      "name": "Мягкая мебель",
+      "url": "cushioned",
+      "icon": "icon_url"
+    },
+    {
+      "id": 11,
+      "name": "Шкафы",
+      "url": "wardrobe",
+      "icon": "icon_url"
     }
   ]
 }

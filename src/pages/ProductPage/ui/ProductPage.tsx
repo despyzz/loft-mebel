@@ -39,7 +39,7 @@ const ProductPage = () => {
 
   return (
     <Page>
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <DynamicModuleLoader reducers={reducers}>
         <div className={classes.ProductPage}>
           <ProductDetails id={id}/>
           <AppContainer>

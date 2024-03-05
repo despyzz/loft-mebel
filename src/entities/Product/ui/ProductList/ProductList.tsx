@@ -11,21 +11,6 @@ interface ProductsProps {
   isLoading?: boolean
 }
 
-const renderList = (productList: Array<Product>) => {
-  return productList.map((product, index) => (
-    <ProductListItem product={product} key={index}/>
-  ))
-}
-
-const getLoaders = () => new Array(8)
-  .fill(0)
-  .map((_, index) => (
-    <div className={classes.LoaderWrapper}>
-      <Loader key={index}/>
-    </div>
-  ));
-
-
 const ProductList: FC<ProductsProps> = memo((props) => {
   const {
     className,
@@ -64,10 +49,22 @@ const ProductList: FC<ProductsProps> = memo((props) => {
       ref={productsRef}
     >
       {
-        productList.length > 0 ? renderList(productList) : null
+        productList.length &&
+        productList.map((product) => (
+          <ProductListItem product={product} key={product.id}/>
+        ))
       }
       {
-        isLoading && getLoaders()
+        isLoading && (
+          <>
+          <Loader />
+          <Loader />
+          <Loader />
+          <Loader />
+          <Loader />
+          <Loader />
+          </>
+        )
       }
     </div>
   );

@@ -1,18 +1,17 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {Product} from "../../types/product";
+import {Category} from "../../types/category";
 import {ThunkConfig} from "app/providers/StoreProvider";
 
-export const fetchProductsByCategory = createAsyncThunk<Product[], string, ThunkConfig<string>>(
-  'fetchProductsByCategory',
-  async (categoryId, thunkAPI) => {
+export const fetchCategoriesList = createAsyncThunk<Array<Category>, void, ThunkConfig<string>>(
+  'fetchCategoriesList',
+  async (_, thunkAPI) => {
     const {
       extra,
       rejectWithValue
     } = thunkAPI;
 
     try {
-      const response = await extra.api.get<Product[]>(`/products/${categoryId}`);
-
+      const response = await extra.api.get<Array<Category>>(`/categories`);
       if (!response.data) {
         // noinspection ExceptionCaughtLocallyJS
         throw new Error();

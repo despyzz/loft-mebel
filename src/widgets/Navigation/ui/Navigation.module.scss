@@ -67,7 +67,7 @@
   }
 }
 
-.Item.Hidden {
+.Hidden {
   @include media($tablet) {
     display: none;
   }
@@ -125,5 +125,6 @@
 
 .DropdownItem {
   font-size: 14px;
+  white-space: nowrap;
   color: var(--text-color);
 }

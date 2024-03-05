@@ -1,7 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {Product} from "entities/Product";
 import {ThunkConfig} from "app/providers/StoreProvider";
-import {getMainPageProductsLimit} from "../../selectors/getMainPageProductsLimit/getMainPageProductsLimit";
+import {getMainPageProductsLimit} from "../../selectors/mainPgeProductsSelectors";
 
 interface FetchMainPageProductsProps {
   page?: number

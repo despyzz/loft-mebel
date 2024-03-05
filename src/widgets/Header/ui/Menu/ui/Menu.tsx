@@ -3,23 +3,29 @@ import MenuIcon from "shared/assets/MenuIcon.svg";
 import classes from './Menu.module.scss';
 import {useEffect, useRef, useState} from "react";
 import classNames from "classnames";
-
 import CloseIcon from "shared/assets/CloseIcon.svg";
-
-// navigation
 import MainIcon from "shared/assets/categories/MainIcon.svg";
 import AboutIcon from "shared/assets/categories/AboutIcon.svg";
 import ContactsIcon from "shared/assets/categories/ContactsIcon.svg";
-
 import AppLink from "shared/ui/AppLink/AppLink";
 import {useLocation} from "react-router-dom";
+import {Category} from "entities/Category/model/types/category";
+import {CategoryItem} from "entities/Category";
 
 
 interface MenuProps {
   className?: string
+  categories: Array<Category>
+  isLoading?: boolean
+  error?: string
 }
 
-const Menu = ({className}: MenuProps) => {
+const Menu = (props: MenuProps) => {
+  const {
+    className,
+    categories,
+  } = props;
+
   const [dropdownCollapsed, setDropdownCollapsed] = useState(true);
   const dropdownClass = dropdownCollapsed ? classes.DropdownCollapsed : undefined;
   const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -58,7 +64,7 @@ const Menu = ({className}: MenuProps) => {
     <div className={className}>
 
       <AppButton onClick={toggleDropdownCollapsed}>
-        <img src={MenuIcon} alt={"Hamburger menu."} />
+        <img src={MenuIcon} alt={"Hamburger menu."}/>
       </AppButton>
 
       <div
@@ -100,6 +106,16 @@ const Menu = ({className}: MenuProps) => {
                 </div>
                 <span>Контакты</span>
               </AppLink>
+
+              {
+                categories.map((category) => (
+                  <CategoryItem
+                    key={category.id}
+                    className={classes.Element}
+                    category={category}
+                  />
+                ))
+              }
             </div>
           </div>
 

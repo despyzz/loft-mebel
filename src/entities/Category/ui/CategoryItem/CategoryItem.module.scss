@@ -1,0 +1,17 @@
+@import "shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+
+.Category {
+}
+
+.CategoryIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.CategoryName {
+  text-align: center;
+  @include media($tablet) {
+    white-space: nowrap;
+  }
+}

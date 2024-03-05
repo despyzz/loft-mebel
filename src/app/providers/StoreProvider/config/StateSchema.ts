@@ -9,6 +9,7 @@ import {ProductDetailsSchema} from "entities/Product";
 import {ProductCommentsSchema} from "pages/ProductPage";
 import {AddCommentFormSchema} from "feautures/AddCommentForm";
 import {MainPageSchema} from "pages/MainPage";
+import {CategoryListSchema} from "entities/Category/model/types/category";
 
 export interface StateSchema {
   user: UserSchema;
@@ -19,6 +20,7 @@ export interface StateSchema {
   productDetails?: ProductDetailsSchema,
   productComments?: ProductCommentsSchema,
   addCommentForm?: AddCommentFormSchema,
+  categoryList?: CategoryListSchema,
 
   mainPageProducts?: MainPageSchema
 }

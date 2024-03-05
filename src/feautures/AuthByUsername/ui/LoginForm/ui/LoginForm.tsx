@@ -52,7 +52,6 @@ const LoginForm: FC<LoginFormProps> = memo((props) => {
   return (
     <DynamicModuleLoader
       reducers={initialReducers}
-      removeAfterUnmount
     >
       <div className={classNames(className, classes.LoginForm)}>
 

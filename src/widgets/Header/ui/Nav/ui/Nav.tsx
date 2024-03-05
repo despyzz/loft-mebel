@@ -1,17 +1,28 @@
-import AppLink from "../../../../../shared/ui/AppLink/AppLink";
+import AppLink from "shared/ui/AppLink/AppLink";
 import classes from "./Nav.module.scss";
 
 interface NavbarProps {
-  className?: string
+  className?: string,
 }
 
-const Nav = ({className}: NavbarProps) => {
+const Nav = (props: NavbarProps) => {
+  const {
+    className
+  } = props;
+
+
   return (
     <nav className={className}>
       <ul className={classes.Links}>
-        <AppLink className={classes.Link} to="/">Главная</AppLink>
-        <AppLink className={classes.Link} to="/about">О нас</AppLink>
-        <AppLink className={classes.Link} to="/contacts">Контакты</AppLink>
+        <AppLink className={classes.Link} to="/">
+          Главная
+        </AppLink>
+        <AppLink className={classes.Link} to="/about">
+          О нас
+        </AppLink>
+        <AppLink className={classes.Link} to="/contacts">
+          Контакты
+        </AppLink>
       </ul>
     </nav>
   );
