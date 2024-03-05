@@ -49,7 +49,7 @@ const ProductList: FC<ProductsProps> = memo((props) => {
       ref={productsRef}
     >
       {
-        productList.length &&
+        productList &&
         productList.map((product) => (
           <ProductListItem product={product} key={product.id}/>
         ))
@@ -57,12 +57,12 @@ const ProductList: FC<ProductsProps> = memo((props) => {
       {
         isLoading && (
           <>
-          <Loader />
-          <Loader />
-          <Loader />
-          <Loader />
-          <Loader />
-          <Loader />
+            <div className={classes.LoaderWrapper}><Loader/></div>
+            <div className={classes.LoaderWrapper}><Loader/></div>
+            <div className={classes.LoaderWrapper}><Loader/></div>
+            <div className={classes.LoaderWrapper}><Loader/></div>
+            <div className={classes.LoaderWrapper}><Loader/></div>
+            <div className={classes.LoaderWrapper}><Loader/></div>
           </>
         )
       }

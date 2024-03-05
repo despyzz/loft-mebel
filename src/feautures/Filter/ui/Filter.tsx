@@ -1,6 +1,6 @@
 import classes from './Filter.module.scss';
 import "nouislider/distribute/nouislider.css";
-import {CategorySelector} from "./CaregorySelector";
+import {CategorySelector} from "./CategorySelector";
 import {PriceSlider} from "./PriceSlider";
 import {FC} from "react";
 import classNames from "classnames";

@@ -1,8 +1,8 @@
 import classes from './DesktopCatalog.module.scss';
 import AppContainer from "shared/ui/AppContainer/AppContainer";
 import {SortButton} from "widgets/SortButton";
-import {Filter} from "widgets/Filter";
 import {ProductList} from "entities/Product";
+import {Filter} from "feautures/Filter";
 
 const DesktopCatalog = () => {
   return (

@@ -52,7 +52,6 @@ const CategorySelector = () => {
   return (
     <div className={classes.CategorySelector}>
       <Selector/>
-      <Selector/>
     </div>
   );
 };

@@ -26,7 +26,7 @@ const Promo = ({className}: PromoProps) => {
             <h1 className={classes.Title}>
               Современная и удобная мебель
             </h1>
-            <AppLink className={classes.Catalog} to={"/"}>
+            <AppLink className={classes.Catalog} to={"/catalog"}>
               Смотреть каталог
             </AppLink>
           </div>
@@ -44,7 +44,7 @@ const Promo = ({className}: PromoProps) => {
             <h1 className={classes.Title}>
               Современная и удобная мебель
             </h1>
-            <AppLink className={classes.Catalog} to={"/"}>
+            <AppLink className={classes.Catalog} to={"/catalog"}>
               Смотреть каталог
             </AppLink>
           </div>

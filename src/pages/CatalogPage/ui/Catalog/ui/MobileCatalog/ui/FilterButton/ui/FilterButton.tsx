@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import AppButton from "shared/ui/AppButton/AppButton";
 import classes from './FilterButton.module.scss';
-import {Filter} from "widgets/Filter";
+import {Filter} from "feautures/Filter";
 
 const FilterButton = () => {
   const [filterCollapsed, setFilterCollapsed] = useState(true);
