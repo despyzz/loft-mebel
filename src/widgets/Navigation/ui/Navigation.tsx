@@ -93,7 +93,7 @@ const Navigation = memo(() => {
 
   // hidden items dropdown
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const onEtcClick = () => {
     if (dropdownVisible) {
@@ -111,6 +111,21 @@ const Navigation = memo(() => {
       setDropdownVisible(true);
     }
   }
+
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node))
+      setDropdownVisible(false);
+  }, [])
+
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [handleClickOutside]);
+
 
   if (error) {
     return (
