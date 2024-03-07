@@ -8,6 +8,7 @@ import {
   categoriesListActions,
   categoriesListReducer
 } from "./model/slices/categoriesListSlice";
+import type { Category } from "./model/types/category";
 import CategoryItem from "./ui/CategoryItem/CategoryItem";
 
 export {
@@ -18,4 +19,5 @@ export {
   getCategoryListIsLoading,
   getCategoryListError,
   getCategoryListData,
+  Category,
 }
