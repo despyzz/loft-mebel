@@ -1,5 +1,9 @@
+import { filterReducer } from "./model/slices/filterSlice";
+import type { FilterSchema } from "./model/types/filter";
 import Filter from "./ui/Filter";
 
 export {
-  Filter
+  Filter,
+  filterReducer,
+  FilterSchema
 }

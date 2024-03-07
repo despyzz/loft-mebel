@@ -10,6 +10,8 @@ import {ProductCommentsSchema} from "pages/ProductPage";
 import {AddCommentFormSchema} from "feautures/AddCommentForm";
 import {MainPageSchema} from "pages/MainPage";
 import {CategoryListSchema} from "entities/Category/model/types/category";
+import {FilterSchema} from "feautures/Filter/model/types/filter";
+import {SortSchema} from "feautures/Sort";
 
 export interface StateSchema {
   user: UserSchema;
@@ -21,6 +23,8 @@ export interface StateSchema {
   productComments?: ProductCommentsSchema,
   addCommentForm?: AddCommentFormSchema,
   categoryList?: CategoryListSchema,
+  filter?: FilterSchema,
+  sort?: SortSchema,
 
   mainPageProducts?: MainPageSchema
 }

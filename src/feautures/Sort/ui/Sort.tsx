@@ -1,9 +1,9 @@
-import SortIcon from "shared/assets/SortIcon.svg";
-import AppButton from "shared/ui/AppButton/AppButton";
-import classes from "./SortButton.module.scss";
+import SortIcon from "../../../shared/assets/SortIcon.svg";
+import AppButton from "../../../shared/ui/AppButton/AppButton";
+import classes from "./Sort.module.scss";
 import {useState} from "react";
 
-const SortButton = () => {
+const Sort = () => {
   const [sortCollapsed, setSortCollapsed] = useState(true);
   const toggleSortCollapsed = () => setSortCollapsed(prevState => !prevState);
 
@@ -34,4 +34,4 @@ const SortButton = () => {
   );
 };
 
-export default SortButton;
+export default Sort;

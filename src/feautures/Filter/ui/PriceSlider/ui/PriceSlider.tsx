@@ -1,56 +1,73 @@
-import React, {useState} from 'react';
 import Nouislider from "nouislider-react";
 import classes from "./PriceSlider.module.scss";
 import './Price.scss';
+import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import {filterActions, filterReducer} from "../../../model/slices/filterSlice";
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {useSelector} from "react-redux";
+import {getFilterPrice} from "../../../model/selectors/filterSelectors";
+import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
+import {memo} from "react";
 
-const PriceSlider = () => {
-  const startValue = 20000
-  const endValue = 80000
+const reducers: ReducerList = {
+  filter: filterReducer
+}
 
-  const [start, setStart] = useState(startValue);
-  const [end, setEnd] = useState(endValue);
+const PriceSlider = memo(() => {
+  const dispatch = useAppDispatch();
+
+  const {start, end} = useSelector(getFilterPrice);
 
   return (
-    <div className={classes.PriceSlider}>
-      <Nouislider
-        range={{min: 0, max: 100000}}
-        start={[start, end]}
-        step={1000}
-        connect
-        onChange={(values) => {
-          const [s, e] = values;
-          setStart(() => Math.ceil(s));
-          setEnd(() => Math.ceil(e));
-        }}
-      />
-      <div className={classes.PriceInputGroup}>
-        <label className={classes.PriceLabel}>
-          <input
-            className={classes.PriceInput}
-            type={"number"}
-            value={start}
-            onChange={(event) => {
-              setStart(() => Number(event.target.value))
-            }}
-          />
-        </label>
+    <DynamicModuleLoader reducers={reducers}>
+      <div className={classes.PriceSlider}>
+        <Nouislider
+          range={{min: 0, max: 100000}}
+          start={[start, end]}
+          step={1000}
+          connect
+          onChange={(values) => {
+            const [s, e] = values;
+            dispatch(filterActions.setPrice({
+              start: Math.ceil(s),
+              end: Math.ceil(e)
+            }))
+          }}
+        />
+        <div className={classes.PriceInputGroup}>
+          <label className={classes.PriceLabel}>
+            <input
+              className={classes.PriceInput}
+              type={"number"}
+              value={start}
+              onChange={(event) => {
+                dispatch(filterActions.setPrice({
+                  start: Number(event.target.value),
+                  end
+                }))
+              }}
+            />
+          </label>
 
-        <div className={classes.Separator}/>
+          <div className={classes.Separator}/>
 
-        <label className={classes.PriceLabel}>
-          <input
-            className={classes.PriceInput}
-            type={"number"}
-            value={end}
-            onChange={(event) => {
-              setEnd(() => Number(event.target.value))
-            }}
-          />
-        </label>
+          <label className={classes.PriceLabel}>
+            <input
+              className={classes.PriceInput}
+              type={"number"}
+              value={end}
+              onChange={(event) => {
+                dispatch(filterActions.setPrice({
+                  start,
+                  end: Number(event.target.value)
+                }))
+              }}
+            />
+          </label>
+        </div>
       </div>
-
-    </div>
+    </DynamicModuleLoader>
   );
-};
+});
 
 export default PriceSlider;
