@@ -113,7 +113,11 @@ const Navigation = memo(() => {
   }
 
   const handleClickOutside = useCallback((event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node))
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node) &&
+      !etcRef.current!.contains(event.target as Node)
+    )
       setDropdownVisible(false);
   }, [])
 
