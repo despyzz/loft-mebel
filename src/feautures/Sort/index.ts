@@ -1,6 +1,11 @@
-import type { SortSchema } from "./model/types/sort";
+import { getSortTypes } from "./model/selectors/sortSelectors";
+import { sortReducer } from "./model/slices/sortSlice";
+import type { SortSchema, SortTypes } from "./model/types/sort";
 import Sort from "./ui/Sort";
 export {
   Sort,
-  SortSchema
+  SortSchema,
+  SortTypes,
+  sortReducer,
+  getSortTypes
 }

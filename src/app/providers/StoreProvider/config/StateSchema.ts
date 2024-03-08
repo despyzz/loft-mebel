@@ -5,7 +5,7 @@ import {ReducerManager} from "./reducerManager";
 import {ProfileSchema} from "entities/Profile";
 import {AxiosInstance} from "axios";
 import {NavigateOptions, To} from "react-router-dom";
-import {ProductDetailsSchema} from "entities/Product";
+import {ProductDetailsSchema, ProductsSchema} from "entities/Product";
 import {ProductCommentsSchema} from "pages/ProductPage";
 import {AddCommentFormSchema} from "feautures/AddCommentForm";
 import {MainPageSchema} from "pages/MainPage";
@@ -25,6 +25,7 @@ export interface StateSchema {
   categoryList?: CategoryListSchema,
   filter?: FilterSchema,
   sort?: SortSchema,
+  products?: ProductsSchema,
 
   mainPageProducts?: MainPageSchema
 }

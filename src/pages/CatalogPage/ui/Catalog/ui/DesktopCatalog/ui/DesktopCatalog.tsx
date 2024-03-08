@@ -1,21 +1,39 @@
 import classes from './DesktopCatalog.module.scss';
 import AppContainer from "shared/ui/AppContainer/AppContainer";
-import {ProductList} from "entities/Product";
-import {Filter} from "feautures/Filter";
-import {Sort} from "feautures/Sort";
+import {Filter, filterReducer, getFilterCategory, getFilterPrice} from "feautures/Filter";
+import {getSortTypes, Sort, sortReducer} from "feautures/Sort";
 import {memo} from "react";
+import Products from "entities/Product/ui/Products/Products";
+import DynamicModuleLoader, {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import {productsReducer} from "entities/Product/model/slice/productsSlice";
+import {useSelector} from "react-redux";
+
+const reducers: ReducerList = {
+  sort: sortReducer,
+  filter: filterReducer,
+  products: productsReducer
+}
 
 const DesktopCatalog = memo(() => {
+  const sortType = useSelector(getSortTypes);
+  const category = useSelector(getFilterCategory)
+  const {start , end} = useSelector(getFilterPrice);
+
   return (
-    <div>
+    <DynamicModuleLoader reducers={reducers}>
       <AppContainer className={classes.Catalog}>
         <Filter />
         <div className={classes.Group}>
           <Sort />
-          <ProductList className={classes.Products}/>
+          <Products
+            category={category}
+            sortType={sortType}
+            priceStart={start}
+            priceEnd={end}
+          />
         </div>
       </AppContainer>
-    </div>
+    </DynamicModuleLoader>
   );
 });
 

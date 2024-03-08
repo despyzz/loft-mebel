@@ -1,6 +1,6 @@
 import classes from './CategorySelector.module.scss'
 import classNames from "classnames";
-import {memo, useRef, useState} from "react";
+import {memo, useEffect, useRef, useState} from "react";
 import {categoriesListReducer, Category, getCategoryListData, getCategoryListError} from "entities/Category";
 import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
 import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
@@ -23,6 +23,9 @@ const CategorySelector = memo((props: CategorySelectorProps) => {
   const {className} = props;
   const dispatch = useAppDispatch();
 
+  const [active, setActive] = useState(false);
+  const toggleActive = () => setActive(prevState => !prevState);
+
   // get categories
   const categoriesData = useSelector(getCategoryListData);
   const categoriesIsLoading = useSelector(getCategoryListError);
@@ -31,29 +34,23 @@ const CategorySelector = memo((props: CategorySelectorProps) => {
   const onCategoryClick = (category: Category) => {
     return () => {
       dispatch(filterActions.setCategory(category))
-      setActive(false)
-
-      console.log(category);
     }
   }
 
-  const [active, setActive] = useState(false);
-  const toggleActive = () => setActive(prevState => !prevState);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node))
+        setActive(false);
+    };
 
-  const selectorRef = useRef(null);
+    document.addEventListener('mousedown', handleClickOutside);
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event: MouseEvent) => {
-  //     if (selectorRef.current && event.target !== selectorRef.current)
-  //       setActive(false);
-  //   };
-  //
-  //   document.addEventListener('mousedown', handleClickOutside);
-  //
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleClickOutside);
-  //   };
-  // }, []);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
 
   if (categoriesIsLoading) {
     return <Loader/>
@@ -69,24 +66,25 @@ const CategorySelector = memo((props: CategorySelectorProps) => {
         <div
           className={classes.Selector}
           onClick={toggleActive}
-          ref={selectorRef}
         >
-          <div className={classes.Title}>Категория</div>
-          {
-            active &&
-            <div className={classes.Dropdown}>
-              {
-                categoriesData.map((category) => (
-                  <AppButton
-                    key={category.id}
-                    onClick={onCategoryClick(category)}
-                  >
-                    {category.name}
-                  </AppButton>
-                ))
-              }
-            </div>
-          }
+          <AppButton className={classes.Title}>
+            <p>Категория</p>
+            {
+              active &&
+              <div ref={dropdownRef} className={classes.Dropdown}>
+                {
+                  categoriesData.map((category) => (
+                    <p
+                      key={category.id}
+                      onClick={onCategoryClick(category)}
+                    >
+                      {category.name}
+                    </p>
+                  ))
+                }
+              </div>
+            }
+          </AppButton>
         </div>
       </div>
     </DynamicModuleLoader>

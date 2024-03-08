@@ -8,8 +8,8 @@ const initialState: FilterSchema = {
   error: undefined,
   data: {
     price: {
-      start: 20000,
-      end: 80000
+      start: 0,
+      end: 100000
     },
     category: undefined
   }

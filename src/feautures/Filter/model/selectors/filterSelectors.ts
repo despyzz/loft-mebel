@@ -14,8 +14,8 @@ export const getFilterData = (state: StateSchema) => {
 
 export const getFilterPrice = (state: StateSchema) => {
   return state.filter?.data.price ?? {
-    start: 20000,
-    end: 80000
+    start: 0,
+    end: 100000
   }
 }
 

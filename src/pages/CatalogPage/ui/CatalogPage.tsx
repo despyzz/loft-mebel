@@ -4,8 +4,6 @@ import {Navigation} from "widgets/Navigation";
 import {Page} from "widgets/Page";
 
 const CatalogPage = () => {
-
-
   return (
     <Page className={classes.CatalogPage}>
       <Navigation />
