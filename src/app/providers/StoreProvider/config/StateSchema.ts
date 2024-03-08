@@ -12,20 +12,22 @@ import {MainPageSchema} from "pages/MainPage";
 import {CategoryListSchema} from "entities/Category/model/types/category";
 import {FilterSchema} from "feautures/Filter/model/types/filter";
 import {SortSchema} from "feautures/Sort";
+import {SearchSchema} from "../../../../feautures/Search/model/types/search";
 
 export interface StateSchema {
-  user: UserSchema;
+  user: UserSchema
+  search: SearchSchema
 
   // async reducers
-  loginForm?: LoginSchema,
-  profile?: ProfileSchema,
-  productDetails?: ProductDetailsSchema,
-  productComments?: ProductCommentsSchema,
-  addCommentForm?: AddCommentFormSchema,
-  categoryList?: CategoryListSchema,
-  filter?: FilterSchema,
-  sort?: SortSchema,
-  products?: ProductsSchema,
+  loginForm?: LoginSchema
+  profile?: ProfileSchema
+  productDetails?: ProductDetailsSchema
+  productComments?: ProductCommentsSchema
+  addCommentForm?: AddCommentFormSchema
+  categoryList?: CategoryListSchema
+  filter?: FilterSchema
+  sort?: SortSchema
+  products?: ProductsSchema
 
   mainPageProducts?: MainPageSchema
 }

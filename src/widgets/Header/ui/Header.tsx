@@ -5,7 +5,6 @@ import AppContainer from "shared/ui/AppContainer/AppContainer";
 import Menu from "./Menu";
 import Logo from "shared/ui/Logo";
 import Nav from "./Nav";
-import Search from "shared/ui/Search";
 import Contact from "./Contact";
 import Delivery from "./Delivery";
 import UserBar from "./UserBar";
@@ -20,6 +19,7 @@ import {
 } from "entities/Category";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {useSelector} from "react-redux";
+import {SearchInput} from "feautures/Search";
 
 const reducers: ReducerList = {
   categoryList: categoriesListReducer
@@ -50,7 +50,7 @@ const Header: FC<HeaderProps> = ({className}: HeaderProps) => {
             />
             <Logo className={classes.Logo}/>
             <Nav className={classes.Nav}/>
-            <Search className={classes.Search}/>
+            <SearchInput className={classes.Search}/>
             <Contact className={classes.Contact}/>
             <Delivery className={classes.Delivery}/>
             <UserBar className={classes.UserBar}/>

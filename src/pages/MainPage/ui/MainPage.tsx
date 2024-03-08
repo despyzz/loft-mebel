@@ -12,7 +12,12 @@ import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {fetchMainPageProducts} from "../model/services/fetchMainPageProducts/fetchMainPageProducts";
 import {Page} from "widgets/Page";
-import {getMainPageProductsHasMore, getMainPageProductsIsLoading, getMainPageProductsPage} from "../model/selectors/mainPgeProductsSelectors";
+import {
+  getMainPageProductsError,
+  getMainPageProductsHasMore,
+  getMainPageProductsIsLoading,
+  getMainPageProductsPage
+} from "../model/selectors/mainPgeProductsSelectors";
 import AppButton from "shared/ui/AppButton/AppButton";
 
 const reducers: ReducerList = {
@@ -34,16 +39,17 @@ const MainPage = () => {
   const page = useSelector(getMainPageProductsPage);
   const isLoading = useSelector(getMainPageProductsIsLoading);
   const hasMore = useSelector(getMainPageProductsHasMore);
+  const error = useSelector(getMainPageProductsError)
 
   const onLoadNextPart = useCallback(() => {
     const newPage = page + 1;
-    if (hasMore && !isLoading) {
+    if (hasMore && !isLoading && !error) {
       dispatch(mainPageActions.setPage(newPage))
       dispatch(fetchMainPageProducts({
         page: newPage
       }))
     }
-  }, [dispatch, page, hasMore, isLoading]);
+  }, [dispatch, page, hasMore, isLoading, error]);
 
   useEffect(() => {
     dispatch(fetchMainPageProducts({page: 1}));

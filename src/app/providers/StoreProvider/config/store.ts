@@ -3,6 +3,7 @@ import {StateSchema, ThunkExtraArg} from "./StateSchema";
 import {userReducer} from "entities/User";
 import {createReducerManager} from "./reducerManager";
 import {$api} from "shared/api/api";
+import {searchReducer} from "feautures/Search";
 
 const createReduxStore = (
   initialState?: StateSchema,
@@ -12,6 +13,7 @@ const createReduxStore = (
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer,
+    search: searchReducer
   }
 
   const reducerManager = createReducerManager(rootReducers);
