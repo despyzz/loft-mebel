@@ -1,5 +1,11 @@
 import {StateSchema} from "app/providers/StoreProvider";
+import {createSelector} from "reselect";
 
-export const getProductsData = (state: StateSchema) => {
+const getProductsDataState = (state: StateSchema) => {
   return state.products?.data ?? []
 }
+
+export const getProductsData = createSelector(
+  getProductsDataState,
+  (data) => data
+);
