@@ -5,7 +5,7 @@ import {Navigation} from "widgets/Navigation";
 import {useCallback, useEffect} from "react";
 import {useSelector} from "react-redux";
 import {getUserAuthData, userActions} from "entities/User";
-import {ProductList} from "entities/Product";
+import { Products} from "entities/Product";
 import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {getMainPageProducts, mainPageActions, mainPageReducer} from "../model/slices/mainPageSlice";
 import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
@@ -34,29 +34,8 @@ const MainPage = () => {
     dispatch(userActions.logout())
   }, [dispatch])
 
-  // products list
-  const products = useSelector(getMainPageProducts.selectAll);
-  const page = useSelector(getMainPageProductsPage);
-  const isLoading = useSelector(getMainPageProductsIsLoading);
-  const hasMore = useSelector(getMainPageProductsHasMore);
-  const error = useSelector(getMainPageProductsError)
-
-  const onLoadNextPart = useCallback(() => {
-    const newPage = page + 1;
-    if (hasMore && !isLoading && !error) {
-      dispatch(mainPageActions.setPage(newPage))
-      dispatch(fetchMainPageProducts({
-        page: newPage
-      }))
-    }
-  }, [dispatch, page, hasMore, isLoading, error]);
-
-  useEffect(() => {
-    dispatch(fetchMainPageProducts({page: 1}));
-  }, [dispatch]);
-
   return (
-    <Page onScrollEnd={onLoadNextPart}>
+    <Page>
       <DynamicModuleLoader reducers={reducers}>
         <div className={classes.MainPage}>
           {
@@ -73,10 +52,7 @@ const MainPage = () => {
           <Navigation/>
           <Promo/>
           <AppContainer>
-            <ProductList
-              isLoading={isLoading}
-              productList={products}
-            />
+            <Products/>
           </AppContainer>
         </div>
       </DynamicModuleLoader>
