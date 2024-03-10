@@ -8,7 +8,6 @@ import {NavigateOptions, To} from "react-router-dom";
 import {ProductDetailsSchema, ProductsSchema} from "entities/Product";
 import {ProductCommentsSchema} from "pages/ProductPage";
 import {AddCommentFormSchema} from "feautures/AddCommentForm";
-import {MainPageSchema} from "pages/MainPage";
 import {CategoryListSchema} from "entities/Category/model/types/category";
 import {FilterSchema} from "feautures/Filter/model/types/filter";
 import {SortSchema} from "feautures/Sort";
@@ -28,8 +27,6 @@ export interface StateSchema {
   filter?: FilterSchema
   sort?: SortSchema
   products?: ProductsSchema
-
-  mainPageProducts?: MainPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

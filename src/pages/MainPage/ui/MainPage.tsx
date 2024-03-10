@@ -5,17 +5,10 @@ import {Navigation} from "widgets/Navigation";
 import {useCallback} from "react";
 import {useSelector} from "react-redux";
 import {getUserAuthData, userActions} from "entities/User";
-import { Products} from "entities/Product";
-import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {mainPageReducer} from "../model/slices/mainPageSlice";
-import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
+import {Products} from "entities/Product";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {Page} from "widgets/Page";
 import AppButton from "shared/ui/AppButton/AppButton";
-
-const reducers: ReducerList = {
-  mainPageProducts: mainPageReducer,
-}
 
 const MainPage = () => {
   const dispatch = useAppDispatch();
@@ -29,26 +22,24 @@ const MainPage = () => {
 
   return (
     <Page>
-      <DynamicModuleLoader reducers={reducers}>
-        <div className={classes.MainPage}>
-          {
-            authData &&
-            <AppContainer>
-              <AppButton
-                style={{border: "1px solid grey", padding: "15px", color: "grey", fontSize: "16px"}}
-                onClick={onLogout}
-              >
-                LOGOUT
-              </AppButton>
-            </AppContainer>
-          }
-          <Navigation/>
-          <Promo/>
+      <div className={classes.MainPage}>
+        {
+          authData &&
           <AppContainer>
-            <Products/>
+            <AppButton
+              style={{border: "1px solid grey", padding: "15px", color: "grey", fontSize: "16px"}}
+              onClick={onLogout}
+            >
+              LOGOUT
+            </AppButton>
           </AppContainer>
-        </div>
-      </DynamicModuleLoader>
+        }
+        <Navigation/>
+        <Promo/>
+        <AppContainer>
+          <Products/>
+        </AppContainer>
+      </div>
     </Page>
   );
 }
