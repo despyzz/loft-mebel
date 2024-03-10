@@ -2,7 +2,7 @@ import classes from './MainPage.module.scss';
 import {Promo} from "widgets/Promo"
 import AppContainer from "shared/ui/AppContainer/AppContainer";
 import {Navigation} from "widgets/Navigation";
-import {useCallback, useEffect} from "react";
+import {useCallback} from "react";
 import {useSelector} from "react-redux";
 import {getUserAuthData, userActions} from "entities/User";
 import { Products} from "entities/Product";
