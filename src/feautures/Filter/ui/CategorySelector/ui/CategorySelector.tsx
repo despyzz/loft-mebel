@@ -9,6 +9,7 @@ import Loader from "widgets/Loader";
 import AppButton from "shared/ui/AppButton/AppButton";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {filterActions, filterReducer} from "../../../model/slices/filterSlice";
+import {getFilterCategory} from "../../../model/selectors/filterSelectors";
 
 interface CategorySelectorProps {
   className?: string;
@@ -31,6 +32,8 @@ const CategorySelector = memo((props: CategorySelectorProps) => {
   const categoriesIsLoading = useSelector(getCategoryListError);
   const categoriesError = useSelector(getCategoryListError);
 
+  const currentCategory = useSelector(getFilterCategory);
+
   const onCategoryClick = (category: Category) => {
     return () => {
       dispatch(filterActions.setCategory(category))
@@ -38,9 +41,15 @@ const CategorySelector = memo((props: CategorySelectorProps) => {
   }
 
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const toggleDropdownRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node))
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node) &&
+        toggleDropdownRef.current &&
+        !toggleDropdownRef.current.contains((event.target as Node))
+      )
         setActive(false);
     };
 
@@ -66,9 +75,14 @@ const CategorySelector = memo((props: CategorySelectorProps) => {
         <div
           className={classes.Selector}
           onClick={toggleActive}
+          ref={toggleDropdownRef}
         >
           <AppButton className={classes.Title}>
-            <p>Категория</p>
+            <p>
+              {
+                currentCategory ? currentCategory.name : "Категория"
+              }
+            </p>
             {
               active &&
               <div ref={dropdownRef} className={classes.Dropdown}>
