@@ -9,6 +9,7 @@ import {filterReducer, getFilterCategory, getFilterPrice} from "feautures/Filter
 import {useSelector} from "react-redux";
 import {Products} from "entities/Product";
 import {productsReducer} from "entities/Product/model/slice/productsSlice";
+import {getSearchValue} from "feautures/Search/model/selectors/searchSelectors";
 
 const reducers: ReducerList = {
   sort: sortReducer,
@@ -20,6 +21,7 @@ const MobileCatalog = memo(() => {
   const sortType = useSelector(getSortTypes);
   const category = useSelector(getFilterCategory)
   const {start , end} = useSelector(getFilterPrice);
+  const search = useSelector(getSearchValue);
 
   return (
     <DynamicModuleLoader reducers={reducers}>
@@ -33,6 +35,7 @@ const MobileCatalog = memo(() => {
           sortType={sortType}
           priceStart={start}
           priceEnd={end}
+          search={search}
         />
       </AppContainer>
     </DynamicModuleLoader>

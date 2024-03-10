@@ -7,6 +7,7 @@ import Products from "entities/Product/ui/Products/Products";
 import DynamicModuleLoader, {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {productsReducer} from "entities/Product/model/slice/productsSlice";
 import {useSelector} from "react-redux";
+import {getSearchValue} from "feautures/Search/model/selectors/searchSelectors";
 
 const reducers: ReducerList = {
   sort: sortReducer,
@@ -18,6 +19,7 @@ const DesktopCatalog = memo(() => {
   const sortType = useSelector(getSortTypes);
   const category = useSelector(getFilterCategory)
   const {start , end} = useSelector(getFilterPrice);
+  const search = useSelector(getSearchValue);
 
   return (
     <DynamicModuleLoader reducers={reducers}>
@@ -30,6 +32,7 @@ const DesktopCatalog = memo(() => {
             sortType={sortType}
             priceStart={start}
             priceEnd={end}
+            search={search}
           />
         </div>
       </AppContainer>
