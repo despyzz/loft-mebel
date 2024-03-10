@@ -31,7 +31,6 @@ export const fetchProducts = createAsyncThunk<Array<Product>, fetchProductsProps
       priceEnd,
       page = 1,
       search,
-      replace
     } = props;
     const limit = getProductsLimit(getState())
 
