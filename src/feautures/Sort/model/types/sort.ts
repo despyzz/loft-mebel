@@ -1,11 +1,10 @@
 export enum SortTypes {
   descending,
   ascending,
-  popularity
 }
 
 export interface Sort {
-  type: SortTypes
+  type?: SortTypes
 }
 
 export interface SortSchema {

@@ -7,15 +7,25 @@ import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
 import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {sortActions, sortReducer} from "../model/slices/sortSlice";
 import {useAppDispatch} from "../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {useSelector} from "react-redux";
+import {getSortTypes} from "../model/selectors/sortSelectors";
 
 const reducers: ReducerList = {
   sort: sortReducer
 }
 
+const sortTypeNames = [
+  'по убыванию цены',
+  'по возрастанию цены',
+]
+
 const Sort = memo(() => {
   const dispatch = useAppDispatch();
   const [sortCollapsed, setSortCollapsed] = useState(true);
   const toggleSortCollapsed = () => setSortCollapsed(prevState => !prevState);
+
+  const sortType = useSelector(getSortTypes);
+  const sortTypeName = sortType !== undefined ? sortTypeNames[sortType] : undefined
 
   const setSortType = (type: SortTypes) => {
     return () => {
@@ -29,7 +39,11 @@ const Sort = memo(() => {
         className={classes.SortButton}
         onClick={toggleSortCollapsed}
       >
-        <p>Сортировать</p>
+        <p>
+          {
+            sortTypeName ? sortTypeName : "Сортировать"
+          }
+        </p>
         <img src={SortIcon} alt=""/>
 
         {
@@ -40,9 +54,6 @@ const Sort = memo(() => {
             </p>
             <p onClick={setSortType(SortTypes.ascending)}>
               по возрастанию цены
-            </p>
-            <p onClick={setSortType(SortTypes.popularity)}>
-              по популярности
             </p>
           </div>
         }

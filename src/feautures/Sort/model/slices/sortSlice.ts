@@ -6,7 +6,7 @@ const initialState: SortSchema = {
   isLoading: false,
   error: undefined,
   data: {
-    type: SortTypes.popularity
+    type: undefined
   }
 }
 
@@ -15,7 +15,8 @@ export const sortSlice = createSlice({
   initialState,
   reducers: {
     setType: (state, action: PayloadAction<SortTypes>) => {
-      state.data.type = action.payload;
+      if (state.data)
+        state.data.type = action.payload;
     }
   },
 })
