@@ -1,7 +1,7 @@
 import SortIcon from "shared/assets/SortIcon.svg";
 import AppButton from "shared/ui/AppButton/AppButton";
 import classes from "./Sort.module.scss";
-import {memo, useState} from "react";
+import {memo, useEffect, useRef, useState} from "react";
 import {SortTypes} from "../model/types/sort";
 import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
 import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
@@ -33,22 +33,48 @@ const Sort = memo(() => {
     }
   }
 
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  const toggleDropdownRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node) &&
+        toggleDropdownRef.current &&
+        !toggleDropdownRef.current.contains((event.target as Node))
+      ) {
+        setSortCollapsed(true);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <DynamicModuleLoader reducers={reducers}>
       <AppButton
         className={classes.SortButton}
-        onClick={toggleSortCollapsed}
       >
-        <p>
-          {
-            sortTypeName ? sortTypeName : "Сортировать"
-          }
-        </p>
-        <img src={SortIcon} alt=""/>
-
+        <div
+          className={classes.SortButtonContent}
+          onClick={toggleSortCollapsed}
+          ref={toggleDropdownRef}
+        >
+          <p
+          >
+            {
+              sortTypeName ? sortTypeName : "Сортировать"
+            }
+          </p>
+          <img src={SortIcon} alt=""/>
+        </div>
         {
           !sortCollapsed &&
-          <div className={classes.Dropdown}>
+          <div className={classes.Dropdown} ref={dropdownRef}>
             <p onClick={setSortType(SortTypes.descending)}>
               по убыванию цены
             </p>

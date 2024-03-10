@@ -1,16 +1,17 @@
 .SortButton {
+  font-size: 12px;
+  position: relative;
+}
+
+.SortButtonContent {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
-
   text-align: right;
   padding: 13px 0;
-  font-size: 12px;
   font-weight: 400;
   color: var(--text-color);
-
-  position: relative;
 }
 
 .Dropdown {
