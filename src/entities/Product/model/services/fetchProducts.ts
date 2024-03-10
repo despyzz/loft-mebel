@@ -3,12 +3,16 @@ import {ThunkConfig} from "app/providers/StoreProvider";
 import {Category} from "entities/Category";
 import {Product} from "../types/product";
 import {SortTypes} from "feautures/Sort/model/types/sort";
+import {getProductsLimit} from "../selectors/productsSelectors";
 
 interface fetchProductsProps {
   category?: Category
   sortType?: SortTypes
   priceStart?: number
   priceEnd?: number
+  page?: number
+  search?: string
+  replace?: boolean
 }
 
 export const fetchProducts = createAsyncThunk<Array<Product>, fetchProductsProps, ThunkConfig<string>>(
@@ -16,27 +20,35 @@ export const fetchProducts = createAsyncThunk<Array<Product>, fetchProductsProps
   async (props, thunkAPI) => {
     const {
       extra,
-      rejectWithValue
+      rejectWithValue,
+      getState
     } = thunkAPI;
 
     const {
       category,
       sortType,
       priceStart,
-      priceEnd
+      priceEnd,
+      page = 1,
+      search,
+      replace
     } = props;
+    const limit = getProductsLimit(getState())
 
     try {
       const response = await extra.api.get<Array<Product>>('/products', {
-          params: {
-            categoryId: category?.id,
-            price_gte: priceStart,
-            price_lte: priceEnd,
-            _sort: sortType ? 'price' : undefined,
-            _order: sortType ? SortTypes[sortType] : undefined,
-          }
-        })
-      ;
+        params: {
+          categoryId: category?.id,
+          price_gte: priceStart,
+          price_lte: priceEnd,
+          _sort: sortType !== undefined ? 'price' : undefined,
+          _order: sortType !== undefined ? SortTypes[sortType] : undefined,
+          _expand: "category",
+          q: search,
+          _limit: limit,
+          _page: page,
+        }
+      });
 
       if (!response.data) {
         // noinspection ExceptionCaughtLocallyJS

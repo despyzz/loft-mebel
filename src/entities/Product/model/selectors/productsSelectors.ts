@@ -1,11 +1,21 @@
 import {StateSchema} from "app/providers/StoreProvider";
-import {createSelector} from "reselect";
 
-const getProductsDataState = (state: StateSchema) => {
-  return state.products?.data ?? []
+export const getProductsPage = (state: StateSchema) => {
+  return state.products?.page || 1;
 }
 
-export const getProductsData = createSelector(
-  getProductsDataState,
-  (data) => data
-);
+export const getProductsLimit = (state: StateSchema) => {
+  return state.products?.limit;
+}
+
+export const getProductsHasMore = (state: StateSchema) => {
+  return state.products?.hasMore;
+}
+
+export const getProductsError = (state: StateSchema) => {
+  return state.products?.error;
+}
+
+export const getProductsIsLoading = (state: StateSchema) => {
+  return state.products?.isLoading || false;
+}
