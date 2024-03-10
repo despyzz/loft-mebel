@@ -30,6 +30,7 @@ const Sort = memo(() => {
   const setSortType = (type: SortTypes) => {
     return () => {
       dispatch(sortActions.setType(type));
+      setSortCollapsed(true);
     }
   }
 
