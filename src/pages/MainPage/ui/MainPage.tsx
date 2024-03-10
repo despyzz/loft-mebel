@@ -7,17 +7,10 @@ import {useSelector} from "react-redux";
 import {getUserAuthData, userActions} from "entities/User";
 import { Products} from "entities/Product";
 import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {getMainPageProducts, mainPageActions, mainPageReducer} from "../model/slices/mainPageSlice";
+import {mainPageReducer} from "../model/slices/mainPageSlice";
 import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {fetchMainPageProducts} from "../model/services/fetchMainPageProducts/fetchMainPageProducts";
 import {Page} from "widgets/Page";
-import {
-  getMainPageProductsError,
-  getMainPageProductsHasMore,
-  getMainPageProductsIsLoading,
-  getMainPageProductsPage
-} from "../model/selectors/mainPgeProductsSelectors";
 import AppButton from "shared/ui/AppButton/AppButton";
 
 const reducers: ReducerList = {
