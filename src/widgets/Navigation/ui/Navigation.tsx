@@ -156,6 +156,7 @@ const Navigation = memo(() => {
           categories && categories.map((category) => (
             <CategoryItem
               className={classNames(classes.Item, classes.Hidden)}
+              iconWrapperClassname={classes.IconWrapper}
               category={category}
               key={category.id}
             />

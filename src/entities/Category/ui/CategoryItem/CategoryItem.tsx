@@ -7,12 +7,14 @@ import SaleIcon from 'shared/assets/categories/SaleIcon.svg'
 
 interface CategoryItemProps {
   className?: string;
+  iconWrapperClassname?: string;
   category: Category
 }
 
 const CategoryItem = memo((props: CategoryItemProps) => {
   const {
     className,
+    iconWrapperClassname,
     category
   } = props;
 
@@ -23,12 +25,15 @@ const CategoryItem = memo((props: CategoryItemProps) => {
       className={classNames(className, classes.Category)}
       to={`/catalog/${url}`}
     >
-      <img
-        className={classes.CategoryIcon}
-        // src={icon}
-        src={SaleIcon}
-        alt={`Иконка категории: ${name}`}
-      />
+      <div className={iconWrapperClassname}>
+        <img
+          className={classes.CategoryIcon}
+          // src={icon}
+          src={SaleIcon}
+          alt={`Иконка категории: ${name}`}
+        />
+      </div>
+
       <span className={classes.CategoryName}>
         {name}
       </span>
