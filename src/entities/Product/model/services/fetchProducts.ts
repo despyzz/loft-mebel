@@ -27,37 +27,16 @@ export const fetchProducts = createAsyncThunk<Array<Product>, fetchProductsProps
     } = props;
 
     try {
-      const mods: string[] = [];
-
-      if (category) {
-        mods.push(`categoryId=${category.id}`);
-      }
-
-      if (priceStart) {
-        mods.push(`price_gte=${priceStart}`);
-      }
-
-      if (priceEnd) {
-        mods.push(`price_lte=${priceEnd}`);
-      }
-
-      switch (sortType) {
-
-        case SortTypes.descending:
-          mods.push(`_sort=price&_order=desc`);
-          break;
-
-        case SortTypes.ascending:
-          mods.push(`_sort=price&_order=asc`);
-          break;
-
-        default:
-          break;
-      }
-
-      const responseUrl = '/products' + '?' + mods.join('&');
-
-      const response = await extra.api.get<Array<Product>>(responseUrl);
+      const response = await extra.api.get<Array<Product>>('/products', {
+          params: {
+            categoryId: category?.id,
+            price_gte: priceStart,
+            price_lte: priceEnd,
+            _sort: sortType ? 'price' : undefined,
+            _order: sortType ? SortTypes[sortType] : undefined,
+          }
+        })
+      ;
 
       if (!response.data) {
         // noinspection ExceptionCaughtLocallyJS
