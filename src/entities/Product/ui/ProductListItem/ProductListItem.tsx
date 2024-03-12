@@ -24,7 +24,6 @@ const ProductListItem = memo((props: ProductCardProps) => {
   const photo = product.photos[0] || "";
   const category = "категория";
   const price = product.price;
-  const {width, depth, height} = product.sizes;
 
   const onAddToWishlist = useCallback((event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -77,31 +76,6 @@ const ProductListItem = memo((props: ProductCardProps) => {
           </div>
 
           <div className={classes.Hidden}>
-
-            <div className={classes.Block}>
-              <div className={classes.BlockName}>
-                Размеры
-              </div>
-
-              <div className={classes.Sizes}>
-                <div className={classes.Width}>
-                  {width}см
-                </div>
-
-                <div className={classes.SizesSeparator}/>
-
-                <div className={classes.Depth}>
-                  {depth}см
-                </div>
-
-                <div className={classes.SizesSeparator}/>
-
-                <div className={classes.Height}>
-                  {height}см
-                </div>
-              </div>
-            </div>
-
             <div className={classes.Block}>
               <AppButton
                 className={classes.AddToCartBtn}

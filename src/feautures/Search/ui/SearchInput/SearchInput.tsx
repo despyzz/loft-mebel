@@ -6,6 +6,7 @@ import {ChangeEventHandler, memo, useCallback} from "react";
 import {searchActions} from "../../model/slices/SearchSlice";
 import {useSelector} from "react-redux";
 import {getSearchValue} from "../../model/selectors/searchSelectors";
+// import useDebounce from "shared/lib/hooks/useDebounce/useDebounce";
 
 interface SearchProps {
   className?: string
@@ -14,6 +15,10 @@ interface SearchProps {
 const SearchInput = memo(({className}: SearchProps) => {
   const dispatch = useAppDispatch();
   const inputValue = useSelector(getSearchValue);
+
+  // const debouncedOnInputChange = useDebounce((value: string) => {
+  //   dispatch(searchActions.setValue(value));
+  // }, 2000);
 
   const onInputChange: ChangeEventHandler<HTMLInputElement> = useCallback((event) => {
     const value = event.target.value;

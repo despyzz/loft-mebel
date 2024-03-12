@@ -1,0 +1,45 @@
+@import "shared/config/scss/mixins";
+@import "shared/config/scss/vars";
+
+.ProductDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.Group {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @include media(1000px) {
+    flex-direction: row;
+  }
+}
+
+.Photos {
+  flex: 13;
+}
+
+.Info {
+  flex: 9;
+}
+
+.Switcher {
+  display: flex;
+  gap: clamp(20px, 6.25vw, 50px)
+}
+
+.Button {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Active::after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: var(--main-color);
+}

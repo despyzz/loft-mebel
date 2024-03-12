@@ -1,0 +1,49 @@
+.Characteristics {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.Title {
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.List {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Item {
+  display: flex;
+  gap: 10px;
+  align-items: start;
+
+  .Group {
+    display: flex;
+    gap: 10px;
+    flex: 5;
+    align-items: end;
+    height: fit-content;
+  }
+
+  .Name,
+  .Value {
+    font-size: 14px;
+    color: #686868;
+  }
+
+  .Dots {
+    flex: 1;
+    height: 0;
+    border-bottom: 2px dotted #686868;
+    margin-bottom: 5px;
+  }
+
+  .Value {
+    flex: 3;
+    width: 100%;
+  }
+}

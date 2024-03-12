@@ -1,3 +1,5 @@
+import {Category} from "entities/Category";
+
 export interface Product {
   id: string;
   name: string;
@@ -6,6 +8,7 @@ export interface Product {
   rating: number;
   price: number;
   categoryId: string;
+  category: Category;
   characteristics: Array<{
     name: string,
     value: string

@@ -1,0 +1,79 @@
+.Photos {
+  display: flex;
+  flex-direction: column;
+}
+
+.MainWrapper {
+  width: 100%;
+
+  .Main {
+    aspect-ratio: 270 / 157;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.Thumbnails {
+  position: relative;
+  height: clamp(60px, 20vw, 90px);
+  padding: 0 clamp(12px, 4vw ,30px);
+}
+
+.Wrapper {
+  overflow-x: auto;
+  width: fit-content;
+  display: flex;
+  height: 100%;
+  padding: 0 2px;
+
+  // отключение полосы прокрутки
+  -ms-overflow-style: none; /* Для IE */
+  scrollbar-width: none; /* Для Firefox */
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+.ThumbnailsPhotos {
+  display: flex;
+  width: fit-content;
+  gap: 7px;
+}
+
+.ThumbnailWrapper {
+  height: calc(100% - 4px);
+  flex-shrink: 0;
+  background: #fff;
+
+  .Thumbnail {
+    height: 100%;
+    aspect-ratio: 83 / 63;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.Active {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+}
+
+.Button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(12px, 4vw ,30px);
+  height: 100%;
+  top: 0;
+}
+
+.Prev {
+  left: 0;
+}
+
+.Next {
+  right: 0;
+  rotate: 180deg;
+}

@@ -7,22 +7,18 @@
   gap: 8px;
   width: 100%;
   margin-bottom: 140px;
-
-  @include media($tablet) {
-    gap: 20px;
-  }
 }
 
 .ProductsMobile > * {
-  width: calc(50% - 10px);
+  width: calc(50% - 4px);
 }
 
 .ProductsTablet > * {
-  width: calc(33.33% - 14px);
+  width: calc(33.33% - 6px);
 }
 
 .ProductsDesktop > * {
-  width: calc(25% - 20px);
+  width: calc(25% - 6px);
 }
 
 .LoaderWrapper {

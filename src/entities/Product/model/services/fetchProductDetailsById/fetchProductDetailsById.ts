@@ -11,7 +11,11 @@ export const fetchProductDetailsById = createAsyncThunk<Product, string, ThunkCo
     } = thunkAPI;
 
     try {
-      const response = await extra.api.get<Product>(`/products/${productId}`);
+      const response = await extra.api.get<Product>(`/products/${productId}`, {
+        params: {
+          _expand: "category"
+        }
+      });
 
       if (!response.data) {
         // noinspection ExceptionCaughtLocallyJS

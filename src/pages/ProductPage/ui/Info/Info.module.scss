@@ -1,0 +1,92 @@
+@import "shared/config/scss/vars";
+@import "shared/config/scss/mixins";
+
+.Info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Rating {
+  display: flex;
+  gap: 3px;
+}
+
+.Star {
+  width: 15px;
+  height: 15px;
+}
+
+.Name {
+  margin: 0;
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--text-color);
+}
+
+.Category {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  color: #686868;
+}
+
+.Price {
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--text-color);
+}
+
+.BuyButton {
+  width: 143px;
+  padding: 13px;
+}
+
+.AddToWishlistButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px;
+
+  p {
+    display: none;
+    white-space: nowrap;
+
+    @include media(550px) {
+      display: block;
+    }
+  }
+}
+
+.Description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .Title {
+
+  }
+
+  .Content {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    .Paragraph {
+      font-size: 12px;
+      line-height: 149%;
+      color: #686868;
+    }
+  }
+}
+
+.Group1 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.Group2 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
