@@ -1,10 +1,10 @@
 import { getCommentFormText } from "./model/selectors/getCommentFormText/getCommentFormText";
 import { addCommentFormReducer } from "./model/slices/addCommentFormSlice";
 import type { AddCommentFormSchema } from "./model/types/addCommentForm";
-import { AddCommentFormAsync } from "./ui/AddCommentForm.async";
+import AddCommentForm from "./ui/AddCommentForm";
 
 export {
-  AddCommentFormAsync as AddCommentForm,
+  AddCommentForm,
   AddCommentFormSchema,
   addCommentFormReducer,
   getCommentFormText

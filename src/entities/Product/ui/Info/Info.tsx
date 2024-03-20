@@ -1,9 +1,9 @@
 import React, {memo} from 'react';
 import classes from './Info.module.scss';
-import {Category} from "entities/Category";
-import {ReactComponent as Rating} from 'shared/assets/Rating.svg';
-import WishlistIcon from 'shared/assets/WishlistIcon.svg';
-import AppButton, {AppButtonTheme} from "shared/ui/AppButton/AppButton";
+import {Category} from "../../../Category";
+import {ReactComponent as Rating} from '../../../../shared/assets/Rating.svg';
+import WishlistIcon from '../../../../shared/assets/WishlistIcon.svg';
+import AppButton, {AppButtonTheme} from "../../../../shared/ui/AppButton/AppButton";
 import classNames from "classnames";
 
 interface InfoProps {

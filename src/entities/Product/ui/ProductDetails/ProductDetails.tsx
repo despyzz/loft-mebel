@@ -1,28 +1,21 @@
 import React, {memo, useCallback, useEffect, useState} from 'react';
-import AppContainer from "shared/ui/AppContainer/AppContainer";
+import {useSelector} from "react-redux";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {fetchProductDetailsById} from "../../model/services/fetchProductDetailsById/fetchProductDetailsById";
 import {getProductData} from "../../model/selectors/getProductData/getProductData";
-import {useSelector} from "react-redux";
 import {getProductIsLoading} from "../../model/selectors/getProductIsLoading/getProductIsLoading";
 import {getProductError} from "../../model/selectors/getProductError/getProductError";
 import Loader from "widgets/Loader";
-import Photos from "pages/ProductPage/ui/Photos/Photos";
-import Info from "pages/ProductPage/ui/Info/Info";
-import Characteristics from "pages/ProductPage/ui/Characteristics/Characteristics";
+import Photos from "../Photos/Photos";
+import Info from "../Info/Info";
+import Characteristics from "../Characteristics/Characteristics";
 import classes from './ProductDetails.module.scss';
-import AppButton from "../../../../shared/ui/AppButton/AppButton";
+import AppButton from "shared/ui/AppButton/AppButton";
 import classNames from "classnames";
-import {getProductComments} from "../../../../pages/ProductPage/model/slice/productCommentsSlice";
-import {
-  getProductCommentsIsLoading
-} from "../../../../pages/ProductPage/model/selectors/getProductCommentsIsLoading/getProductCommentsIsLoading";
-import {
-  addCommentForProduct
-} from "../../../../pages/ProductPage/model/services/addCommentForProduct/addCommentForProduct";
-import {
-  fetchCommentsByProductId
-} from "../../../../pages/ProductPage/model/services/fetchCommentsByProductId/fetchCommentsByProductId";
+import {getProductComments} from "pages/ProductPage/model/slice/productCommentsSlice";
+import {AddCommentForm} from "feautures/AddCommentForm";
+import {CommentList} from "entities/Comment";
+import {addCommentForProduct, fetchCommentsByProductId, getProductCommentsIsLoading} from "pages/ProductPage";
 
 interface ProductDetailsProps {
   id?: string,
@@ -55,7 +48,6 @@ const ProductDetails = memo((props: ProductDetailsProps) => {
 
   const commentsData = useSelector(getProductComments.selectAll);
   const commentsIsLoading = useSelector(getProductCommentsIsLoading);
-  const commentsError = useSelector(getProductError);
 
   const onSendComment = useCallback((commentBody: string) => {
     dispatch(addCommentForProduct(commentBody))
@@ -117,16 +109,10 @@ const ProductDetails = memo((props: ProductDetailsProps) => {
 
       {
         selectedComponent === Switcher.reviews &&
-        <p>Отзывы</p>
-        <CommentList/>
-//         <AddCommentForm onSendComment={onSendComment}/>
-//       {
-//         commentsError
-//         ?
-//         <div>Ошибка при загрузке комментариев</div>
-//         :
-//         <CommentList isLoading={commentsIsLoading} comments={commentsData}/>
-// }
+        <div className={classes.Comments}>
+          <CommentList isLoading={commentsIsLoading} comments={commentsData}/>
+          <AddCommentForm onSendComment={onSendComment}/>
+        </div>
       }
 
     </div>

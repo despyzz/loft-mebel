@@ -1,8 +1,8 @@
 import React, {memo, useCallback, useEffect, useMemo, useState} from 'react';
 import classes from './Photos.module.scss';
 import classNames from "classnames";
-import AppButton from "shared/ui/AppButton/AppButton";
-import Chevron from "shared/assets/Chevron.svg";
+import AppButton from "../../../../shared/ui/AppButton/AppButton";
+import Chevron from "../../../../shared/assets/Chevron.svg";
 
 interface PhotosProps {
   photos: string[]

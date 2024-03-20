@@ -15,6 +15,7 @@ import Loader from "widgets/Loader";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {getProfileValidateErrors} from "entities/Profile";
 import {ValidateProfileError} from "entities/Profile";
+import {LogoutButton} from "feautures/Logout";
 
 interface PersonalDataProps {
   className?: string
@@ -266,6 +267,7 @@ const PersonalData: FC<PersonalDataProps> = (props) => {
             </AppButton>
           </div>
       }
+      <LogoutButton/>
     </div>
   );
 };

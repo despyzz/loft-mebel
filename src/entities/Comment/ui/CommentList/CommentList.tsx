@@ -1,9 +1,9 @@
 import React, {memo} from 'react';
 import classes from './CommentList.module.scss'
 import Loader from "widgets/Loader";
-import AppContainer from "shared/ui/AppContainer/AppContainer";
 import {Comment} from "../../model/types/comment";
 import CommentCard from "../CommentCard/CommentCard";
+import classNames from "classnames";
 
 interface CommentListProps {
   className?: string;
@@ -20,36 +20,28 @@ const CommentList = memo((props: CommentListProps) => {
 
   if (isLoading) {
     return (
-      <AppContainer className={className}>
-        <div className={classes.CommentList}>
-          <Loader/>
-        </div>
-      </AppContainer>
+      <div className={classNames(classes.CommentList, className)}>
+        <Loader/>
+      </div>
     );
   }
 
   if (!comments) {
     return (
-      <AppContainer className={className}>
-        <div className={classes.CommentList}>
-          Комментарии отсутствуют
-        </div>
-      </AppContainer>
+      <div className={classNames(classes.CommentList, className)}>
+        Комментарии отсутствуют
+      </div>
     );
   }
 
   return (
-    <AppContainer className={className}>
-      <div className={classes.CommentList}>
-        {
-          comments.map((value, index) => {
-            return (
-              <CommentCard key={index} comment={value} isLoading={isLoading}/>
-            );
-          })
-        }
-      </div>
-    </AppContainer>
+    <div className={classNames(classes.CommentList, className)}>
+      {
+        comments.map((value, index) => {
+          return <CommentCard key={index} comment={value} isLoading={isLoading}/>
+        })
+      }
+    </div>
   );
 });
 

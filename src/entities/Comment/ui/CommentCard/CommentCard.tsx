@@ -27,11 +27,19 @@ const CommentCard = memo((props: CommentCardProps) => {
 
   return (
     <div className={classNames(className, classes.CommentCard)}>
-      COMMENT
-      <p>id: {comment.id}</p>
-      <p>userID: {comment.userId}</p>
-      <p>body: {comment.body}</p>
-      <p>productID: {comment.productId}</p>
+      <div className={classes.Header}>
+        <div className={classes.Name}>
+          {comment.user.username}
+        </div>
+
+        <div className={classes.Rating}>
+          рейтинг
+        </div>
+      </div>
+
+      <div className={classes.Content}>
+        {comment.body}
+      </div>
     </div>
   );
 });

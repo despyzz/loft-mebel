@@ -8,7 +8,6 @@ import {useSelector} from "react-redux";
 import {getUserAuthData} from "entities/User";
 import AppButton from "shared/ui/AppButton/AppButton";
 import {useState} from "react";
-import {LoginModal} from "feautures/AuthByUsername";
 
 interface UserBarProps {
   className?: string

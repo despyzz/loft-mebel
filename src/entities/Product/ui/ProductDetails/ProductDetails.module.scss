@@ -43,3 +43,18 @@
   height: 3px;
   background: var(--main-color);
 }
+
+.Comments {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 30px;
+
+  @include media(1000px) {
+    flex-direction: row;
+  }
+
+  & > * {
+    flex: 1;
+  }
+}
