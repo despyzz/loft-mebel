@@ -2,15 +2,15 @@ import {StateSchema} from "app/providers/StoreProvider";
 import {createSelector} from "reselect";
 
 export const getWishlistIsLoading = (state: StateSchema) => {
-  return state.categoryList?.isLoading ?? false;
+  return state.wishlist?.isLoading ?? false;
 }
 
 export const getWishlistError = (state: StateSchema) => {
-  return state.categoryList?.error ?? undefined;
+  return state.wishlist?.error ?? undefined;
 }
 
 const getWishlistDataState = (state: StateSchema) => {
-  return state.categoryList?.data ?? {};
+  return state.wishlist?.data
 }
 
 export const getWishlistData = createSelector(

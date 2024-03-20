@@ -22,7 +22,8 @@ export const fetchWishlist = createAsyncThunk<Wishlist, string, ThunkConfig<stri
         throw new Error();
       }
 
-      return response.data;
+      // @ts-ignore
+      return response.data['0']
 
     } catch (e) {
       return rejectWithValue('Failed to load product data');

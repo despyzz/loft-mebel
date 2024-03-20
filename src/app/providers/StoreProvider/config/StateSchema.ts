@@ -17,6 +17,7 @@ import {WishlistSchema} from "entities/Wishlist";
 export interface StateSchema {
   user: UserSchema
   search: SearchSchema
+  wishlist: WishlistSchema
 
   // async reducers
   loginForm?: LoginSchema
@@ -28,7 +29,6 @@ export interface StateSchema {
   filter?: FilterSchema
   sort?: SortSchema
   products?: ProductsSchema
-  wishlist?: WishlistSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
