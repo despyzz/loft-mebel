@@ -8,7 +8,7 @@
     "city": "City-17",
     "street": "Street-1",
     "building": "Building-2",
-    "apartment": "143"
+    "apartment": "14333"
   },
   "wishlist": [
     {
@@ -26,6 +26,28 @@
         "3",
         "4",
         "5"
+      ],
+      "userId": "2"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "productsIds": [
+        "1",
+        "2",
+        "3",
+        "20"
+      ],
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "productsIds": [
+        "3",
+        "4",
+        "5",
+        "24"
       ],
       "userId": "2"
     }

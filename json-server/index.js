@@ -12,7 +12,7 @@ server.use(jsonServer.bodyParser);
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
   await new Promise((res) => {
-    setTimeout(res, 0);
+    setTimeout(res, 200);
   });
   next();
 });
@@ -38,6 +38,25 @@ server.post('/login', (req, res) => {
     return res.status(500).json({ message: e.message });
   }
 });
+
+// Эндпоинт для получения информации о продуктах по их id
+server.post('/products-info', (req, res) => {
+  try {
+    const { ids } = req.body; // массив id продуктов
+    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+    const { products = [] } = db;
+
+    const requestedProducts = products.filter(
+      (product) => ids.includes(product.id),
+    );
+
+    return res.json(requestedProducts);
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({ message: e.message });
+  }
+});
+
 
 // проверяем, авторизован ли пользователь
 server.use((req, res, next) => {
