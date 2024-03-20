@@ -44,11 +44,17 @@ server.post('/products-info', (req, res) => {
   try {
     const { ids } = req.body; // массив id продуктов
     const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
-    const { products = [] } = db;
+    const { products = [], categories = [] } = db;
 
     const requestedProducts = products.filter(
       (product) => ids.includes(product.id),
-    );
+    ).map((product) => {
+      const category = categories.find((category) => category.id === Number(product.categoryId));
+      return {
+        ...product,
+        category,
+      };
+    });
 
     return res.json(requestedProducts);
   } catch (e) {
@@ -56,7 +62,6 @@ server.post('/products-info', (req, res) => {
     return res.status(500).json({ message: e.message });
   }
 });
-
 
 // проверяем, авторизован ли пользователь
 server.use((req, res, next) => {
