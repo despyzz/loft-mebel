@@ -4,7 +4,8 @@ import {userReducer} from "entities/User";
 import {createReducerManager} from "./reducerManager";
 import {$api} from "shared/api/api";
 import {searchReducer} from "feautures/Search";
-import {wishlistReducer} from "../../../../entities/Wishlist";
+import {wishlistReducer} from "entities/Wishlist";
+import {cartReducer} from "entities/Cart";
 
 const createReduxStore = (
   initialState?: StateSchema,
@@ -15,7 +16,8 @@ const createReduxStore = (
     ...asyncReducers,
     user: userReducer,
     search: searchReducer,
-    wishlist: wishlistReducer
+    wishlist: wishlistReducer,
+    cart: cartReducer
   }
 
   const reducerManager = createReducerManager(rootReducers);

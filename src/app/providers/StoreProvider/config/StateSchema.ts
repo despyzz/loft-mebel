@@ -13,11 +13,13 @@ import {FilterSchema} from "feautures/Filter/model/types/filter";
 import {SortSchema} from "feautures/Sort";
 import {SearchSchema} from "feautures/Search/model/types/search";
 import {WishlistSchema} from "entities/Wishlist";
+import {CartSchema} from "entities/Cart";
 
 export interface StateSchema {
   user: UserSchema
   search: SearchSchema
   wishlist: WishlistSchema
+  cart: CartSchema
 
   // async reducers
   loginForm?: LoginSchema
