@@ -9,6 +9,10 @@
 .Header {
   display: flex;
   justify-content: space-between;
+
+  .Title {
+    font-weight: 400;
+  }
 }
 
 .Footer {

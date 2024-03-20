@@ -1,3 +1,4 @@
+import { getCartData, getCartError, getCartIsLoading } from "./model/selectors/cartSelectors";
 import { emptyCart } from "./model/services/emptyCart";
 import { fetchCart } from "./model/services/fetchCart";
 import {cartActions, cartReducer } from "./model/slices/cartSlice";
@@ -8,5 +9,8 @@ export {
   cartReducer,
   cartActions,
   fetchCart,
-  emptyCart
+  emptyCart,
+  getCartIsLoading,
+  getCartError,
+  getCartData
 }
