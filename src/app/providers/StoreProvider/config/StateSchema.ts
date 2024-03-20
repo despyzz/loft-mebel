@@ -11,7 +11,8 @@ import {AddCommentFormSchema} from "feautures/AddCommentForm";
 import {CategoryListSchema} from "entities/Category/model/types/category";
 import {FilterSchema} from "feautures/Filter/model/types/filter";
 import {SortSchema} from "feautures/Sort";
-import {SearchSchema} from "../../../../feautures/Search/model/types/search";
+import {SearchSchema} from "feautures/Search/model/types/search";
+import {WishlistSchema} from "entities/Wishlist";
 
 export interface StateSchema {
   user: UserSchema
@@ -27,6 +28,7 @@ export interface StateSchema {
   filter?: FilterSchema
   sort?: SortSchema
   products?: ProductsSchema
+  wishlist?: WishlistSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

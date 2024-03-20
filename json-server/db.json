@@ -10,6 +10,17 @@
     "building": "Building-2",
     "apartment": "143"
   },
+  "wishlist": [
+    {
+      "id": "1",
+      "productsIds": [
+        "1",
+        "2",
+        "3"
+      ],
+      "userId": "1"
+    }
+  ],
   "products": [
     {
       "id": "1",
