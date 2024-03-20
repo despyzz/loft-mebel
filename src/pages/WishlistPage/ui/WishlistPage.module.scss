@@ -1,3 +1,15 @@
-.WishlistPage {
+@import "src/shared/config/scss/vars";
+@import "src/shared/config/scss/mixins";
 
+.WishlistPage {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.Title {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-color);
+  margin: 0;
 }

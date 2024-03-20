@@ -1,16 +1,28 @@
-import React, {memo} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import classes from './WishlistPage.module.scss';
 import {Page} from "widgets/Page";
 import AppContainer from "shared/ui/AppContainer/AppContainer";
 import {getWishlistData, getWishlistError, getWishlistIsLoading} from "entities/Wishlist";
 import {useSelector} from "react-redux";
-import Loader from "../../../widgets/Loader";
-import AppButton, {AppButtonTheme} from "../../../shared/ui/AppButton/AppButton";
+import Loader from "widgets/Loader";
+import {Product, ProductList, Products} from 'entities/Product';
+import {$api} from "shared/api/api";
 
 const WishlistPage = () => {
   const data = useSelector(getWishlistData)
   const error = useSelector(getWishlistError)
   const isLoading = useSelector(getWishlistIsLoading)
+
+  const [products, setProducts] = useState<Product[]>([])
+  useEffect(() => {
+    if (data)
+      $api.post('/products-info', {
+        ids: data.productsIds
+      })
+        .then(response => response.data)
+        .then(setProducts)
+        .catch(error => console.log(error))
+  }, [data]);
 
   if (error) {
     return (
@@ -35,33 +47,16 @@ const WishlistPage = () => {
   }
 
   return (
-    <Page className={classes.WishlistPage}>
-      <AppContainer>
-        <AppButton
-          theme={AppButtonTheme.DARK}
-          onClick={() => {
-            if (!data)
-              return
-
-            fetch('http://localhost:8000/products-info', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                ids: data.productsIds
-              }),
-            })
-              .then(response => response.json())
-              .then(data => console.log(data))
-              .catch((error) => {
-                console.error('Error:', error);
-              });
-
-          }}
-        >
-          aboba
-        </AppButton>
+    <Page >
+      <AppContainer className={classes.WishlistPage}>
+        <h1 className={classes.Title}>
+          Список желаемого
+        </h1>
+        <ProductList productList={products}/>
+        <div className={classes.Title}>
+          Рекомендации
+        </div>
+        <Products/>
       </AppContainer>
     </Page>
   );
