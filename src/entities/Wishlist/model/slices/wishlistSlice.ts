@@ -11,7 +11,18 @@ const initialState: WishlistSchema = {
 export const wishlistSlice = createSlice({
   name: 'wishlist',
   initialState,
-  reducers: {},
+  reducers: {
+    add: (state, action: PayloadAction<string>) => {
+      if (state.data)
+        state.data.productsIds.push(action.payload)
+    },
+    remove: (state, action: PayloadAction<string>) => {
+      if (state.data)
+        state.data.productsIds = state.data.productsIds.filter(
+          item => item !== action.payload
+        )
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchWishlist.pending, (state) => {

@@ -52,7 +52,7 @@ const WishlistPage = () => {
         <h1 className={classes.Title}>
           Список желаемого
         </h1>
-        <ProductList productList={products}/>
+        <ProductList productList={products} isLoading={isLoading}/>
         <div className={classes.Title}>
           Рекомендации
         </div>
