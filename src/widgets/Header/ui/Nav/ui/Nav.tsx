@@ -14,8 +14,8 @@ const Nav = (props: NavbarProps) => {
   return (
     <nav className={className}>
       <ul className={classes.Links}>
-        <AppLink className={classes.Link} to="/">
-          Главная
+        <AppLink className={classes.Link} to="/catalog">
+          Каталог
         </AppLink>
         <AppLink className={classes.Link} to="/about">
           О нас
