@@ -4,21 +4,21 @@
 .Products {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 16px;
   width: 100%;
   margin-bottom: 140px;
 }
 
 .ProductsMobile > * {
-  width: calc(50% - 4px);
+  width: calc(50% - 8px);
 }
 
 .ProductsTablet > * {
-  width: calc(33.33% - 6px);
+  width: calc(33.33% - 12px);
 }
 
 .ProductsDesktop > * {
-  width: calc(25% - 6px);
+  width: calc(25% - 12px);
 }
 
 .LoaderWrapper {

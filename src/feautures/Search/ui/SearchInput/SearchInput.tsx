@@ -33,7 +33,7 @@ const SearchInput = memo(({className}: SearchProps) => {
         <input
           className={classes.Input}
           type="text"
-          placeholder="Search"
+          placeholder="Поиск"
           value={inputValue}
           onChange={onInputChange}
         />

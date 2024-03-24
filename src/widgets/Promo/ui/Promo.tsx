@@ -1,11 +1,10 @@
 import React from 'react';
 import classNames from "classnames";
 import classes from "./Promo.module.scss";
-import {Slider} from "shared/ui/Slider";
 
 import Slide2 from "shared/assets/promo/Slide2.jpg";
-import Slide3 from "shared/assets/promo/Slide3.jpg";
 import AppLink from "shared/ui/AppLink/AppLink";
+import AppContainer from "shared/ui/AppContainer/AppContainer";
 
 interface PromoProps {
   className?: string
@@ -14,7 +13,8 @@ interface PromoProps {
 const Promo = ({className}: PromoProps) => {
   return (
     <div className={classNames(className, classes.Promo)}>
-      <Slider>
+      {/*<Slider>*/}
+      <AppContainer className={classes.Container}>
         <div className={classes.Slide}>
 
           <img className={classes.SlideImg}
@@ -32,25 +32,26 @@ const Promo = ({className}: PromoProps) => {
           </div>
 
         </div>
+      </AppContainer>
 
-        <div className={classes.Slide}>
+      {/*<div className={classes.Slide}>*/}
 
-          <img className={classes.SlideImg}
-               src={Slide3}
-               alt=""
-          />
+      {/*  <img className={classes.SlideImg}*/}
+      {/*       src={Slide3}*/}
+      {/*       alt=""*/}
+      {/*  />*/}
 
-          <div className={classes.SlideContent}>
-            <h1 className={classes.Title}>
-              Современная и удобная мебель
-            </h1>
-            <AppLink className={classes.Catalog} to={"/catalog"}>
-              Смотреть каталог
-            </AppLink>
-          </div>
+      {/*  <div className={classes.SlideContent}>*/}
+      {/*    <h1 className={classes.Title}>*/}
+      {/*      Современная и удобная мебель*/}
+      {/*    </h1>*/}
+      {/*    <AppLink className={classes.Catalog} to={"/catalog"}>*/}
+      {/*      Смотреть каталог*/}
+        {/*    </AppLink>*/}
+        {/*  </div>*/}
 
-        </div>
-      </Slider>
+        {/*</div>*/}
+      {/*</Slider>*/}
     </div>
   );
 };

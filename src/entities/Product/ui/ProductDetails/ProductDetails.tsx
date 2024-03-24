@@ -73,15 +73,12 @@ const ProductDetails = memo((props: ProductDetailsProps) => {
           className={classes.Photos}
           photos={data?.photos!}
         />
-
-        <Info
-          className={classes.Info}
-          name={data?.name}
-          rating={data?.rating}
-          category={data?.category}
-          price={data?.price}
-          description={data?.description}
-        />
+        {
+          data && <Info
+            className={classes.Info}
+            data={data}
+          />
+        }
       </div>
 
       <div className={classes.Switcher}>

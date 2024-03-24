@@ -11,7 +11,22 @@ const initialState: CartSchema = {
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
-  reducers: {},
+  reducers: {
+    add: (state, action: PayloadAction<string>) => {
+      if (state.data)
+        state.data.productsIds.push(action.payload)
+    },
+    remove: (state, action: PayloadAction<string>) => {
+      if (state.data)
+        state.data.productsIds = state.data.productsIds.filter(
+          item => item !== action.payload
+        )
+    },
+    clear: (state) => {
+      if (state.data)
+        state.data.productsIds = []
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCart.pending, (state) => {

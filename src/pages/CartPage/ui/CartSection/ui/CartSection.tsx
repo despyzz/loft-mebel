@@ -6,10 +6,13 @@ import {Product} from "entities/Product";
 import {useEffect, useState} from "react";
 import {$api} from "shared/api/api";
 import {useSelector} from "react-redux";
-import {getCartData} from "entities/Cart";
+import {emptyCart, getCartData, removeFromCart} from "entities/Cart";
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import AppLink from "shared/ui/AppLink/AppLink";
 
 const CartSection = () => {
   const data = useSelector(getCartData)
+  const dispatch = useAppDispatch()
 
   const [products, setProducts] = useState<Product[]>([]);
   useEffect(() => {
@@ -41,14 +44,17 @@ const CartSection = () => {
         <div className={classes.Products}>
           {
             products.map(product => (
-              <div className={classes.Product}>
+              <div key={product.id} className={classes.Product}>
                 <div className={classes.PhotoWrapper}>
                   <img className={classes.Photo} alt="" src={product.photos[0]}/>
                 </div>
 
-                <div className={classes.Title}>
+                <AppLink
+                  to={`/product/${product.id}`}
+                  className={classes.Title}
+                >
                   {product.name}
-                </div>
+                </AppLink>
 
                 <div className={classes.ProductCount}>
                   -
@@ -71,7 +77,10 @@ const CartSection = () => {
                   -
                 </div>
 
-                <AppButton className={classes.RemoveButton}>
+                <AppButton
+                  className={classes.RemoveButton}
+                  onClick={() => dispatch(removeFromCart(product.id))}
+                >
                   <img src={CloseIcon} alt=""/>
                 </AppButton>
               </div>
@@ -81,9 +90,12 @@ const CartSection = () => {
 
         <div className={classes.Footer}>
           <div className={classes.FinalPrice}>
-            69 960₽
+            {products.reduce((acc, cur) => acc + cur.price, 0)} ₽
           </div>
-          <AppButton className={classes.CheckoutButton}>
+          <AppButton
+            className={classes.CheckoutButton}
+            onClick={() => dispatch(emptyCart())}
+          >
             Оформить заказ
           </AppButton>
         </div>

@@ -3,9 +3,9 @@ import {ThunkConfig} from "app/providers/StoreProvider";
 import {getCartData} from "../selectors/cartSelectors";
 import {cartActions} from "../slices/cartSlice";
 
-export const emptyCart = createAsyncThunk<void, void, ThunkConfig<string>>(
-  'emptyCart',
-  async (_, thunkAPI) => {
+export const removeFromCart = createAsyncThunk<void, string, ThunkConfig<string>>(
+  'removeFromCart',
+  async (productId, thunkAPI) => {
     const {
       extra,
       getState,
@@ -20,9 +20,9 @@ export const emptyCart = createAsyncThunk<void, void, ThunkConfig<string>>(
         return
 
       void extra.api.patch(`/cart/${cartData.id}`, {
-        productsIds: []
+        productsIds: cartData.productsIds.filter(product => product != productId)
       })
-      dispatch(cartActions.clear())
+      dispatch(cartActions.remove(productId))
 
     } catch (e) {
       return rejectWithValue('Failed to load product data');

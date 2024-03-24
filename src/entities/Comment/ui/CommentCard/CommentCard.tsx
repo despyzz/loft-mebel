@@ -32,9 +32,9 @@ const CommentCard = memo((props: CommentCardProps) => {
           {comment.user.username}
         </div>
 
-        <div className={classes.Rating}>
-          рейтинг
-        </div>
+        {/*<div className={classes.Rating}>*/}
+        {/*  рейтинг*/}
+        {/*</div>*/}
       </div>
 
       <div className={classes.Content}>

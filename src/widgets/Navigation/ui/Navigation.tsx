@@ -9,7 +9,7 @@ import {
   CategoryItem,
   fetchCategoriesList,
   getCategoryListData,
-  getCategoryListError
+  getCategoryListError, getCategoryListIsLoading
 } from "entities/Category";
 import {useSelector} from "react-redux";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -30,7 +30,7 @@ const Navigation = memo(() => {
 
   // get categories
   const categories = useSelector(getCategoryListData);
-  const isLoading = useSelector(getCategoryListError);
+  const isLoading = useSelector(getCategoryListIsLoading);
   const error = useSelector(getCategoryListError);
 
   useEffect(() => {
@@ -150,7 +150,7 @@ const Navigation = memo(() => {
   }
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <div ref={navRef} className={classes.Navigation}>
         {
           categories && categories.map((category) => (
