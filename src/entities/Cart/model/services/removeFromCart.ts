@@ -20,7 +20,7 @@ export const removeFromCart = createAsyncThunk<void, string, ThunkConfig<string>
         return
 
       void extra.api.patch(`/cart/${cartData.id}`, {
-        productsIds: cartData.productsIds.filter(product => product != productId)
+        productsIds: cartData.productsIds.filter(product => product !== productId)
       })
       dispatch(cartActions.remove(productId))
 

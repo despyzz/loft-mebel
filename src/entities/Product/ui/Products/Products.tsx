@@ -93,7 +93,7 @@ const Products = memo((props: ProductsProps) => {
     if (categoryFromUrl) {
       let category = undefined;
       for (let i of categoriesListData) {
-        if (categoryFromUrl == i.id) {
+        if (categoryFromUrl === i.id) {
           category = i;
           break
         }

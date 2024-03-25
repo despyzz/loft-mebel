@@ -20,7 +20,7 @@ export const removeFromWishlist = createAsyncThunk<void, string, ThunkConfig<str
         return
 
       void extra.api.patch(`/wishlist/${wishlistData.id}`, {
-        productsIds: wishlistData.productsIds.filter(product => product != productId)
+        productsIds: wishlistData.productsIds.filter(product => product !== productId)
       })
       dispatch(wishlistActions.remove(productId))
 
