@@ -3,7 +3,6 @@ import classes from './CategoryItem.module.scss';
 import classNames from "classnames";
 import {Category} from "../../model/types/category";
 import AppLink from "shared/ui/AppLink/AppLink";
-import SaleIcon from 'shared/assets/categories/SaleIcon.svg'
 
 interface CategoryItemProps {
   className?: string;
@@ -18,20 +17,20 @@ const CategoryItem = memo((props: CategoryItemProps) => {
     category
   } = props;
 
-  const { name, url} = category
+  const { name} = category
 
   return (
     <AppLink
       className={classNames(className, classes.Category)}
-      to={`/catalog/${url}`}
+      to={`/catalog/?category=${category.id}`}
     >
       <div className={iconWrapperClassname}>
-        <img
-          className={classes.CategoryIcon}
-          // src={icon}
-          src={SaleIcon}
-          alt={`Иконка категории: ${name}`}
-        />
+        {/*<img*/}
+        {/*  className={classes.CategoryIcon}*/}
+        {/*  // src={category.icon}*/}
+        {/*  src={SaleIcon}*/}
+        {/*  alt={`Иконка категории: ${name}`}*/}
+        {/*/>*/}
       </div>
 
       <span className={classes.CategoryName}>

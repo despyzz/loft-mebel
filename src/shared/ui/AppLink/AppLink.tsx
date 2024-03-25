@@ -3,7 +3,7 @@ import {Link, LinkProps} from "react-router-dom";
 import classes from "./AppLink.module.scss";
 import classNames from "classnames";
 
-enum AppLinkTheme {
+export enum AppLinkTheme {
   UNDERLINE,
   CLEAR
 }

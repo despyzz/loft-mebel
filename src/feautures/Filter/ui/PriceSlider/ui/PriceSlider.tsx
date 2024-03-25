@@ -22,6 +22,7 @@ const PriceSlider = memo(() => {
     <DynamicModuleLoader reducers={reducers}>
       <div className={classes.PriceSlider}>
         <Nouislider
+          key={`${start}-${end}`}
           range={{min: 0, max: 100000}}
           start={[start, end]}
           step={1000}

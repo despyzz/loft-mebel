@@ -13,7 +13,6 @@ interface PromoProps {
 const Promo = ({className}: PromoProps) => {
   return (
     <div className={classNames(className, classes.Promo)}>
-      {/*<Slider>*/}
       <AppContainer className={classes.Container}>
         <div className={classes.Slide}>
 
