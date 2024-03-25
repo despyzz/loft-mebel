@@ -19,13 +19,13 @@
 .Item {
   display: flex;
   gap: 10px;
-  align-items: start;
+  align-items: flex-start;
 
   .Group {
     display: flex;
     gap: 10px;
     flex: 5;
-    align-items: end;
+    align-items: flex-end;
     height: fit-content;
   }
 
