@@ -22,7 +22,7 @@
 
 .Wrapper {
   overflow-x: auto;
-  width: fit-content;
+  width: 100%;
   display: flex;
   height: 100%;
   padding: 0 2px;
@@ -49,9 +49,14 @@
 
   .Thumbnail {
     height: 100%;
-    aspect-ratio: 83 / 63;
     width: 100%;
     object-fit: contain;
+  }
+}
+
+@-moz-document url-prefix() {
+  .ThumbnailWrapper {
+    aspect-ratio: 4 / 3;
   }
 }
 

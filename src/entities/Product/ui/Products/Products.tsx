@@ -16,15 +16,15 @@ import {getProducts, productsActions, productsReducer} from "../../model/slice/p
 import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader";
 import {ReducerList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {useInfiniteScroll} from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
-import {getFilterCategory, getFilterPrice} from "../../../../feautures/Filter";
-import {getSortTypes} from "../../../../feautures/Sort";
-import {getSearchValue} from "../../../../feautures/Search";
-import useDebounce from "../../../../shared/lib/hooks/useDebounce/useDebounce";
-import {addQueryParams} from "../../../../shared/url/addQueryParams/addQueryParams";
+import {getFilterCategory, getFilterPrice} from "feautures/Filter";
+import {getSortTypes} from "feautures/Sort";
+import {getSearchValue} from "feautures/Search";
+import useDebounce from "shared/lib/hooks/useDebounce/useDebounce";
+import {addQueryParams} from "shared/url/addQueryParams/addQueryParams";
 import {useSearchParams} from 'react-router-dom';
-import {filterActions} from "../../../../feautures/Filter/model/slices/filterSlice";
-import {sortActions} from "../../../../feautures/Sort/model/slices/sortSlice";
-import {searchActions} from "../../../../feautures/Search/model/slices/SearchSlice";
+import {filterActions} from "feautures/Filter";
+import {sortActions} from "feautures/Sort";
+import {searchActions} from "feautures/Search";
 
 interface ProductsProps {
   trackCategory?: boolean
@@ -93,7 +93,7 @@ const Products = memo((props: ProductsProps) => {
     if (categoryFromUrl) {
       let category = undefined;
       for (let i of categoriesListData) {
-        if (categoryFromUrl === i.id) {
+        if (categoryFromUrl == i.id) {
           category = i;
           break
         }

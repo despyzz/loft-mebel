@@ -35,70 +35,86 @@ const CartSection = () => {
             Ваша корзина
           </h1>
 
-          <div className={classes.Count}>
-            Количество: {products.length}
-          </div>
+          {
+            products.length
+            ?
+              <div className={classes.Count}>
+              Количество: {products.length}
+            </div>
+              :
+              null
+          }
 
         </div>
 
-        <div className={classes.Products}>
-          {
-            products.map(product => (
-              <div key={product.id} className={classes.Product}>
-                <div className={classes.PhotoWrapper}>
-                  <img className={classes.Photo} alt="" src={product.photos[0]}/>
+        {
+          products.length
+            ?
+            <>
+              <div className={classes.Products}>
+                {
+                  products.map(product => (
+                    <div key={product.id} className={classes.Product}>
+                      <div className={classes.PhotoWrapper}>
+                        <img className={classes.Photo} alt="" src={product.photos[0]}/>
+                      </div>
+
+                      <AppLink
+                        to={`/product/${product.id}`}
+                        className={classes.Title}
+                      >
+                        {product.name}
+                      </AppLink>
+
+                      <div className={classes.ProductCount}>
+                        -
+                      </div>
+
+                      <div className={classes.Price}>
+                        {product.price}₽
+                      </div>
+
+                      <div className={classes.Color}>
+                        {/*<div className={classes.ColorName}>Темно-синий</div>*/}
+                        {/*<div*/}
+                        {/*  className={classes.ColorSquare}*/}
+                        {/*  style={{background: "#353e4d"}}*/}
+                        {/*/>*/}
+                      </div>
+
+                      <div className={classes.Sizes}>
+                        {/*218 СМ × 95 СМ × 90 СМ*/}
+                        -
+                      </div>
+
+                      <AppButton
+                        className={classes.RemoveButton}
+                        onClick={() => dispatch(removeFromCart(product.id))}
+                      >
+                        <img src={CloseIcon} alt=""/>
+                      </AppButton>
+                    </div>
+                  ))
+                }
+              </div>
+              <div className={classes.Footer}>
+                <div className={classes.FinalPrice}>
+                  {products.reduce((acc, cur) => acc + cur.price, 0)} ₽
                 </div>
-
-                <AppLink
-                  to={`/product/${product.id}`}
-                  className={classes.Title}
-                >
-                  {product.name}
-                </AppLink>
-
-                <div className={classes.ProductCount}>
-                  -
-                </div>
-
-                <div className={classes.Price}>
-                  {product.price}₽
-                </div>
-
-                <div className={classes.Color}>
-                  {/*<div className={classes.ColorName}>Темно-синий</div>*/}
-                  {/*<div*/}
-                  {/*  className={classes.ColorSquare}*/}
-                  {/*  style={{background: "#353e4d"}}*/}
-                  {/*/>*/}
-                </div>
-
-                <div className={classes.Sizes}>
-                  {/*218 СМ × 95 СМ × 90 СМ*/}
-                  -
-                </div>
-
                 <AppButton
-                  className={classes.RemoveButton}
-                  onClick={() => dispatch(removeFromCart(product.id))}
+                  className={classes.CheckoutButton}
+                  onClick={() => dispatch(emptyCart())}
                 >
-                  <img src={CloseIcon} alt=""/>
+                  Оформить заказ
                 </AppButton>
               </div>
-            ))
-          }
-        </div>
+            </>
+            :
+            <div className={classes.Empty}>
+              Корзина пуста
+            </div>
+        }
 
-        <div className={classes.Footer}>
-          <div className={classes.FinalPrice}>
-            {products.reduce((acc, cur) => acc + cur.price, 0)} ₽
-          </div>
-          <AppButton
-            className={classes.CheckoutButton}
-            onClick={() => dispatch(emptyCart())}
-          >
-            Оформить заказ
-          </AppButton>
-        </div>
 
       </section>
     </AppContainer>

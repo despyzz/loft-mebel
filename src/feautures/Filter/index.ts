@@ -1,5 +1,5 @@
 import { getFilterCategory, getFilterPrice } from "./model/selectors/filterSelectors";
-import {filterReducer} from "./model/slices/filterSlice";
+import {filterActions, filterReducer} from "./model/slices/filterSlice";
 import type {FilterSchema} from "./model/types/filter";
 import Filter from "./ui/Filter";
 
@@ -8,5 +8,6 @@ export {
   filterReducer,
   FilterSchema,
   getFilterCategory,
-  getFilterPrice
+  getFilterPrice,
+  filterActions
 }

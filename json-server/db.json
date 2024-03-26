@@ -13,10 +13,7 @@
   "wishlist": [
     {
       "id": "1",
-      "productsIds": [
-        "2",
-        "3"
-      ],
+      "productsIds": [],
       "userId": "1"
     },
     {

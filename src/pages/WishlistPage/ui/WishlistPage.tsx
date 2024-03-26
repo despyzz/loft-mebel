@@ -52,7 +52,15 @@ const WishlistPage = () => {
         <h1 className={classes.Title}>
           Список желаемого
         </h1>
-        <ProductList productList={products} isLoading={isLoading}/>
+        {
+          products.length
+          ?
+            <ProductList productList={products} isLoading={isLoading}/>
+          :
+            <div className={classes.Empty}>
+              Список желаемого пуст
+            </div>
+        }
         <div className={classes.Title}>
           Рекомендации
         </div>
