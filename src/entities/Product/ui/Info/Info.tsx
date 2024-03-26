@@ -8,6 +8,8 @@ import {addToWishlist, getWishlistData, removeFromWishlist} from "entities/Wishl
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {addToCart, getCartData, removeFromCart} from "entities/Cart";
 import {Product} from "../../model/types/product";
+import {LoginModal} from "../../../../feautures/AuthByUsername";
+import {getUserAuthData} from "../../../User";
 
 interface InfoProps {
   className: string,
@@ -26,6 +28,12 @@ const Info = memo((props: InfoProps) => {
       price
     }
   } = props;
+
+  const [isAuthModal, setIsAuthModal] = useState(false);
+  const closeAuthModal = () => setIsAuthModal(false);
+  const openAuthModal = () => setIsAuthModal(true);
+
+  const authData = useSelector(getUserAuthData);
 
   const [addedToWishlist, setAddedToWishlist] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
@@ -78,6 +86,13 @@ const Info = memo((props: InfoProps) => {
   return (
     <div className={classNames(className, classes.Info)}>
 
+      {
+        !authData && <LoginModal
+          isOpen={isAuthModal}
+          onClose={closeAuthModal}
+        />
+      }
+
       <div className={classes.Rating}>
         {stars}
       </div>
@@ -99,7 +114,7 @@ const Info = memo((props: InfoProps) => {
 
         <AppButton
           className={classes.BuyButton} theme={AppButtonTheme.DARK}
-          onClick={onAddToCart}
+          onClick={authData ? onAddToCart : openAuthModal}
         >
           {
             addedToCart ? <p>Удалить</p> : <p>Купить</p>
@@ -108,7 +123,7 @@ const Info = memo((props: InfoProps) => {
 
         <AppButton
           className={classNames(classes.AddToWishlistButton)}
-          onClick={onAddToWishlist}
+          onClick={authData ? onAddToWishlist : openAuthModal}
         >
           <svg
             width="22"

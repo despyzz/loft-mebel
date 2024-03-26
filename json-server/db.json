@@ -15,8 +15,7 @@
       "id": "1",
       "productsIds": [
         "2",
-        "3",
-        "1"
+        "3"
       ],
       "userId": "1"
     },
@@ -33,9 +32,7 @@
   "cart": [
     {
       "id": "1",
-      "productsIds": [
-        "8"
-      ],
+      "productsIds": [],
       "userId": "1"
     },
     {
